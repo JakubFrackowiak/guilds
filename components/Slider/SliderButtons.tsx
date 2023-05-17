@@ -54,10 +54,11 @@ function HeroesSliderButtons() {
 function QuestsSliderButtons() {
   return (
     <Stack sx={{ "& > *": { width: "100%" } }}>
-      <Link href="/signup" style={{ textDecoration: "none" }}>
+      <Link href="/quests" style={{ textDecoration: "none" }}>
         <Button
           variant="contained"
           sx={{
+            width: { xs: "100%" },
             height: "3rem",
             borderRadius: "0.5rem",
             whiteSpace: "nowrap",
@@ -80,10 +81,11 @@ function QuestsSliderButtons() {
 function TeamsSliderButtons() {
   return (
     <Stack sx={{ "& > *": { width: "100%" } }}>
-      <Link href="/signup" style={{ textDecoration: "none" }}>
+      <Link href="/teams" style={{ textDecoration: "none" }}>
         <Button
           variant="contained"
           sx={{
+            width: { xs: "100%" },
             height: "3rem",
             borderRadius: "0.5rem",
             whiteSpace: "nowrap",

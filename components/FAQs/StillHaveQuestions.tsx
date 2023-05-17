@@ -19,6 +19,7 @@ export function StillHaveQuestions() {
         <Typography
           variant="h6"
           color="text.secondary"
+          textAlign="center"
           sx={{ mb: 2, fontSize: "1rem" }}
         >
           Can't find the answers you're looking for? Please reach out to our

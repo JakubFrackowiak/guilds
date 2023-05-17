@@ -28,8 +28,10 @@ export function FAQs() {
   return (
     <Container sx={{ mt: 4, p: 3 }}>
       <Stack alignItems="center">
-        <Typography variant="h3">Frequently Asked Questions</Typography>
-        <Typography variant="h5">
+        <Typography variant="h3" textAlign="center">
+          Frequently Asked Questions
+        </Typography>
+        <Typography variant="h5" textAlign="center">
           Everything you need to know about Guilds to get started
         </Typography>
       </Stack>

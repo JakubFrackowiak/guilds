@@ -1,14 +1,17 @@
 import Image from "next/image"
-import { Divider, Stack, Typography } from "@mui/material"
+import { Divider, Stack, Typography, useMediaQuery } from "@mui/material"
 import { collection } from "firebase/firestore"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { Container } from "@mui/system"
 import { GuildsData } from "./GuildsData"
+import { useTheme } from "@mui/material/styles"
 
-export function index() {
+export function GuildsStats() {
   const firestore = useFirestore()
   const heroesRef = collection(firestore, "heroes")
   const { data: heroes } = useFirestoreCollectionData(heroesRef)
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
   return (
     <Stack
       alignItems="center"
@@ -29,7 +32,13 @@ export function index() {
         </Typography>
       </Stack>
       <Container maxWidth="md">
-        <Stack direction="row" justifyContent="space-around" width="100%">
+        <Stack
+          alignItems="center"
+          direction={isMobile ? "column" : "row"}
+          justifyContent="space-around"
+          width="100%"
+          spacing={isMobile ? 3 : 0}
+        >
           <GuildsData
             value={heroes?.length.toLocaleString()}
             caption={"Heroes"}
