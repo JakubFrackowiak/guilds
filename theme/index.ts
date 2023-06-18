@@ -31,7 +31,7 @@ export const lightThemeOptions: ThemeOptions = {
     mode: "light",
     primary: {
       main: "#C01048",
-      light: "#D8E9DA",
+      light: "#FFF1F3",
     },
     secondary: {
       main: "#101828",
@@ -44,6 +44,12 @@ export const lightThemeOptions: ThemeOptions = {
     text: {
       primary: "#101828",
       secondary: "#667085",
+    },
+    button: {
+      primary: "#E31B54",
+      secondary: "#FFFFFF",
+      primaryText: "#FFFFFF",
+      secondaryText: "#344054",
     },
   },
   typography,
@@ -77,6 +83,31 @@ export const darkThemeOptions: ThemeOptions = {
       primary: "#FFFFFF",
       secondary: "#EAECF0",
     },
+    button: {
+      primary: "#50915B",
+      secondary: "#FFFFFF",
+      primaryText: "",
+      secondaryText: "#344054",
+    },
   },
   typography,
+}
+
+declare module "@mui/material/styles" {
+  interface Palette {
+    button: {
+      primary: string
+      secondary: string
+      primaryText: string
+      secondaryText: string
+    }
+  }
+  interface PaletteOptions {
+    button: {
+      primary: string
+      secondary: string
+      primaryText: string
+      secondaryText: string
+    }
+  }
 }

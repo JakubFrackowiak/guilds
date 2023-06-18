@@ -1,39 +1,23 @@
-import { Button, Stack, Typography } from "@mui/material"
+import { Stack } from "@mui/material"
+import { PrimaryButton } from "components/PrimaryButton"
+import { SecondaryButton } from "components/SecondaryButton"
 import Image from "next/image"
+import Link from "next/link"
 
 export function HirerHeadingButtons() {
   return (
     <Stack direction="row" spacing={2}>
-      <Button
-        variant="outlined"
-        sx={{
-          height: "3rem",
-          borderRadius: "0.5rem",
-          px: "1.5rem",
-          borderColor: (theme) => theme.palette.grey[300],
-        }}
-      >
-        <Stack direction="row" spacing={1} alignItems="center">
-          <Image
-            src="/play-circle.svg"
-            alt="play circle"
-            width={20}
-            height={20}
-          />
-          <Typography
-            textTransform="none"
-            color={(theme) => theme.palette.grey[700]}
-          >
-            Demo
-          </Typography>
-        </Stack>
-      </Button>
-      <Button
-        variant="contained"
-        sx={{ height: "3rem", borderRadius: "0.5rem", px: "1.5rem" }}
-      >
-        <Typography textTransform="none">Sign up</Typography>
-      </Button>
+      <SecondaryButton label="Demo">
+        <Image
+          src="/play-circle.svg"
+          alt="play circle"
+          width={20}
+          height={20}
+        />
+      </SecondaryButton>
+      <Link href="/signup">
+        <PrimaryButton label="Sign up" />
+      </Link>
     </Stack>
   )
 }

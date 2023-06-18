@@ -439,104 +439,13 @@
         }
       },
       "heroes": {
-        "2YM79stNWyXyX08J8vAL": {
-          "id": "2YM79stNWyXyX08J8vAL",
-          "bio": "Hi My name is Sam. I am a 22 year old marketing graduate from Newcastle University. My hobbies include 5 a side football and lego. My skills are catered towards brand management. If you wish to grow your brand in the modern age through social media posts, content and SEO methods I’m your guy!",
-          "email": "Samkaminsky@gmail.com",
-          "experience": [
-            {
-              "company": "Bradford bulls",
-              "endDate": "2022-03-15T19:24:04.794Z",
-              "position": "Brand manager",
-              "startDate": "2019-04-21T19:24:04.794Z"
-            }
-          ],
-          "isMentor": false,
-          "linkedin": "sKaminskyServices",
-          "location": {
-            "city": "Leeds",
-            "country": "UK"
-          },
-          "name": {
-            "first": "Sam",
-            "last": "Kaminsky"
-          },
-          "profilePicture": "entrepreneur-g8c2fb357d_1920.jpg",
-          "rating": 4.8,
-          "level": 3,
-          "twitter": "sKaminskyTwitter",
-          "website": "www.s-kaminsky.com",
-          "__collections__": {
-            "transactions": {
-              "qZXxdJj0xa45UlQcicQs": {
-                "id": "qZXxdJj0xa45UlQcicQs",
-                "amount": "-£2400",
-                "date": {
-                  "__time__": "2021-04-03T19:24:04.794Z"
-                },
-                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
-              },
-              "U8SzdPhu6yhmIFLVIcqc": {
-                "id": "U8SzdPhu6yhmIFLVIcqc",
-                "amount": "+£1200",
-                "date": {
-                  "__time__": "2021-04-12T19:24:04.794Z"
-                },
-                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
-              },
-              "sOwGvcjy601vz3k5amYg": {
-                "id": "sOwGvcjy601vz3k5amYg",
-                "amount": "-£1600",
-                "date": {
-                  "__time__": "2021-10-14T19:24:04.794Z"
-                },
-                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"
-              },
-              "nJ2iWgoGXvVELwVoAlLb": {
-                "id": "nJ2iWgoGXvVELwVoAlLb",
-                "amount": "-£100",
-                "date": {
-                  "__time__": "2022-08-02T19:24:04.794Z"
-                },
-                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
-              },
-              "kBJp2JJ7tYWYKIQ0X3An": {
-                "id": "kBJp2JJ7tYWYKIQ0X3An",
-                "amount": "+£3000",
-                "date": {
-                  "__time__": "2022-10-01T19:24:04.794Z"
-                },
-                "userId": "0FdxGoe3fcy6v8Rd37VZ"
-              },
-              "3JTOJHO9EZKgT5JIcDRX": {
-                "id": "3JTOJHO9EZKgT5JIcDRX",
-                "amount": "-£2100",
-                "date": {
-                  "__time__": "2020-06-20T19:24:04.794Z"
-                },
-                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
-              },
-              "yrVFqWHKa5kT3LStvBfd": {
-                "id": "yrVFqWHKa5kT3LStvBfd",
-                "amount": "+£1000",
-                "date": {
-                  "__time__": "2020-03-02T19:24:04.794Z"
-                },
-                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
-              },
-              "2YM79stNWyXyX08J8vAL": {
-                "id": "2YM79stNWyXyX08J8vAL",
-                "amount": "-£550",
-                "date": {
-                  "__time__": "2018-02-11T19:24:04.794Z"
-                },
-                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
-              }
-            }
-          }
-        },
         "imZrHGqnOCfGy44ya596jOyNHIG3": {
-          "id": "imZrHGqnOCfGy44ya596jOyNHIG3",
+          "apprentice": {
+            "favoriteTo": [],
+            "mentor": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+            "rate": 0.2,
+            "workingHours": { "end": 13, "start": 2 }
+          },
           "bio": "Greetings, my name is Matthew. I’m a 28 year old graduate from Quebec University of Technology. Since I graduated I took up many different jobs to finally settle down with production management at the local shipyard. I’ve always been fond of sailing and sea engineering. If you’re looking for a person with engineering experience and scientific mind I’m the best candidate.",
           "email": "matthew.turner94@gmail.com",
           "experience": [
@@ -547,188 +456,79 @@
               "startDate": "2017-08-02T19:24:04.794Z"
             }
           ],
+          "id": "imZrHGqnOCfGy44ya596jOyNHIG3",
+          "isApprentice": true,
           "isMentor": false,
+          "level": 2,
           "linkedin": "mTurnerShipbuilding",
-          "location": {
-            "city": "Quebec",
-            "country": "Canada"
-          },
-          "name": {
-            "first": "Matthew",
-            "last": "Turner"
-          },
+          "location": { "city": "Quebec", "country": "Canada" },
+          "name": { "first": "Matthew", "last": "Turner" },
           "profilePicture": "entrepreneur-ga84894035_1920.jpg",
           "rating": 4.6,
-          "level": 2,
           "twitter": "MatthewTurner94",
           "website": "matthew-turner.coma",
           "__collections__": {
             "transactions": {
-              "qZXxdJj0xa45UlQcicQs": {
-                "id": "qZXxdJj0xa45UlQcicQs",
-                "amount": "+£1200",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "2YM79stNWyXyX08J8vAL"
-              },
-              "U8SzdPhu6yhmIFLVIcqc": {
-                "id": "U8SzdPhu6yhmIFLVIcqc",
-                "amount": "-£900",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "2YM79stNWyXyX08J8vAL"
-              },
-              "sOwGvcjy601vz3k5amYg": {
-                "id": "sOwGvcjy601vz3k5amYg",
-                "amount": "-£600",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
-              },
-              "nJ2iWgoGXvVELwVoAlLb": {
-                "id": "nJ2iWgoGXvVELwVoAlLb",
-                "amount": "+£2050",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
-              },
-              "kBJp2JJ7tYWYKIQ0X3An": {
-                "id": "kBJp2JJ7tYWYKIQ0X3An",
-                "amount": "+£150",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
-              },
-              "3JTOJHO9EZKgT5JIcDRX": {
-                "id": "3JTOJHO9EZKgT5JIcDRX",
-                "amount": "+£3500",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
-              },
-              "yrVFqWHKa5kT3LStvBfd": {
-                "id": "yrVFqWHKa5kT3LStvBfd",
-                "amount": "+£1200",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"
-              },
               "2YM79stNWyXyX08J8vAL": {
-                "id": "2YM79stNWyXyX08J8vAL",
                 "amount": "-£750",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
-              }
-            }
-          }
-        },
-        "QfABV59rDVWcUDBvtiaZCrQ8mTJ2": {
-          "id": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
-          "bio": "Hi, my name is Johnny Sullivan. I am a 26 years old student of graphics design in Australia at the University of Canberra. During my studies, I took part in many internships and worked as a freelancer. I designed websites as well as CD covers, announcements etc. I have always been passionate about graphics and already in high school I spent a lot of time drawing during school hours, then it turned into working with computers. I will be happy to make your project designed.",
-          "email": "JJSullivanD@gmail.com",
-          "experience": [
-            {
-              "company": "StudioIQ",
-              "endDate": "2017-04-06T19:24:04.794Z",
-              "position": "computer graphics apprentice",
-              "startDate": "ongoing"
-            }
-          ],
-          "isMentor": false,
-          "location": {
-            "city": "Canberra",
-            "country": "Australia"
-          },
-          "name": {
-            "first": "Johnny",
-            "last": "Sullivan",
-            "second": "James"
-          },
-          "profilePicture": "portrait-g1fc44a1a6_1920.jpg",
-          "rating": 4.9,
-          "level": 4,
-          "twitter": "JJSdesign",
-          "website": "www.JJSullivan.com ",
-          "__collections__": {
-            "transactions": {
-              "qZXxdJj0xa45UlQcicQs": {
-                "id": "qZXxdJj0xa45UlQcicQs",
-                "amount": "+£3900",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
-              },
-              "U8SzdPhu6yhmIFLVIcqc": {
-                "id": "U8SzdPhu6yhmIFLVIcqc",
-                "amount": "+£4200",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
-              },
-              "sOwGvcjy601vz3k5amYg": {
-                "id": "sOwGvcjy601vz3k5amYg",
-                "amount": "-£6000",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "0FdxGoe3fcy6v8Rd37VZ"
-              },
-              "nJ2iWgoGXvVELwVoAlLb": {
-                "id": "nJ2iWgoGXvVELwVoAlLb",
-                "amount": "-£950",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "0FdxGoe3fcy6v8Rd37VZ"
-              },
-              "kBJp2JJ7tYWYKIQ0X3An": {
-                "id": "kBJp2JJ7tYWYKIQ0X3An",
-                "amount": "+£3230",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "2YM79stNWyXyX08J8vAL"
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "2YM79stNWyXyX08J8vAL",
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                "__collections__": {}
               },
               "3JTOJHO9EZKgT5JIcDRX": {
+                "amount": "+£3500",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
                 "id": "3JTOJHO9EZKgT5JIcDRX",
-                "amount": "+£950",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                "__collections__": {}
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "amount": "-£900",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "userId": "2YM79stNWyXyX08J8vAL",
+                "__collections__": {}
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "amount": "+£150",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                "__collections__": {}
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "amount": "+£2050",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                "__collections__": {}
+              },
+              "qZXxdJj0xa45UlQcicQs": {
+                "amount": "+£1200",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "userId": "2YM79stNWyXyX08J8vAL",
+                "__collections__": {}
+              },
+              "sOwGvcjy601vz3k5amYg": {
+                "amount": "-£600",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "sOwGvcjy601vz3k5amYg",
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                "__collections__": {}
               },
               "yrVFqWHKa5kT3LStvBfd": {
+                "amount": "+£1200",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
                 "id": "yrVFqWHKa5kT3LStvBfd",
-                "amount": "-£2200",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "2YM79stNWyXyX08J8vAL"
-              },
-              "2YM79stNWyXyX08J8vAL": {
-                "id": "2YM79stNWyXyX08J8vAL",
-                "amount": "-£630",
-                "date": {
-                  "__time__": "2022-08-06T19:24:04.794Z"
-                },
-                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
+                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                "__collections__": {}
               }
             }
           }
         },
         "zfUtzkbpCdRVjBKHACyT5pjg1bb2": {
-          "id": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
           "bio": " Hi my name is Ross, I am a 24 year old business graduate from the University of norwich with honours. My hobbies include basketball and the gym. My can do attitude and open communication style means I'm always positive on the job and am always active to respond to any questions you may have about the progress of work. If youre looking for a freelance financial advisor for your company, big or small, I am your guy ! I have a variety of financial advice skills that will help small companies save a lot of money starting up but can also help individuals find out where they have leaks in their budgeting and savings to make you financially independent faster!",
           "email": "Rossbaskind@gmail.com ",
           "experience": [
@@ -739,97 +539,261 @@
               "startDate": "2022-04-15T19:24:04.794Z"
             }
           ],
+          "id": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+          "isApprentice": false,
           "isMentor": true,
-          "location": {
-            "city": "Harrogate",
-            "country": "UK"
-          },
+          "level": 8,
+          "location": { "city": "Harrogate", "country": "United Kingdom" },
           "mentor": {
             "bio": "I will mentor any Junior financial advisors and will mentor any type of freelancer on how to increase their savings amount to help them use their freelance cashflow into sustainable savings.",
             "maxRate": "£5/h",
             "minRate": "£8/h",
             "skill": "financial advice"
           },
-          "name": {
-            "first": "Ross",
-            "last": "Baskind"
-          },
+          "name": { "first": "Ross", "last": "Baskind" },
           "profilePicture": "black-portrait_T8VNJRQH7F.jpeg",
           "rating": 4.2,
-          "level": 8,
           "twitter": "Rossbaskindtwitter",
           "website": "Rossbaskindfinancialadvise.com",
           "__collections__": {
             "transactions": {
-              "qZXxdJj0xa45UlQcicQs": {
-                "id": "qZXxdJj0xa45UlQcicQs",
-                "amount": "+£750",
-                "date": {
-                  "__time__": "2022-04-02T19:24:04.794Z"
-                },
-                "userId": "0FdxGoe3fcy6v8Rd37VZ"
-              },
-              "U8SzdPhu6yhmIFLVIcqc": {
-                "id": "U8SzdPhu6yhmIFLVIcqc",
-                "amount": "+£1400",
-                "date": {
-                  "__time__": "2022-05-10T19:24:04.794Z"
-                },
-                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
-              },
-              "sOwGvcjy601vz3k5amYg": {
-                "id": "sOwGvcjy601vz3k5amYg",
-                "amount": "-£700",
-                "date": {
-                  "__time__": "2022-01-06T19:24:04.794Z"
-                },
-                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
-              },
-              "nJ2iWgoGXvVELwVoAlLb": {
-                "id": "nJ2iWgoGXvVELwVoAlLb",
-                "amount": "+£500",
-                "date": {
-                  "__time__": "2020-08-12T19:24:04.794Z"
-                },
-                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
-              },
-              "kBJp2JJ7tYWYKIQ0X3An": {
-                "id": "kBJp2JJ7tYWYKIQ0X3An",
-                "amount": "+£1200",
-                "date": {
-                  "__time__": "2021-02-19T19:24:04.794Z"
-                },
-                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              "2YM79stNWyXyX08J8vAL": {
+                "amount": "+£400",
+                "date": { "__time__": "2020-04-28T19:24:04.794Z" },
+                "id": "2YM79stNWyXyX08J8vAL",
+                "userId": "2YM79stNWyXyX08J8vAL",
+                "__collections__": {}
               },
               "3JTOJHO9EZKgT5JIcDRX": {
-                "id": "3JTOJHO9EZKgT5JIcDRX",
                 "amount": "-£300",
-                "date": {
-                  "__time__": "2018-04-19T19:24:04.794Z"
-                },
-                "userId": "2YM79stNWyXyX08J8vAL"
+                "date": { "__time__": "2018-04-19T19:24:04.794Z" },
+                "id": "3JTOJHO9EZKgT5JIcDRX",
+                "userId": "2YM79stNWyXyX08J8vAL",
+                "__collections__": {}
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "amount": "+£1400",
+                "date": { "__time__": "2022-05-10T19:24:04.794Z" },
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                "__collections__": {}
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "amount": "+£1200",
+                "date": { "__time__": "2021-02-19T19:24:04.794Z" },
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {}
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "amount": "+£500",
+                "date": { "__time__": "2020-08-12T19:24:04.794Z" },
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {}
+              },
+              "qZXxdJj0xa45UlQcicQs": {
+                "amount": "+£750",
+                "date": { "__time__": "2022-04-02T19:24:04.794Z" },
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "userId": "0FdxGoe3fcy6v8Rd37VZ",
+                "__collections__": {}
+              },
+              "sOwGvcjy601vz3k5amYg": {
+                "amount": "-£700",
+                "date": { "__time__": "2022-01-06T19:24:04.794Z" },
+                "id": "sOwGvcjy601vz3k5amYg",
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                "__collections__": {}
               },
               "yrVFqWHKa5kT3LStvBfd": {
-                "id": "yrVFqWHKa5kT3LStvBfd",
                 "amount": "+£2700",
-                "date": {
-                  "__time__": "2018-04-27T19:24:04.794Z"
-                },
-                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"
-              },
+                "date": { "__time__": "2018-04-27T19:24:04.794Z" },
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                "__collections__": {}
+              }
+            }
+          }
+        },
+        "QfABV59rDVWcUDBvtiaZCrQ8mTJ2": {
+          "apprentice": {
+            "favoriteTo": ["imZrHGqnOCfGy44ya596jOyNHIG3"],
+            "mentor": "none",
+            "rate": 0.3,
+            "workingHours": { "end": 15, "start": 11 }
+          },
+          "bio": "Hi, my name is Johnny Sullivan. I am a 26 years old student of graphics design in Australia at the University of Canberra. During my studies, I took part in many internships and worked as a freelancer. I designed websites as well as CD covers, announcements etc. I have always been passionate about graphics and already in high school I spent a lot of time drawing during school hours, then it turned into working with computers. I will be happy to make your project designed.",
+          "email": "JJSullivanD@gmail.com",
+          "experience": [
+            {
+              "company": "StudioIQ",
+              "endDate": "2017-04-06T19:24:04.794Z",
+              "position": "computer graphics apprentice",
+              "startDate": "ongoing"
+            }
+          ],
+          "id": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+          "isApprentice": true,
+          "isMentor": false,
+          "level": 4,
+          "location": { "city": "Canberra", "country": "Australia" },
+          "name": { "first": "Johnny", "last": "Sullivan", "second": "James" },
+          "profilePicture": "portrait-g1fc44a1a6_1920.jpg",
+          "rating": 4.9,
+          "twitter": "JJSdesign",
+          "website": "www.JJSullivan.com ",
+          "__collections__": {
+            "transactions": {
               "2YM79stNWyXyX08J8vAL": {
+                "amount": "-£630",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
                 "id": "2YM79stNWyXyX08J8vAL",
-                "amount": "+£400",
-                "date": {
-                  "__time__": "2020-04-28T19:24:04.794Z"
-                },
-                "userId": "2YM79stNWyXyX08J8vAL"
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                "__collections__": {}
+              },
+              "3JTOJHO9EZKgT5JIcDRX": {
+                "amount": "+£950",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "3JTOJHO9EZKgT5JIcDRX",
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                "__collections__": {}
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "amount": "+£4200",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                "__collections__": {}
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "amount": "+£3230",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "userId": "2YM79stNWyXyX08J8vAL",
+                "__collections__": {}
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "amount": "-£950",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "userId": "0FdxGoe3fcy6v8Rd37VZ",
+                "__collections__": {}
+              },
+              "qZXxdJj0xa45UlQcicQs": {
+                "amount": "+£3900",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                "__collections__": {}
+              },
+              "sOwGvcjy601vz3k5amYg": {
+                "amount": "-£6000",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "sOwGvcjy601vz3k5amYg",
+                "userId": "0FdxGoe3fcy6v8Rd37VZ",
+                "__collections__": {}
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "amount": "-£2200",
+                "date": { "__time__": "2022-08-06T19:24:04.794Z" },
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "userId": "2YM79stNWyXyX08J8vAL",
+                "__collections__": {}
+              }
+            }
+          }
+        },
+        "2YM79stNWyXyX08J8vAL": {
+          "apprentice": {
+            "favoriteTo": ["imZrHGqnOCfGy44ya596jOyNHIG3"],
+            "mentor": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+            "rate": 0.1,
+            "workingHours": { "end": 17, "start": 9 }
+          },
+          "bio": "Hi My name is Sam. I am a 22 year old marketing graduate from Newcastle University. My hobbies include 5 a side football and lego. My skills are catered towards brand management. If you wish to grow your brand in the modern age through social media posts, content and SEO methods I’m your guy!",
+          "email": "Samkaminsky@gmail.com",
+          "experience": [
+            {
+              "company": "Bradford bulls",
+              "endDate": "2022-03-15T19:24:04.794Z",
+              "position": "Brand manager",
+              "startDate": "2019-04-21T19:24:04.794Z"
+            }
+          ],
+          "id": "2YM79stNWyXyX08J8vAL",
+          "isApprentice": true,
+          "isMentor": false,
+          "level": 3,
+          "linkedin": "sKaminskyServices",
+          "location": { "city": "Leeds", "country": "United Kingdom" },
+          "name": { "first": "Sam", "last": "Kaminsky" },
+          "profilePicture": "entrepreneur-g8c2fb357d_1920.jpg",
+          "rating": 4.8,
+          "twitter": "sKaminskyTwitter",
+          "website": "www.s-kaminsky.com",
+          "__collections__": {
+            "transactions": {
+              "2YM79stNWyXyX08J8vAL": {
+                "amount": "-£550",
+                "date": { "__time__": "2018-02-11T19:24:04.794Z" },
+                "id": "2YM79stNWyXyX08J8vAL",
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {}
+              },
+              "3JTOJHO9EZKgT5JIcDRX": {
+                "amount": "-£2100",
+                "date": { "__time__": "2020-06-20T19:24:04.794Z" },
+                "id": "3JTOJHO9EZKgT5JIcDRX",
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                "__collections__": {}
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "amount": "+£1200",
+                "date": { "__time__": "2021-04-12T19:24:04.794Z" },
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {}
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "amount": "+£3000",
+                "date": { "__time__": "2022-10-01T19:24:04.794Z" },
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "userId": "0FdxGoe3fcy6v8Rd37VZ",
+                "__collections__": {}
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "amount": "-£100",
+                "date": { "__time__": "2022-08-02T19:24:04.794Z" },
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                "__collections__": {}
+              },
+              "qZXxdJj0xa45UlQcicQs": {
+                "amount": "-£2400",
+                "date": { "__time__": "2021-04-03T19:24:04.794Z" },
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {}
+              },
+              "sOwGvcjy601vz3k5amYg": {
+                "amount": "-£1600",
+                "date": { "__time__": "2021-10-14T19:24:04.794Z" },
+                "id": "sOwGvcjy601vz3k5amYg",
+                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                "__collections__": {}
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "amount": "+£1000",
+                "date": { "__time__": "2020-03-02T19:24:04.794Z" },
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                "__collections__": {}
               }
             }
           }
         },
         "0FdxGoe3fcy6v8Rd37VZ": {
-          "id": "0FdxGoe3fcy6v8Rd37VZ",
           "bio": "Hi my name is jude cornish and im a business management graduate from Lancaster University. My hobbies include squash, running and the gym. The work is offer is high level UX/UI design, i have 5 years experience in this field and have honed my skills to a very high level, even designing the current skoda international site that is used.",
           "email": "Judecornish1@gmail.com",
           "experience": [
@@ -846,97 +810,90 @@
               "startDate": "ongoing"
             }
           ],
+          "id": "0FdxGoe3fcy6v8Rd37VZ",
+          "isApprentice": false,
           "isMentor": true,
-          "location": {
-            "city": "Lancaster",
-            "country": "UK"
-          },
+          "level": 15,
+          "location": { "city": "Lancaster", "country": "United Kingdom" },
           "mentor": {
             "bio": "I am a senior UX/UI designer with 5 years experience and thousands earnt in freelance work, if you're starting up with freelance design i am the mentor for you. I will teach you the quickest ways to learn and improve to a high earning level and although my hourly fee is higher than most its because you will only need minimal hours to learn as efficiently as possible",
             "maxRate": "£25/h",
             "minRate": "£35/h",
             "skill": "UX/UI designer"
           },
-          "name": {
-            "first": "Jude",
-            "last": "Cornish"
-          },
+          "name": { "first": "Jude", "last": "Cornish" },
           "portfolio": ["HealthToken", "Skoda", "Skelftees", "Okemonos"],
           "profilePicture": "confident-business_TMACJ6VLZH.jpeg",
           "rating": 4.9,
-          "level": 15,
           "website": "Judecornishdesigns.com",
           "__collections__": {
             "transactions": {
-              "qZXxdJj0xa45UlQcicQs": {
-                "id": "qZXxdJj0xa45UlQcicQs",
-                "amount": "-£1200",
-                "date": {
-                  "__time__": "2022-06-07T19:24:04.794Z"
-                },
-                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
-              },
-              "U8SzdPhu6yhmIFLVIcqc": {
-                "id": "U8SzdPhu6yhmIFLVIcqc",
-                "amount": "+£2200",
-                "date": {
-                  "__time__": "2021-08-12T19:24:04.794Z"
-                },
-                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"
-              },
-              "sOwGvcjy601vz3k5amYg": {
-                "id": "sOwGvcjy601vz3k5amYg",
-                "amount": "+£1200",
-                "date": {
-                  "__time__": "2021-02-24T19:24:04.794Z"
-                },
-                "userId": "2YM79stNWyXyX08J8vAL"
-              },
-              "nJ2iWgoGXvVELwVoAlLb": {
-                "id": "nJ2iWgoGXvVELwVoAlLb",
-                "amount": "-£165",
-                "date": {
-                  "__time__": "2021-06-20T19:24:04.794Z"
-                },
-                "userId": "2YM79stNWyXyX08J8vAL"
-              },
-              "kBJp2JJ7tYWYKIQ0X3An": {
-                "id": "kBJp2JJ7tYWYKIQ0X3An",
-                "amount": "-£75",
-                "date": {
-                  "__time__": "2018-08-15T19:24:04.794Z"
-                },
-                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
+              "2YM79stNWyXyX08J8vAL": {
+                "amount": "+£660",
+                "date": { "__time__": "2019-10-22T19:24:04.794Z" },
+                "id": "2YM79stNWyXyX08J8vAL",
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {}
               },
               "3JTOJHO9EZKgT5JIcDRX": {
-                "id": "3JTOJHO9EZKgT5JIcDRX",
                 "amount": "+£750",
-                "date": {
-                  "__time__": "2018-01-23T19:24:04.794Z"
-                },
-                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"
+                "date": { "__time__": "2018-01-23T19:24:04.794Z" },
+                "id": "3JTOJHO9EZKgT5JIcDRX",
+                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                "__collections__": {}
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "amount": "+£2200",
+                "date": { "__time__": "2021-08-12T19:24:04.794Z" },
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                "__collections__": {}
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "amount": "-£75",
+                "date": { "__time__": "2018-08-15T19:24:04.794Z" },
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                "__collections__": {}
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "amount": "-£165",
+                "date": { "__time__": "2021-06-20T19:24:04.794Z" },
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "userId": "2YM79stNWyXyX08J8vAL",
+                "__collections__": {}
+              },
+              "qZXxdJj0xa45UlQcicQs": {
+                "amount": "-£1200",
+                "date": { "__time__": "2022-06-07T19:24:04.794Z" },
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                "__collections__": {}
+              },
+              "sOwGvcjy601vz3k5amYg": {
+                "amount": "+£1200",
+                "date": { "__time__": "2021-02-24T19:24:04.794Z" },
+                "id": "sOwGvcjy601vz3k5amYg",
+                "userId": "2YM79stNWyXyX08J8vAL",
+                "__collections__": {}
               },
               "yrVFqWHKa5kT3LStvBfd": {
-                "id": "yrVFqWHKa5kT3LStvBfd",
                 "amount": "+£1150",
-                "date": {
-                  "__time__": "2018-01-26T19:24:04.794Z"
-                },
-                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
-              },
-              "2YM79stNWyXyX08J8vAL": {
-                "id": "2YM79stNWyXyX08J8vAL",
-                "amount": "+£660",
-                "date": {
-                  "__time__": "2019-10-22T19:24:04.794Z"
-                },
-                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+                "date": { "__time__": "2018-01-26T19:24:04.794Z" },
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {}
               }
             }
           }
         },
         "6BxZRLLnIKROMglmxItnPWv5g9r2": {
-          "id": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+          "apprentice": {
+            "favoriteTo": ["imZrHGqnOCfGy44ya596jOyNHIG3"],
+            "mentor": "none",
+            "rate": 0.1,
+            "workingHours": { "end": 20, "start": 9 }
+          },
           "bio": "Cześć, mam na imię Adrian. Od dziecka pasjonuję się piłką nożną. Dzięki ciężkiemu treningowi udało mi się dostać do lokalnej drużyny piłkarskiej na pozycji napastnika. Niestety w wyniku kontuzji musiałem porzucić karierę sportowca. Moją uwagę przykuł wtedy dopiero rozwijający się temat sztucznej inteligencji. Od tamtej pory moje zainteresowanie tym tematem umożliwiło mi zmianę zawodu. W tym momencie specjalizuję się w tworzeniu modeli bazujących na sztucznej inteligencji i z przyjemnością podzielę się swoimi umiejętnościami w twoim projekcie.",
           "email": "adrian.szczutowski2001@gazeta.pl",
           "experience": [
@@ -947,91 +904,79 @@
               "startDate": "2022-09-22T19:24:04.794Z"
             }
           ],
+          "id": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+          "isApprentice": true,
           "isMentor": true,
+          "level": 7,
           "linkedin": "AdrianSzczuto",
-          "location": {
-            "city": "Płock",
-            "country": "Polska"
-          },
+          "location": { "city": "Płock", "country": "Poland" },
           "mentor": {
             "bio": "Podczas mojej kariery piłkarza udało mi się dowiedzieć wielu ciekawych rzeczy na ten temat. Niestety ja nie jestem w stanie wykorzystać tej wiedzy, więc bardzo chętnie podzielę się nią z innymi. Ponadto mogę doradzić jak zbudować model sztucznej inteligencji na podstawie tego czego nauczyłem się pracując w firmie NVIDIA. Mój grafik jest dosyć elastyczny więc jestem pewny, że damy radę znaleźć pasujące nam godziny",
             "maxRate": "£15/h",
             "minRate": "£25/h",
             "skill": "Modelowanie sieci sztucznej inteligencji"
           },
-          "name": {
-            "first": "Adrian",
-            "last": "Szczutowski"
-          },
+          "name": { "first": "Adrian", "last": "Szczutowski" },
           "profilePicture": "soccer-athlete_VHCASPZSFE.jpeg",
           "rating": 3.6,
-          "level": 7,
           "website": "adrian-szczutowski.pl",
           "__collections__": {
             "transactions": {
-              "qZXxdJj0xa45UlQcicQs": {
-                "id": "qZXxdJj0xa45UlQcicQs",
-                "amount": "+£65",
-                "date": {
-                  "__time__": "2019-05-04T19:24:04.794Z"
-                },
-                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
-              },
-              "U8SzdPhu6yhmIFLVIcqc": {
-                "id": "U8SzdPhu6yhmIFLVIcqc",
-                "amount": "+£160",
-                "date": {
-                  "__time__": "2019-05-06T19:24:04.794Z"
-                },
-                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
-              },
-              "sOwGvcjy601vz3k5amYg": {
-                "id": "sOwGvcjy601vz3k5amYg",
-                "amount": "+£650",
-                "date": {
-                  "__time__": "2019-10-02T19:24:04.794Z"
-                },
-                "userId": "0FdxGoe3fcy6v8Rd37VZ"
-              },
-              "nJ2iWgoGXvVELwVoAlLb": {
-                "id": "nJ2iWgoGXvVELwVoAlLb",
-                "amount": "-£190",
-                "date": {
-                  "__time__": "2018-03-04T19:24:04.794Z"
-                },
-                "userId": "2YM79stNWyXyX08J8vAL"
-              },
-              "kBJp2JJ7tYWYKIQ0X3An": {
-                "id": "kBJp2JJ7tYWYKIQ0X3An",
-                "amount": "+£750",
-                "date": {
-                  "__time__": "2022-11-12T19:24:04.794Z"
-                },
-                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              "2YM79stNWyXyX08J8vAL": {
+                "amount": "+£35",
+                "date": { "__time__": "2021-11-22T19:24:04.794Z" },
+                "id": "2YM79stNWyXyX08J8vAL",
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {}
               },
               "3JTOJHO9EZKgT5JIcDRX": {
-                "id": "3JTOJHO9EZKgT5JIcDRX",
                 "amount": "-£220",
-                "date": {
-                  "__time__": "2022-01-22T19:24:04.794Z"
-                },
-                "userId": "0FdxGoe3fcy6v8Rd37VZ"
+                "date": { "__time__": "2022-01-22T19:24:04.794Z" },
+                "id": "3JTOJHO9EZKgT5JIcDRX",
+                "userId": "0FdxGoe3fcy6v8Rd37VZ",
+                "__collections__": {}
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "amount": "+£160",
+                "date": { "__time__": "2019-05-06T19:24:04.794Z" },
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {}
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "amount": "+£750",
+                "date": { "__time__": "2022-11-12T19:24:04.794Z" },
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {}
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "amount": "-£190",
+                "date": { "__time__": "2018-03-04T19:24:04.794Z" },
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "userId": "2YM79stNWyXyX08J8vAL",
+                "__collections__": {}
+              },
+              "qZXxdJj0xa45UlQcicQs": {
+                "amount": "+£65",
+                "date": { "__time__": "2019-05-04T19:24:04.794Z" },
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {}
+              },
+              "sOwGvcjy601vz3k5amYg": {
+                "amount": "+£650",
+                "date": { "__time__": "2019-10-02T19:24:04.794Z" },
+                "id": "sOwGvcjy601vz3k5amYg",
+                "userId": "0FdxGoe3fcy6v8Rd37VZ",
+                "__collections__": {}
               },
               "yrVFqWHKa5kT3LStvBfd": {
-                "id": "yrVFqWHKa5kT3LStvBfd",
                 "amount": "+£660",
-                "date": {
-                  "__time__": "2017-09-09T19:24:04.794Z"
-                },
-                "userId": "2YM79stNWyXyX08J8vAL"
-              },
-              "2YM79stNWyXyX08J8vAL": {
-                "id": "2YM79stNWyXyX08J8vAL",
-                "amount": "+£35",
-                "date": {
-                  "__time__": "2021-11-22T19:24:04.794Z"
-                },
-                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+                "date": { "__time__": "2017-09-09T19:24:04.794Z" },
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "userId": "2YM79stNWyXyX08J8vAL",
+                "__collections__": {}
               }
             }
           }

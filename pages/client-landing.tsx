@@ -32,13 +32,15 @@ export default function Home() {
             info={"1,992 active questers"}
             header={"This month's top questers"}
             subheader={"The current heroes that are bidding on this quest."}
-            greenButtonText={"Create a quest"}
-            greenButtonLink={""}
-            whiteButtonLink={"quests"}
+            primaryButtonText={"Create a quest"}
+            primaryButtonLink={""}
+            secondaryButtonLink={"quests"}
           />
         </Box>
       </Container>
-      <GetItDone />
+      <Box bgcolor="primary.main">
+        <GetItDone />
+      </Box>
       <Container>
         <FAQs />
       </Container>

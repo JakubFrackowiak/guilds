@@ -1,7 +1,7 @@
-import { Stack, Typography } from "@mui/material"
-import { GreenButton } from "components/GreenButton"
-import { WhiteButton } from "components/WhiteButton"
 import Link from "next/link"
+import { Stack, Typography } from "@mui/material"
+import { PrimaryButton } from "components/PrimaryButton"
+import { SecondaryButton } from "components/SecondaryButton"
 
 export function BackToSearch() {
   return (
@@ -20,10 +20,10 @@ export function BackToSearch() {
         </Typography>
         <Stack direction="row" spacing={1.5}>
           <Link href="quests" style={{ textDecoration: "none" }}>
-            <WhiteButton>View all quests</WhiteButton>
+            <SecondaryButton label="View all quests" />
           </Link>
           <Link href="search-quest" style={{ textDecoration: "none" }}>
-            <GreenButton>Go back to search results</GreenButton>
+            <PrimaryButton label="" />
           </Link>
         </Stack>
       </Stack>

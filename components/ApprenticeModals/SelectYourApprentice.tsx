@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Button, Stack, TextField, Typography } from "@mui/material"
-import { GreenButton } from "components/GreenButton"
-import { WhiteButton } from "components/WhiteButton"
+import { PrimaryButton } from "components/PrimaryButton"
+import { SecondaryButton } from "components/SecondaryButton"
 
 interface SelectYourApprenticeProps {
   name: string
@@ -30,12 +30,8 @@ export function SelectYourApprentice({ name }: SelectYourApprenticeProps) {
         }}
       />
       <Stack direction="row" justifyContent="space-between">
-        <WhiteButton>
-          <Typography width="8rem">Cancel</Typography>
-        </WhiteButton>
-        <GreenButton>
-          <Typography width="8rem">Send</Typography>
-        </GreenButton>
+        <SecondaryButton width="8rem" label="Cancel" />
+        <PrimaryButton width="8rem" label="Send" />
       </Stack>
     </Stack>
   )

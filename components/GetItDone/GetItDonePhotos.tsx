@@ -1,18 +1,10 @@
 import Image from "next/image"
-import { Stack, useMediaQuery, useTheme } from "@mui/material"
+import { Stack } from "@mui/material"
 
 export function GetItDonePhotos() {
-  const theme = useTheme()
-  const isVeryLarge = useMediaQuery(theme.breakpoints.up("xl"))
-  const isLarge = useMediaQuery(theme.breakpoints.up("md"))
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
-
   return (
     <Stack
       spacing={1}
-      pb={isMobile ? "8rem" : "3rem"}
-      pt={isMobile ? "3rem" : "3rem"}
-      pr={isVeryLarge ? "20%" : isLarge ? "15%" : isMobile ? "0%" : "0%"}
       pl="0.5rem"
       sx={{
         backgroundColor: "primary.main",

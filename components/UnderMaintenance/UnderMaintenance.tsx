@@ -1,6 +1,7 @@
 import Image from "next/image"
 import SearchIcon from "@mui/icons-material/Search"
 import { useTheme } from "@mui/material/styles"
+import { PrimaryButton } from "components/PrimaryButton"
 import {
   InputAdornment,
   Stack,
@@ -9,7 +10,6 @@ import {
   Box,
   useMediaQuery,
 } from "@mui/material"
-import { GreenButton } from "../GreenButton"
 
 export function UnderMaintenance() {
   const theme = useTheme()
@@ -53,7 +53,7 @@ export function UnderMaintenance() {
                 },
               }}
             />
-            <GreenButton>Search</GreenButton>
+            <PrimaryButton>Search</PrimaryButton>
           </Stack>
         </Stack>
         <Image

@@ -1,5 +1,6 @@
-import { Stack, Container, Typography, Button } from "@mui/material"
 import Image from "next/image"
+import { Stack, Container, Typography } from "@mui/material"
+import { PrimaryButton } from "components/PrimaryButton"
 
 export function StillHaveQuestions() {
   return (
@@ -25,13 +26,7 @@ export function StillHaveQuestions() {
           Can't find the answers you're looking for? Please reach out to our
           friendly team.
         </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          sx={{ mt: 2, height: "3rem", textTransform: "none", borderRadius: 2 }}
-        >
-          Get in touch
-        </Button>
+        <PrimaryButton width="fit-content" label="Get in touch" />
       </Stack>
     </Container>
   )

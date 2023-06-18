@@ -1,24 +1,24 @@
 import Link from "next/link"
 import { Stack, Typography } from "@mui/material"
-import { WhiteButton } from "components/WhiteButton"
-import { GreenButton } from "components/GreenButton"
+import { SecondaryButton } from "components/SecondaryButton"
+import { PrimaryButton } from "components/PrimaryButton"
 
 export interface TopUsersHeaderProps {
   info: string
   header: string
   subheader: string
-  greenButtonText: string
-  whiteButtonLink: string
-  greenButtonLink: string
+  primaryButtonText: string
+  secondaryButtonLink: string
+  primaryButtonLink: string
 }
 
 export function TopUsersHeader({
   info,
   header,
   subheader,
-  greenButtonText,
-  whiteButtonLink,
-  greenButtonLink,
+  primaryButtonText,
+  secondaryButtonLink,
+  primaryButtonLink,
 }: TopUsersHeaderProps) {
   return (
     <Stack spacing={2}>
@@ -33,20 +33,20 @@ export function TopUsersHeader({
       </Typography>
       <Stack direction="row" spacing={2} pt="1rem">
         <Link
-          href={whiteButtonLink}
+          href={secondaryButtonLink}
           style={{
             textDecoration: "none",
           }}
         >
-          <WhiteButton>See all</WhiteButton>
+          <SecondaryButton label="See all" />
         </Link>
         <Link
-          href={greenButtonLink}
+          href={primaryButtonLink}
           style={{
             textDecoration: "none",
           }}
         >
-          <GreenButton>{greenButtonText}</GreenButton>
+          <PrimaryButton label={primaryButtonText} />
         </Link>
       </Stack>
     </Stack>

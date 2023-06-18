@@ -1,5 +1,5 @@
 import { Chip, Stack, Typography } from "@mui/material"
-import Image from "next/image"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 
 export function NewFeatureChip() {
   return (
@@ -13,17 +13,18 @@ export function NewFeatureChip() {
         <Chip
           size="small"
           sx={{ bgcolor: "white" }}
-          label={<Typography color="primary">New feature</Typography>}
+          label={<Typography color="primary.main">New feature</Typography>}
         />
       }
       label={
         <Stack direction="row" alignItems="center" spacing={1}>
           <Typography color="primary">Check the team dashboard</Typography>
-          <Image
+          <ArrowForwardIcon
             width={13}
             height={13}
-            src="/arrow-right.svg"
-            alt="arrow right"
+            sx={{
+              color: "primary.main",
+            }}
           />
         </Stack>
       }

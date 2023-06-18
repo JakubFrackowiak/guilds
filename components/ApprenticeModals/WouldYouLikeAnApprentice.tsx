@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Button, Link, Stack, Typography } from "@mui/material"
-import { GreenButton } from "components/GreenButton"
-import { WhiteButton } from "components/WhiteButton"
+import { PrimaryButton } from "components/PrimaryButton"
+import { SecondaryButton } from "components/SecondaryButton"
 
 export function WouldYouLikeAnApprentice() {
   return (
@@ -23,15 +23,9 @@ export function WouldYouLikeAnApprentice() {
           .
         </Typography>
       </Stack>
-      <Stack direction="row" justifyContent="space-between">
-        <WhiteButton>
-          <Typography marginLeft={-1.5} width="11.5rem">
-            I don't want an apprentice
-          </Typography>
-        </WhiteButton>
-        <GreenButton>
-          <Typography width="11.5rem">Browse apprentices</Typography>
-        </GreenButton>
+      <Stack direction="row" justifyContent="space-between" paddingLeft={-1.5}>
+        <SecondaryButton width="11.5rem" label="I don't want an apprentice" />
+        <PrimaryButton width="11.5rem" label="Browse apprentices" />
       </Stack>
     </Stack>
   )

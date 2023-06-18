@@ -13,9 +13,9 @@ export function MonthTopUsers({
   info,
   header,
   subheader,
-  greenButtonText,
-  greenButtonLink,
-  whiteButtonLink,
+  primaryButtonText,
+  primaryButtonLink,
+  secondaryButtonLink,
   xpGained,
 }: TopMonthUserProps) {
   const firestore = useFirestore()
@@ -32,9 +32,9 @@ export function MonthTopUsers({
         info={info}
         header={header}
         subheader={subheader}
-        greenButtonText={greenButtonText}
-        greenButtonLink={greenButtonLink}
-        whiteButtonLink={whiteButtonLink}
+        primaryButtonText={primaryButtonText}
+        primaryButtonLink={primaryButtonLink}
+        secondaryButtonLink={secondaryButtonLink}
       />
       <Grid container>
         {heroes?.map((hero, key) => (
