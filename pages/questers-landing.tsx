@@ -1,3 +1,4 @@
+import { NoSsr } from "@mui/material"
 import FeaturedCompanies from "components/FeaturedCompanies"
 import { Box, Container } from "@mui/material"
 import { FAQs } from "components/FAQs"
@@ -24,28 +25,30 @@ export default function QuestersLanding() {
       }}
     >
       <Header />
-      <Container>
-        <Box marginTop="5rem">
-          <HeroHeader />
-        </Box>
-        <Box marginY="5rem">
-          <FeaturedCompanies />
-        </Box>
-        <Box marginY="10rem">
-          <GuildsStats />
-        </Box>
-        <Box>
-          <Slider
-            variant="quest"
-            status="success"
-            items={quests}
-            variantId=""
-          />
-        </Box>
-        <Box marginTop="10rem">
-          <FAQs />
-        </Box>
-      </Container>
+      <NoSsr>
+        <Container>
+          <Box marginTop="5rem">
+            <HeroHeader />
+          </Box>
+          <Box marginY="5rem">
+            <FeaturedCompanies />
+          </Box>
+          <Box marginY="10rem">
+            <GuildsStats />
+          </Box>
+          <Box>
+            <Slider
+              variant="quest"
+              status="success"
+              items={quests}
+              variantId=""
+            />
+          </Box>
+          <Box marginTop="10rem">
+            <FAQs />
+          </Box>
+        </Container>
+      </NoSsr>
       <Footer />
     </Box>
   )

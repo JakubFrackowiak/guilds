@@ -1,46 +1,36 @@
-import * as React from "react"
-import { Box, Typography, Avatar, Stack, Grid } from "@mui/material"
-import styled from "@emotion/styled"
-import StarIcon from "@mui/icons-material/Star"
 import Image from "next/image"
+import styled from "@emotion/styled"
+import { Box, Typography, Stack, Rating } from "@mui/material"
+import {
+  StorageImage,
+  useFirestore,
+  useFirestoreCollectionData,
+} from "reactfire"
+import { collection, limit, query } from "firebase/firestore"
+import { Hero } from "types/hero"
 
-const UserAvatar = styled(Avatar)`
+const UserAvatar = styled(StorageImage)`
   width: 40px;
   height: 40px;
   border: 2.5px solid #ffffff;
   border-radius: 200px;
   margin: 0px -7px;
-`
-
-const Star = styled(StarIcon)`
-  color: #fec84b;
-`
-
-const ReviewInfo = styled(Typography)`
-  color: #667085;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  margin-left: 4px;
-`
-
-const Arrow = styled(Box)`
-  position: relative;
-  top: -100px;
-  left: 350px;
+  object-fit: cover;
 `
 
 export function HeroHeader() {
+  const firestore = useFirestore()
+  const heroesRef = collection(firestore, "heroes")
+  const heroesQuery = query(heroesRef, limit(6))
+  const { data: heroes } = useFirestoreCollectionData(heroesQuery)
+
   return (
-    <Grid container spacing={5}>
-      <Grid
-        item
-        xs={12}
-        sm={10}
-        md={6}
-        marginTop={{ xs: "none", sm: "none", md: "5rem" }}
-      >
-        <Stack alignItems={{ xs: "center", sm: "center", md: "flex-start" }}>
+    <Stack
+      direction={{ xs: "column", sm: "column", md: "row" }}
+      spacing={{ xs: 8, sm: 8, md: 0 }}
+    >
+      <Stack alignItems={{ md: "flex-start", sm: "center", xs: "center" }}>
+        <Stack width={{ sm: "90%", xs: "90%" }}>
           <Typography variant="h3" color="text.primary">
             Complete quests and rise through the ranks
           </Typography>
@@ -50,42 +40,30 @@ export function HeroHeader() {
           </Typography>
           <Stack direction="row" spacing={{ xs: 2 }}>
             <Stack direction="row">
-              <UserAvatar
-                alt="user avatar"
-                src="http://placekitten.com/200/300?image=1"
-              />
-              <UserAvatar
-                alt="user avatar"
-                src="http://placekitten.com/200/300?image=2"
-              />
-              <UserAvatar
-                alt="user avatar"
-                src="http://placekitten.com/200/300?image=3"
-              />
-              <UserAvatar
-                alt="user avatar"
-                src="http://placekitten.com/200/300?image=4"
-              />
-              <UserAvatar
-                alt="user avatar"
-                src="http://placekitten.com/200/300?image=5"
-              />
+              {heroes?.map((hero: Hero, idx) => (
+                <UserAvatar
+                  key={hero.id}
+                  alt="hero image"
+                  storagePath={`general/${heroes[idx].profilePicture}`}
+                />
+              ))}
             </Stack>
             <Stack direction="column">
               <Stack direction="row">
-                <Star />
-                <Star />
-                <Star />
-                <Star />
-                <Star />
+                <Rating value={5} readOnly />
                 <Typography variant="body1">5.0</Typography>
               </Stack>
-              <ReviewInfo>from 200+ reviews</ReviewInfo>
+              <Typography variant="body1" color="text.secondary">
+                from 200+ reviews
+              </Typography>
             </Stack>
           </Stack>
-          <Arrow
+          <Box
             sx={{
               display: { xs: "none", sm: "none", md: "none", lg: "block" },
+              position: "relative",
+              top: -100,
+              left: 350,
             }}
           >
             <Image
@@ -94,22 +72,14 @@ export function HeroHeader() {
               width={380}
               height={300}
             />
-          </Arrow>
+          </Box>
         </Stack>
-      </Grid>
-
-      <Grid item xs={12} sm={8} md={6}>
-        {
-          <Stack alignItems={{ xs: "center", sm: "end", md: "end" }}>
-            <Image
-              alt="header arrow"
-              src="/login.svg"
-              width={440}
-              height={550}
-            />
-          </Stack>
-        }
-      </Grid>
-    </Grid>
+      </Stack>
+      <Stack alignItems="center">
+        <Stack alignItems={{ xs: "center", sm: "end", md: "end" }}>
+          <Image alt="header arrow" src="/login.svg" width={440} height={550} />
+        </Stack>
+      </Stack>
+    </Stack>
   )
 }

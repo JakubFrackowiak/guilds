@@ -15,6 +15,7 @@ import { collection, limit, orderBy, query } from "firebase/firestore"
 
 const QuestThumbnail = styled(StorageImage)({
   objectFit: "cover",
+  aspectRatio: 16 / 10,
   height: 240,
 })
 

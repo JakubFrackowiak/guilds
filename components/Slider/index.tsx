@@ -44,7 +44,6 @@ export function Slider({
   variantId,
 }: ReusableSliderProps) {
   const [scrolledCard, setScrolledCard] = useState(0)
-  const [mouseScrollDisabled, setMouseScrollDisabled] = useState(false)
   const featuredCardsRefs = useRef([])
   const featuredCardsContainerRef = useRef()
   const theme = useTheme()
@@ -83,14 +82,11 @@ export function Slider({
                 ref={featuredCardsContainerRef}
                 sx={{
                   scrollBehavior: "smooth",
-                  overflow: mouseScrollDisabled ? "hidden" : "scroll",
-                  pr: "100vw",
+                  overflow: "scroll",
                   "&::-webkit-scrollbar": {
                     display: "none",
                   },
                 }}
-                onMouseEnter={() => setMouseScrollDisabled(true)}
-                onMouseLeave={() => setMouseScrollDisabled(false)}
               >
                 {status === Status.success ? (
                   items?.map((item: Hero | Team | Quest | RoleType, idx) => (

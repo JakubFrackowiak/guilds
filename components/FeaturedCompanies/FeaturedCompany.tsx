@@ -1,18 +1,26 @@
-import { Box, Stack, Typography } from "@mui/material"
 import Image from "next/image"
+import { Box, Stack, Typography } from "@mui/material"
 
 interface FeaturedCompanyProps {
   image: string
+  name: string
 }
 
-export default function FeaturedCompany({ image }: FeaturedCompanyProps) {
+export function FeaturedCompany({ image, name }: FeaturedCompanyProps) {
   return (
-    <Stack direction="row" spacing={1} alignItems="center">
+    <Stack
+      width="fit-content"
+      direction="row"
+      spacing={1}
+      alignItems="center"
+      justifyContent="center"
+      margin="auto"
+    >
       <Box width={40} height={40}>
         <Image src={image} width={40} height={40} alt="Featured Company" />
       </Box>
       <Typography variant="h5" color="primary.light">
-        Guilds
+        {name}
       </Typography>
     </Stack>
   )
