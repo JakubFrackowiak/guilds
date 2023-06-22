@@ -20,15 +20,13 @@ export function TeamHit({ hit }: LatestTeamProps) {
   return (
     <Grid item xs={12}>
       <Stack spacing={3}>
-        <TeamThumbnail storagePath={`teams/${hit.image}`} />
+        <TeamThumbnail
+          storagePath={`general/${hit.image}`}
+          alt="team picture"
+        />
         <Stack direction="row" justifyContent="space-between">
           <Typography variant="h6">{hit?.title}</Typography>
-          <Link
-            href={{
-              pathname: "/team",
-              query: { tid: hit.id },
-            }}
-          >
+          <Link href={`team/${hit.id}`}>
             <Image
               src="/arrow-right-up.svg"
               alt="arrow-right-up"

@@ -35,10 +35,18 @@ export default function FindQuest() {
               spacing={4}
               mb="4rem"
             >
-              <Stack direction="row" spacing={6} justifyContent="space-between">
-                <Stack direction="column" spacing={4}>
+              <Stack
+                direction={{ sm: "column", md: "row" }}
+                spacing={6}
+                justifyContent="space-between"
+              >
+                <Stack direction="column" spacing={4} mb="2rem">
                   <SearchBox />
-                  <RefinementList attribute="tags" label="Quest categories" />
+                  <RefinementList
+                    attribute="tags"
+                    label="Quest categories"
+                    defaultLabel="View all"
+                  />
                 </Stack>
                 <QuestHits />
               </Stack>

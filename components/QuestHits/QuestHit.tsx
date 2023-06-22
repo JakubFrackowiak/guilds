@@ -29,10 +29,13 @@ export function QuestHit({ hit }: QuestHitProps) {
   const topBid = topBids?.[0]
 
   return (
-    <Grid item xs={6}>
+    <Grid item xs={12} md={12} lg={6}>
       <Box>
         <Stack spacing={1}>
-          <QuestThumbnail storagePath={`general/${hit.image}`} />
+          <QuestThumbnail
+            storagePath={`general/${hit.image}`}
+            alt="quest image"
+          />
           {topBid && (
             <Typography
               variant="body2"
@@ -43,12 +46,7 @@ export function QuestHit({ hit }: QuestHitProps) {
           )}
           <Stack direction="row" justifyContent="space-between">
             <Typography variant="h6">{hit?.title}</Typography>
-            <Link
-              href={{
-                pathname: "/quest",
-                query: { questId: hit.id },
-              }}
-            >
+            <Link href={`quest/${hit.id}`}>
               <Image
                 src="/arrow-right-up.svg"
                 alt="arrow-right-up"

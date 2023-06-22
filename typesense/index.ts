@@ -3,7 +3,7 @@ import Typesense from "../node_modules/typesense/lib/Typesense"
 export const client = new Typesense.Client({
   nodes: [
     {
-      host: "e9dqpntv0g2iukz3p-1.a1.typesense.net",
+      host: "3q6vif2tznsc95r4p-1.a1.typesense.net",
       port: 443,
       protocol: "https",
     },

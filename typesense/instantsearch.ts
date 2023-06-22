@@ -5,7 +5,7 @@ const typesenseQuestsInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY,
     nodes: [
       {
-        host: "e9dqpntv0g2iukz3p-1.a1.typesense.net",
+        host: "3q6vif2tznsc95r4p-1.a1.typesense.net",
         port: 443,
         protocol: "https",
       },
@@ -21,7 +21,7 @@ const typesenseTeamsInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY,
     nodes: [
       {
-        host: "e9dqpntv0g2iukz3p-1.a1.typesense.net",
+        host: "3q6vif2tznsc95r4p-1.a1.typesense.net",
         port: 443,
         protocol: "https",
       },
@@ -37,7 +37,7 @@ const typesenseCoursesInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY,
     nodes: [
       {
-        host: "e9dqpntv0g2iukz3p-1.a1.typesense.net",
+        host: "3q6vif2tznsc95r4p-1.a1.typesense.net",
         port: 443,
         protocol: "https",
       },
@@ -53,7 +53,7 @@ const typesenseMentorsInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY,
     nodes: [
       {
-        host: "lpf7021ujvzskoynp-1.a1.typesense.net",
+        host: "3q6vif2tznsc95r4p-1.a1.typesense.net",
         port: 443,
         protocol: "https",
       },

@@ -35,14 +35,19 @@ export default function FindTeam() {
               spacing={4}
               mb="4rem"
             >
-              <Stack direction="row" spacing={6}>
-                <Stack direction="column" spacing={4}>
+              <Stack direction={{ sm: "column", md: "row" }} spacing={6}>
+                <Stack direction="column" spacing={4} mb="2rem">
                   <SearchBox />
                   <RefinementList
                     attribute="roleCategories"
                     label="Role categories"
+                    defaultLabel="View all"
                   />
-                  <RefinementList attribute="industry" label="Industry" />
+                  <RefinementList
+                    attribute="industry"
+                    label="Industry"
+                    defaultLabel="View all"
+                  />
                 </Stack>
                 <TeamHits />
               </Stack>
