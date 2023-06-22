@@ -13,6 +13,7 @@ import { useRouter } from "next/router"
 import { IndividualTeamBanner } from "../../components/IndividualTeamBanner"
 import { AboutTeam } from "../../components/AboutTeam"
 import { Slider } from "../../components/Slider"
+import { Hero } from "types/hero"
 
 export default function Team() {
   const router = useRouter()
@@ -42,9 +43,9 @@ export default function Team() {
       <Container>
         {team && hero ? (
           <>
-            <IndividualTeamBanner hero={hero} team={team} />
-            <AboutTeam team={team} />
-            <CaseStudy type="team" hero={hero} />
+            <IndividualTeamBanner hero={hero as Hero} team={team} />
+            <AboutTeam team={team as Hero} />
+            <CaseStudy type="team" hero={hero as Hero} />
             <Slider
               variant="role"
               status="success"

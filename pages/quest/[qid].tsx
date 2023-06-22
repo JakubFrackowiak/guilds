@@ -10,6 +10,7 @@ import { AboutGig } from "../../components/AboutGig"
 import { LevelBar } from "../../components/LevelBar"
 import { CaseStudy } from "../../components/CaseStudy"
 import { useRouter } from "next/router"
+import { Hero } from "types/hero"
 
 export default function Quest() {
   const router = useRouter()
@@ -34,10 +35,10 @@ export default function Quest() {
       <Container>
         {quest && hero ? (
           <>
-            <IndividualQuestBanner hero={hero} quest={quest} />
+            <IndividualQuestBanner hero={hero as Hero} quest={quest} />
             <AboutGig quest={quest} />
-            <LevelBar hero={hero} />
-            <CaseStudy type="quest" hero={hero} />
+            <LevelBar hero={hero as Hero} />
+            <CaseStudy type="quest" hero={hero as Hero} />
             <CurrentBids
               quest={quest}
               path="quests/0FdxGoe3fcy6v8Rd37VZ/bids"

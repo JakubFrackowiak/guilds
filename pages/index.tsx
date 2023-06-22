@@ -1,9 +1,12 @@
 import { Header } from "../components/Header"
 import { Container, Box } from "@mui/material"
 import { Footer } from "../components/Footer"
-import { PaymentModal } from "../components/PaymentModal"
+import { useState } from "react"
+import { ApprenticesModal } from "components/ApprenticesModal"
 
 export default function Home() {
+  const [modalOpen, setModalOpen] = useState(true)
+
   return (
     <Box
       sx={{
@@ -14,7 +17,7 @@ export default function Home() {
     >
       <Header />
       <Container>
-        <PaymentModal />
+        <ApprenticesModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
       </Container>
       <Footer />
     </Box>

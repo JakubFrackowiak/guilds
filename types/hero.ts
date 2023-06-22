@@ -19,6 +19,8 @@ export interface Hero {
   rating?: number
   isMentor?: boolean
   mentor?: Mentor
+  isApprentice?: boolean
+  apprentice: Apprentice
   xp?: string
   level?: string
 }
@@ -28,6 +30,16 @@ export type Mentor = {
   skill: string
   maxRate: string
   minRate: string
+}
+
+export interface Apprentice {
+  rate: number
+  workingHours: {
+    start: number
+    end: number
+  }
+  mentor: string
+  favoriteTo: string[]
 }
 
 export type Location = {

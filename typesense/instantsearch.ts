@@ -1,3 +1,4 @@
+import { InstantSearch } from "react-instantsearch-dom"
 import TypesenseInstantSearchAdapter from "typesense-instantsearch-adapter"
 
 const typesenseQuestsInstantsearchAdapter = new TypesenseInstantSearchAdapter({
@@ -48,7 +49,7 @@ const typesenseCoursesInstantsearchAdapter = new TypesenseInstantSearchAdapter({
   },
 })
 
-const typesenseMentorsInstantsearchAdapter = new TypesenseInstantSearchAdapter({
+const typesenseHeroesInstantsearchAdapter = new TypesenseInstantSearchAdapter({
   server: {
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY,
     nodes: [
@@ -60,18 +61,18 @@ const typesenseMentorsInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     ],
   },
   additionalSearchParameters: {
-    query_by: "minRate,maxRate,skill",
+    query_by: "name.first,name.last,location.country",
   },
 })
 
 const questsSearchClient = typesenseQuestsInstantsearchAdapter.searchClient
 const teamsSearchClient = typesenseTeamsInstantsearchAdapter.searchClient
 const coursesSearchClient = typesenseCoursesInstantsearchAdapter.searchClient
-const mentorsSearchClient = typesenseMentorsInstantsearchAdapter.searchClient
+const heroesSearchClient = typesenseHeroesInstantsearchAdapter.searchClient
 
 export {
   questsSearchClient,
   teamsSearchClient,
   coursesSearchClient,
-  mentorsSearchClient,
+  heroesSearchClient,
 }

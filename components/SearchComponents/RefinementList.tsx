@@ -7,6 +7,7 @@ interface Item {
   value: string
   count: number
   isRefined: boolean
+  defaultLabel: string
 }
 
 const CustomListItemButton = styled(ListItemButton)({
