@@ -28,11 +28,9 @@ export function PrimaryButton({
         height: "3rem",
         width: width,
         borderRadius: "0.6rem",
-        borderColor: (theme) => theme.palette.grey[400],
         bgcolor: "button.primary",
         "&:hover": {
           backgroundColor: (theme) => theme.palette.grey[400],
-          borderColor: (theme) => theme.palette.grey[300],
         },
       }}
     >

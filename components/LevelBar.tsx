@@ -28,7 +28,6 @@ export function LevelBar({ hero }: LevelBarProps) {
         flexDirection: "column",
         justifyContent: "space-between",
         alignItems: "center",
-        my: 15,
       }}
     >
       <Typography variant="body1" fontWeight={600} color="primary.main">

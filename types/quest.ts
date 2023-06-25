@@ -28,7 +28,9 @@ export interface Quest {
 export interface Bid {
   id: UUID
   bidderId: UUID
-  amount: string
+  amount: number
+  currency: "USD" | "%" | "GBP"
+  workingTimes: "Weekdays" | "Weekday Evenings" | "Weekends" | "Any"
   timeEstimate: string
   createdAt: Date
   updatedAt?: Date

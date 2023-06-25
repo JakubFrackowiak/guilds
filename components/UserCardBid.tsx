@@ -1,16 +1,9 @@
 import styled from "@emotion/styled"
 import Link from "next/link"
 import Image from "next/image"
-import {
-  Stack,
-  Typography,
-  CircularProgress,
-  Box,
-  Avatar,
-  Grid,
-} from "@mui/material"
+import { Stack, Typography, CircularProgress, Box, Grid } from "@mui/material"
 import { Bid } from "types/quest"
-import { useFirestore, useFirestoreDocData } from "reactfire"
+import { StorageImage, useFirestore, useFirestoreDocData } from "reactfire"
 import { doc } from "firebase/firestore"
 
 interface UserCardBidProps {
@@ -24,10 +17,19 @@ const Heading = styled(Typography)({
   fontWeight: 500,
 })
 
+const UserAvatar = styled(StorageImage)`
+  width: 80px;
+  height: 80px;
+  border: 2.5px solid #ffffff;
+  border-radius: 200px;
+  margin: 0px -7px;
+  object-fit: cover;
+`
+
 export function UserCardBid({ value }: UserCardBidProps) {
   const firestore = useFirestore()
   const heroQuery = doc(firestore, "heroes", value.bidderId)
-  const { status, data: hero } = useFirestoreDocData(heroQuery)
+  const { data: hero } = useFirestoreDocData(heroQuery)
 
   if (!hero) {
     return <CircularProgress />
@@ -36,10 +38,7 @@ export function UserCardBid({ value }: UserCardBidProps) {
   return (
     <Grid item xs={4}>
       <Stack sx={{ maxWidth: "330px" }}>
-        <Avatar
-          src={hero.profilePicture}
-          sx={{ width: 80, height: 80, m: 1, mb: 2 }}
-        />
+        <UserAvatar storagePath={`general/${hero?.profilePicture}`} />
         <Stack>
           <Heading>
             {hero.name.first} {hero.name.last}

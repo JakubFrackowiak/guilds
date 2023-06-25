@@ -19,9 +19,9 @@ export default function Quest() {
   const firestore = useFirestore()
   const questRef = doc(firestore, `quests/${qid}`)
 
-  const { status: questStatus, data: quest } = useFirestoreDocData(questRef)
+  const { data: quest } = useFirestoreDocData(questRef)
   const heroRef = doc(firestore, `heroes/${quest?.creatorId}`)
-  const { status: heroStatus, data: hero } = useFirestoreDocData(heroRef)
+  const { data: hero } = useFirestoreDocData(heroRef)
 
   return (
     <Box
@@ -35,19 +35,31 @@ export default function Quest() {
       <Container>
         {quest && hero ? (
           <>
-            <IndividualQuestBanner hero={hero as Hero} quest={quest} />
-            <AboutGig quest={quest} />
-            <LevelBar hero={hero as Hero} />
-            <CaseStudy type="quest" hero={hero as Hero} />
-            <CurrentBids
-              quest={quest}
-              path="quests/0FdxGoe3fcy6v8Rd37VZ/bids"
-            />
+            <Box my="5rem">
+              <IndividualQuestBanner hero={hero as Hero} quest={quest} />
+            </Box>
+            <Box my="7rem">
+              <AboutGig quest={quest} />
+            </Box>
+            <Box my="10rem">
+              <LevelBar hero={hero as Hero} />
+            </Box>
+            <Box my="10rem">
+              <CaseStudy type="quest" hero={hero as Hero} />
+            </Box>
+            <Box my="10rem">
+              <CurrentBids
+                quest={quest}
+                path="quests/0FdxGoe3fcy6v8Rd37VZ/bids"
+              />
+            </Box>
           </>
         ) : (
           <CircularProgress />
         )}
-        <BackToSearch />
+        <Box my="5rem">
+          <BackToSearch />
+        </Box>
       </Container>
       <Footer />
     </Box>

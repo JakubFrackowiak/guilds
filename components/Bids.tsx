@@ -14,11 +14,14 @@ export function Bids({ path }): JSX.Element {
   }
 
   return (
-    <Grid container columnSpacing={1} rowSpacing={4}>
+    <Grid
+      container
+      columns={{ xs: 8, sm: 12, md: 12 }}
+      columnSpacing={2}
+      rowSpacing={4}
+    >
       {bids?.length ? (
-        bids.map((bid: BidType, idx) => (
-          <UserCardBid key={idx} value={bid}></UserCardBid>
-        ))
+        bids.map((bid: BidType, idx) => <UserCardBid key={idx} value={bid} />)
       ) : (
         <Typography>no bids</Typography>
       )}

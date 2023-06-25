@@ -9,7 +9,7 @@ const HeroImage = styled(StorageImage)({
 })
 
 interface AvatarSize {
-  width: number
+  width: number | string
   height: number
 }
 
@@ -34,6 +34,9 @@ export function HeroAvatar({ hero, size }: HeroAvatarProps) {
         break
       case "large":
         setAvatarSize({ width: 720, height: 800 })
+        break
+      case "panoramicMedium":
+        setAvatarSize({ width: "100%", height: 592 })
         break
       default:
     }

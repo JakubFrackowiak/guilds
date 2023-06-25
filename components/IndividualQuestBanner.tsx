@@ -1,14 +1,16 @@
-import { Button, Stack, Box, Typography, Avatar } from "@mui/material"
-import { Hero } from "types/hero"
-import { Quest } from "types/quest"
 import Link from "next/link"
 import styled from "@emotion/styled"
+import { Stack, Box, Typography } from "@mui/material"
+import { Hero } from "types/hero"
+import { Quest } from "types/quest"
 import {
   StorageImage,
   useFirestoreCollectionData,
   useFirestore,
 } from "reactfire"
 import { collection, limit, orderBy, query } from "firebase/firestore"
+import { SecondaryButton } from "./SecondaryButton"
+import { PrimaryButton } from "./PrimaryButton"
 
 interface IndividualQuestBannerProps {
   hero: Hero
@@ -17,14 +19,20 @@ interface IndividualQuestBannerProps {
 
 const QuestImage = styled(StorageImage)({
   objectFit: "cover",
-  maxWidth: 510,
   maxHeight: 590,
-  p: 20,
   aspectRatio: "7/8",
 })
 
 const CaseStudyLink = styled(Link)`
   text-decoration: none;
+`
+const UserAvatar = styled(StorageImage)`
+  width: 60px;
+  height: 60px;
+  border: 2.5px solid #ffffff;
+  border-radius: 200px;
+  margin: 0px -7px;
+  object-fit: cover;
 `
 
 export function IndividualQuestBanner({
@@ -36,71 +44,75 @@ export function IndividualQuestBanner({
   const topBidsQuery = query(bidsRef, orderBy("amount", "asc"), limit(1))
   const { data: topBids } = useFirestoreCollectionData(topBidsQuery)
   const topBid = topBids?.[0]
+  const heroRef = collection(firestore, "heroes")
+  const { data: heroes } = useFirestoreCollectionData(heroRef)
+  const topBidder = heroes?.find((hero) => hero.id === topBid?.bidderId)
 
   return (
     <Stack
-      spacing={3}
       direction={{ lg: "row", xl: "row" }}
-      sx={{ my: 5 }}
-      alignItems="center"
+      alignItems={{
+        xs: "flex-start",
+        sm: "flex-start",
+        md: "flex-start",
+        lg: "center",
+      }}
+      spacing={3}
     >
-      <Stack width={576} mb={{ xs: "2rem", sm: "2rem", md: "2rem" }}>
+      <Stack mb={{ xs: "2rem", sm: "2rem", md: "2rem" }}>
         <Stack spacing={2} mb="2rem">
           <Box
             display="flex"
             sx={{
-              padding: "4px 10px 4px 4px",
+              px: 1,
+              py: 0.5,
               width: "max-content",
-              backgroundColor: "#FFFAEB",
-              borderRadius: "16px",
+              backgroundColor: "primary.light",
+              borderRadius: "1rem",
             }}
           >
             <Typography
               display="inline"
+              variant="body2"
               sx={{
                 py: 0.5,
                 px: 1,
-                fontWeight: "500",
-                fontSize: "0.75rem",
                 backgroundColor: "#FFFFFF",
-                color: "#B54708",
-                borderRadius: "16px",
+                color: "primary.main",
+                borderRadius: "1rem",
               }}
             >
-              {topBid?.userName} holds the top bid
+              <Box display="inline" fontWeight={500}>
+                {topBidder?.name.first} {topBidder?.name.last}
+              </Box>
+              {"  "}
+              holds the top bid
             </Typography>
             <Typography
+              variant="body2"
               display="inline"
-              color="#B54708"
-              sx={{ p: 0.5, ml: 1, fontSize: "0.75rem", fontWeight: "500" }}
+              color="primary.main"
+              sx={{ p: 0.5, ml: 1 }}
             >
+              {topBid?.currency}
               {topBid?.amount}
             </Typography>
           </Box>
-          <Typography variant="h3" fontSize={"3.75rem"}>
-            {quest?.title}
-          </Typography>
+          <Typography variant="h1">{quest?.title}</Typography>
         </Stack>
         <Typography
+          variant="h6"
           sx={{
             color: "#667085",
             fontWeight: 400,
-            fontSize: "1.25rem",
-            lineHeight: "1.875rem",
           }}
         >
           {quest?.summary}
         </Typography>
-        <Stack
-          display="flex"
-          flexDirection="row"
-          alignItems="center"
-          sx={{ my: 3 }}
-        >
-          <Avatar
-            src={hero?.profilePicture}
-            sx={{ width: 56, height: 56, m: 1, mb: 2 }}
-          />
+        <Stack display="flex" flexDirection="row" alignItems="center" my={3}>
+          <Box pr="1rem">
+            <UserAvatar storagePath={`general/${hero?.profilePicture}`} />
+          </Box>
           <Stack>
             <Typography>
               {hero?.name.first} {hero?.name.last}
@@ -113,41 +125,29 @@ export function IndividualQuestBanner({
                 color: "#667085",
               }}
             >
-              Created 14th July 2022
+              {(quest?.createdAt as any)?.toDate().toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
             </Typography>
           </Stack>
         </Stack>
         <Stack direction="row" spacing={2}>
           <CaseStudyLink href="#about-section">
-            <Button
-              variant="outlined"
-              sx={{
-                borderRadius: "0.5rem",
-                height: "3rem",
-                color: "text.primary",
-                borderColor: (theme) => theme.palette.grey[300],
-              }}
-            >
-              <Typography textTransform="none">More information</Typography>
-            </Button>
+            <SecondaryButton label="More information" />
           </CaseStudyLink>
           <CaseStudyLink href="#current-bids-section">
-            <Button
-              variant="contained"
-              sx={{
-                height: "3rem",
-                borderRadius: "0.5rem",
-              }}
-            >
-              <Typography textTransform="none">Place a bid</Typography>
-            </Button>
+            <PrimaryButton label="Place a bid" />
           </CaseStudyLink>
         </Stack>
       </Stack>
-      <QuestImage
-        storagePath={`quests/${quest?.image}`}
-        alt={`${quest?.title} quest image`}
-      />
+      <Stack width={{ xs: "100%", sm: "100%", md: "100%", lg: 510 }}>
+        <QuestImage
+          storagePath={`general/${quest?.image}`}
+          alt={`${quest?.title} quest image`}
+        />
+      </Stack>
     </Stack>
   )
 }

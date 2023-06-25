@@ -6,30 +6,34 @@ import { SecondaryButton } from "components/SecondaryButton"
 export function BackToSearch() {
   return (
     <Stack
-      height="12rem"
+      direction={{ xs: "column", sm: "column", md: "row" }}
+      py="4rem"
+      height="fit-content"
       bgcolor="primary.main"
       borderRadius="1.5rem"
-      justifyContent="center"
-      px="5rem"
-      sx={{ my: 15 }}
-      spacing={1}
+      justifyContent="space-around"
+      alignItems={{ xs: "center", sm: "center", md: "top" }}
+      spacing={3}
     >
-      <Stack direction="row" justifyContent="space-between">
-        <Typography variant="h4" color="background.default" fontWeight={500}>
+      <Stack
+        spacing={2}
+        textAlign={{ xs: "center", sm: "center", md: "start" }}
+      >
+        <Typography variant="h4" color="primary.light" fontWeight={500} noWrap>
           Go back to search
         </Typography>
-        <Stack direction="row" spacing={1.5}>
-          <Link href="quests" style={{ textDecoration: "none" }}>
-            <SecondaryButton label="View all quests" />
-          </Link>
-          <Link href="search-quest" style={{ textDecoration: "none" }}>
-            <PrimaryButton label="" />
-          </Link>
-        </Stack>
+        <Typography variant="body1" color="primary.light">
+          Not quite your thing? Go back to your search results
+        </Typography>
       </Stack>
-      <Typography variant="body1" color="primary.light">
-        Not quite your thing? Go back to your search results
-      </Typography>
+      <Stack direction="row" spacing={1.5} justifyContent="flex-start">
+        <Link href="quests" style={{ textDecoration: "none" }}>
+          <SecondaryButton label="View all quests" />
+        </Link>
+        <Link href="search-quest" style={{ textDecoration: "none" }}>
+          <PrimaryButton width="fit-content" label="Go back to search" />
+        </Link>
+      </Stack>
     </Stack>
   )
 }

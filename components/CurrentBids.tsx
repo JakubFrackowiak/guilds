@@ -1,18 +1,13 @@
 import Link from "next/link"
 import React, { useState, useEffect } from "react"
 import styled from "@emotion/styled"
-import {
-  Button,
-  Stack,
-  Typography,
-  Grid,
-  CircularProgress,
-  Box,
-} from "@mui/material"
+import { Stack, Typography, Grid, CircularProgress, Box } from "@mui/material"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { collection, query } from "firebase/firestore"
 import { Bids } from "../components/Bids"
 import { Quest } from "../types/quest"
+import { SecondaryButton } from "./SecondaryButton"
+import { PrimaryButton } from "./PrimaryButton"
 
 interface CurrentBidsProps {
   path: string
@@ -45,7 +40,6 @@ export function CurrentBids({ path, quest }: CurrentBidsProps) {
   return (
     <Stack
       direction={{ lg: "row", xl: "row" }}
-      sx={{ my: 15 }}
       alignItems="start"
       id="current-bids-section"
     >
@@ -74,28 +68,10 @@ export function CurrentBids({ path, quest }: CurrentBidsProps) {
             </Stack>
             <Stack direction="row" spacing={2}>
               <BidsLink href="#">
-                <Button
-                  variant="outlined"
-                  sx={{
-                    borderRadius: "0.5rem",
-                    height: "3rem",
-                    color: "text.primary",
-                    borderColor: (theme) => theme.palette.grey[300],
-                  }}
-                >
-                  <Typography textTransform="none">See all</Typography>
-                </Button>
+                <SecondaryButton label="See all" />
               </BidsLink>
               <BidsLink href="#">
-                <Button
-                  variant="contained"
-                  sx={{
-                    height: "3rem",
-                    borderRadius: "0.5rem",
-                  }}
-                >
-                  <Typography textTransform="none">Make a new bid</Typography>
-                </Button>
+                <PrimaryButton label="Make a new bid" />
               </BidsLink>
             </Stack>
           </Stack>

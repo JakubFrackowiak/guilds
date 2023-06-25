@@ -55,7 +55,9 @@
                         "__time__": "2022-08-07T19:24:04.794Z"
                       },
                       "bidderId": "2YM79stNWyXyX08J8vAL",
-                      "amount": "£2400",
+                      "amount": "2400",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "pending",
                       "timeEstimate": "3 months"
                     }
@@ -80,7 +82,9 @@
                         "__time__": "2022-08-08T19:24:04.794Z"
                       },
                       "bidderId": "imZrHGqnOCfGy44ya596jOyNHIG3",
-                      "amount": "£2100",
+                      "amount": "2100",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "accepted",
                       "timeEstimate": "2 months"
                     }
@@ -105,7 +109,9 @@
                         "__time__": "2022-08-09T19:24:04.794Z"
                       },
                       "bidderId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
-                      "amount": "£2100",
+                      "amount": "2100",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "accepted",
                       "timeEstimate": "2 months"
                     },
@@ -115,7 +121,9 @@
                         "__time__": "2022-08-09T10:24:04.794Z"
                       },
                       "bidderId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
-                      "amount": "£2700",
+                      "amount": "2700",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "rejected",
                       "timeEstimate": "2 months"
                     }
@@ -140,7 +148,9 @@
                         "__time__": "2022-08-09T19:24:04.794Z"
                       },
                       "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
-                      "amount": "£600",
+                      "amount": "600",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "accepted",
                       "timeEstimate": "2 months"
                     },
@@ -150,7 +160,9 @@
                         "__time__": "2022-08-11T19:24:04.794Z"
                       },
                       "bidderId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
-                      "amount": "£600",
+                      "amount": "600",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "rejected",
                       "timeEstimate": "2 months"
                     },
@@ -160,7 +172,9 @@
                         "__time__": "2022-08-09T19:24:04.794Z"
                       },
                       "bidderId": "2YM79stNWyXyX08J8vAL",
-                      "amount": "£550",
+                      "amount": "550",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "rejected",
                       "timeEstimate": "2 months"
                     },
@@ -170,7 +184,9 @@
                         "__time__": "2022-08-10T19:24:04.794Z"
                       },
                       "bidderId": "imZrHGqnOCfGy44ya596jOyNHIG3",
-                      "amount": "£800",
+                      "amount": "800",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "rejected",
                       "timeEstimate": "2 months"
                     }
@@ -218,7 +234,9 @@
                         "__time__": "2022-02-04T19:24:04.794Z"
                       },
                       "bidderId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
-                      "amount": "£0",
+                      "amount": "0",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "accepted",
                       "timeEstimate": "40 hours"
                     }
@@ -272,7 +290,9 @@
                         "__time__": "2022-02-10T19:24:04.794Z"
                       },
                       "bidderId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
-                      "amount": "£2400",
+                      "amount": "2400",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "pending",
                       "timeEstimate": "3 months"
                     }
@@ -337,7 +357,9 @@
                         "__time__": "2021-03-20T19:24:04.794Z"
                       },
                       "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
-                      "amount": "£2100",
+                      "amount": "2100",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "accepted",
                       "timeEstimate": "1 month"
                     }
@@ -362,7 +384,9 @@
                         "__time__": "2021-03-20T19:24:04.794Z"
                       },
                       "bidderId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
-                      "amount": "£1200",
+                      "amount": "1200",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "accepted",
                       "timeEstimate": "1 month"
                     },
@@ -372,7 +396,9 @@
                         "__time__": "2021-03-19T19:24:04.794Z"
                       },
                       "bidderId": "2YM79stNWyXyX08J8vAL",
-                      "amount": "£1400",
+                      "amount": "1400",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "rejected",
                       "timeEstimate": "3 weeks"
                     }
@@ -397,7 +423,9 @@
                         "__time__": "2021-03-21T19:24:04.794Z"
                       },
                       "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
-                      "amount": "£2000",
+                      "amount": "2000",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "rejected",
                       "timeEstimate": "1 month"
                     },
@@ -407,7 +435,9 @@
                         "__time__": "2021-03-19T19:24:04.794Z"
                       },
                       "bidderId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
-                      "amount": "£1700",
+                      "amount": "1700",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "rejected",
                       "timeEstimate": "3 months"
                     },
@@ -417,7 +447,9 @@
                         "__time__": "2021-03-22T19:24:04.794Z"
                       },
                       "bidderId": "imZrHGqnOCfGy44ya596jOyNHIG3",
-                      "amount": "£2100",
+                      "amount": "2100",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "accepted",
                       "timeEstimate": "2 months"
                     },
@@ -427,7 +459,9 @@
                         "__time__": "2021-03-24T19:24:04.794Z"
                       },
                       "bidderId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
-                      "amount": "£3400",
+                      "amount": "3400",
+                      "currency": "£",
+                      "workingTimes" : "Weekdays",
                       "status": "rejected",
                       "timeEstimate": "3 weeks"
                     }
@@ -1009,7 +1043,9 @@
                   "__time__": "2019-11-15T19:24:04.794Z"
                 },
                 "bidderId": "imZrHGqnOCfGy44ya596jOyNHIG3",
-                "amount": "£180",
+                "amount": "180",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "rejected",
                 "timeEstimate": "2 days"
               },
@@ -1019,7 +1055,9 @@
                   "__time__": "2019-11-16T19:24:04.794Z"
                 },
                 "bidderId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
-                "amount": "£120",
+                "amount": "120",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "accepted",
                 "timeEstimate": "3 days"
               }
@@ -1053,7 +1091,9 @@
                   "__time__": "2020-09-12T19:24:04.794Z"
                 },
                 "bidderId": "2YM79stNWyXyX08J8vAL",
-                "amount": "£400",
+                "amount": "400",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "rejected",
                 "timeEstimate": "10 days"
               },
@@ -1063,7 +1103,9 @@
                   "__time__": "2020-09-13T19:24:04.794Z"
                 },
                 "bidderId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
-                "amount": "£450",
+                "amount": "450",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "rejected",
                 "timeEstimate": "15 days"
               },
@@ -1073,7 +1115,9 @@
                   "__time__": "2020-09-14T19:24:04.794Z"
                 },
                 "bidderId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
-                "amount": "£500",
+                "amount": "500",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "rejected",
                 "timeEstimate": "30 days"
               },
@@ -1083,7 +1127,9 @@
                   "__time__": "2020-09-13T19:24:04.794Z"
                 },
                 "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
-                "amount": "£700",
+                "amount": "700",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "pending",
                 "timeEstimate": "30 days"
               }
@@ -1113,7 +1159,9 @@
                   "__time__": "2022-06-08T19:24:04.794Z"
                 },
                 "bidderId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
-                "amount": "£800",
+                "amount": "800",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "rejected",
                 "timeEstimate": "1 day"
               },
@@ -1123,7 +1171,9 @@
                   "__time__": "2022-06-10T19:24:04.794Z"
                 },
                 "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
-                "amount": "£200",
+                "amount": "200",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "accepted",
                 "timeEstimate": "2 days"
               }
@@ -1152,7 +1202,9 @@
                   "__time__": "2022-02-08T19:24:04.794Z"
                 },
                 "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
-                "amount": "£50",
+                "amount": "50",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "pending",
                 "timeEstimate": "3 days"
               },
@@ -1162,7 +1214,9 @@
                   "__time__": "2022-02-01T19:24:04.794Z"
                 },
                 "bidderId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
-                "amount": "£70",
+                "amount": "70",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "pending",
                 "timeEstimate": "5 days"
               }
@@ -1192,7 +1246,9 @@
                   "__time__": "2022-02-11T19:24:04.794Z"
                 },
                 "bidderId": "2YM79stNWyXyX08J8vAL",
-                "amount": "£170",
+                "amount": "170",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "accepted",
                 "timeEstimate": "10 days"
               }
@@ -1221,7 +1277,9 @@
                   "__time__": "2022-07-24T19:24:04.794Z"
                 },
                 "bidderId": "imZrHGqnOCfGy44ya596jOyNHIG3",
-                "amount": "£180",
+                "amount": "180",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "pending",
                 "timeEstimate": "1 day"
               }
@@ -1238,7 +1296,9 @@
           "description": "I need someone to design my webapp on figma to make it easier to give to my developers, the webapp is centred around fitness and necessary artwork would be provided as well as structure of the app. Probably around 10-12 pages on figma to design with guidance through the calls would expect a time estimate as well as price.",
           "summary": "Webapp design needed on figma",
           "image": "laptop-working_N14GO3XZE6.jpeg",
-          "reward": "£450",
+          "reward": "450",
+          "currency": "£",
+          "workingTimes" : "Weekdays",
           "status": "closed",
           "level": 9,
           "tags": ["Design", "Customer Success", "Software Development"],
@@ -1251,7 +1311,9 @@
                   "__time__": "2022-05-06T19:24:04.794Z"
                 },
                 "bidderId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
-                "amount": "£450",
+                "amount": "450",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "accepted",
                 "timeEstimate": "5 days"
               }
@@ -1286,7 +1348,9 @@
                   "__time__": "2021-11-12T19:24:04.794Z"
                 },
                 "bidderId": "2YM79stNWyXyX08J8vAL",
-                "amount": "£1300",
+                "amount": "1300",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "pending",
                 "timeEstimate": "14 day"
               },
@@ -1296,7 +1360,9 @@
                   "__time__": "2021-11-14T19:24:04.794Z"
                 },
                 "bidderId": "imZrHGqnOCfGy44ya596jOyNHIG3",
-                "amount": "£1200",
+                "amount": "1200",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "pending",
                 "timeEstimate": "16 day"
               },
@@ -1306,7 +1372,9 @@
                   "__time__": "2021-11-13T19:24:04.794Z"
                 },
                 "bidderId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
-                "amount": "£2100",
+                "amount": "2100",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "pending",
                 "timeEstimate": "7 day"
               },
@@ -1316,7 +1384,9 @@
                   "__time__": "2021-11-12T19:24:04.794Z"
                 },
                 "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
-                "amount": "£900",
+                "amount": "900",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "pending",
                 "timeEstimate": "21 day"
               },
@@ -1326,7 +1396,9 @@
                   "__time__": "2021-11-16T19:24:04.794Z"
                 },
                 "bidderId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
-                "amount": "£2500",
+                "amount": "2500",
+                "currency": "£",
+                "workingTimes" : "Weekdays",
                 "status": "pending",
                 "timeEstimate": "12 day"
               }
