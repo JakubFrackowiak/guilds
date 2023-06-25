@@ -2,9 +2,9 @@ import { Container, Box } from "@mui/material"
 
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
-import { SignIn } from "components/SignIn"
+import { SignUp } from "components/SignUp"
 
-export default function Login() {
+export default function SignUpPage() {
   return (
     <Box
       sx={{
@@ -15,7 +15,7 @@ export default function Login() {
     >
       <Header />
       <Container sx={{ mt: "3rem", mb: "15rem" }}>
-        <SignIn />
+        <SignUp />
       </Container>
       <Footer />
     </Box>
