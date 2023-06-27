@@ -83,7 +83,7 @@ function CustomPagination({
         page={currentRefinement}
         onChange={(e, page) => refine(page)}
         shape="rounded"
-        siblingCount={1}
+        siblingCount={0.5}
         boundaryCount={1}
         hidePrevButton
         hideNextButton

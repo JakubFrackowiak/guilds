@@ -9,7 +9,7 @@ export function BackToSearch() {
       direction={{ xs: "column", sm: "column", md: "row" }}
       py="4rem"
       height="fit-content"
-      bgcolor="primary.main"
+      bgcolor="primary.dark"
       borderRadius="1.5rem"
       justifyContent="space-around"
       alignItems={{ xs: "center", sm: "center", md: "top" }}

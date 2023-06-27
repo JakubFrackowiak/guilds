@@ -36,7 +36,7 @@ export function UnderMaintenance() {
             Sorry, the page you are looking for doesn't exist or has been moved.
             Try searching our site:
           </Typography>
-          <Stack direction="row" spacing={2}>
+          <Stack direction="row" alignItems="center" spacing={2}>
             <TextField
               label="Search our site"
               type="text"
@@ -50,16 +50,17 @@ export function UnderMaintenance() {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   width: "17rem",
+                  height: "2.95rem",
                 },
               }}
             />
-            <PrimaryButton>Search</PrimaryButton>
+            <PrimaryButton label="Search" width="fit-content" />
           </Stack>
         </Stack>
         <Image
           src="/404.svg"
-          width={isMedium ? 400 : 500}
-          height={180}
+          width={isMedium ? 400 : 700}
+          height={240}
           alt="404 error"
         />
       </Stack>

@@ -51,6 +51,7 @@ export function IndividualQuestBanner({
   return (
     <Stack
       direction={{ lg: "row", xl: "row" }}
+      justifyContent="space-between"
       alignItems={{
         xs: "flex-start",
         sm: "flex-start",

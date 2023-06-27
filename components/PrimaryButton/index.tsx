@@ -30,7 +30,8 @@ export function PrimaryButton({
         borderRadius: "0.6rem",
         bgcolor: "button.primary",
         "&:hover": {
-          backgroundColor: (theme) => theme.palette.grey[400],
+          backgroundColor: "button.primaryHover",
+          borderColor: "button.primaryHover",
         },
       }}
     >

@@ -25,6 +25,7 @@ import { useState } from "react"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import { validationSchema } from "./ValidationSchemas"
 import { useRouter } from "next/router"
+import { PrimaryButton } from "components/PrimaryButton"
 
 interface FormValues {
   email: string
@@ -312,17 +313,7 @@ export function EmailPhoneSignUp() {
                   </Typography>
                 ) : null}
               </Stack>
-              <Button
-                className="sign-in-button"
-                variant="contained"
-                type="submit"
-                sx={{
-                  textTransform: "none",
-                  height: "2.8rem",
-                }}
-              >
-                Get started
-              </Button>
+              <PrimaryButton label="Get started" type="submit" />
             </Stack>
           </Form>
         )}

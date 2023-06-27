@@ -5,13 +5,13 @@ import { Hero } from "../types/hero"
 const XpBar = styled(Slider)(() => ({
   "& .MuiSlider-thumb": {
     color: "white",
-    border: "solid 2px #50915B",
+    border: "solid 2px #E31B54",
   },
   "& .MuiSlider-rail": {
     color: "#EAECF0",
   },
   "& .MuiSlider-track": {
-    color: "#50915B",
+    color: "#E31B54",
   },
 }))
 
@@ -36,7 +36,14 @@ export function LevelBar({ hero }: LevelBarProps) {
       <Typography variant="h3" sx={{ mt: 1 }}>
         {hero?.xp}XP
       </Typography>
-      <XpBar disabled defaultValue={[0, Number(hero.xp)]} sx={{ mt: 2 }} />
+      <XpBar
+        disabled
+        defaultValue={[0, Number(hero.xp)]}
+        sx={{
+          mt: 2,
+          color: "primary.main",
+        }}
+      />
     </Container>
   )
 }

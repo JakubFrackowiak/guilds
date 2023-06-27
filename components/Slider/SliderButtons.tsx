@@ -1,51 +1,17 @@
 import Link from "next/link"
-import { Button, Stack, Typography } from "@mui/material"
+import { Stack } from "@mui/material"
 import { Variant } from "components/Slider"
+import { PrimaryButton } from "components/PrimaryButton"
+import { SecondaryButton } from "components/SecondaryButton"
 
 function HeroesSliderButtons() {
   return (
     <Stack direction="row" spacing={2} justifyContent={{ xs: "space-between" }}>
       <Link href="/heroes" style={{ textDecoration: "none" }}>
-        <Button
-          variant="outlined"
-          sx={{
-            "& > *": { width: "100%" },
-            height: "3rem",
-            borderRadius: "0.5rem",
-            borderColor: (theme) => theme.palette.grey[300],
-            whiteSpace: "nowrap",
-          }}
-        >
-          <Typography
-            variant="body1"
-            textTransform="none"
-            px="0.6rem"
-            fontWeight={500}
-            color={(theme) => theme.palette.grey[700]}
-          >
-            Our customers
-          </Typography>
-        </Button>
+        <SecondaryButton label="Our customers" />
       </Link>
       <Link href="/signup" style={{ textDecoration: "none" }}>
-        <Button
-          variant="contained"
-          sx={{
-            border: "1px solid black",
-            height: "3rem",
-            borderRadius: "0.5rem",
-            whiteSpace: "nowrap",
-          }}
-        >
-          <Typography
-            variant="body1"
-            textTransform="none"
-            px="0.6rem"
-            fontWeight={500}
-          >
-            Create account
-          </Typography>
-        </Button>
+        <PrimaryButton label="Create account" />
       </Link>
     </Stack>
   )
@@ -55,24 +21,7 @@ function QuestsSliderButtons() {
   return (
     <Stack sx={{ "& > *": { width: "100%" } }}>
       <Link href="/quests" style={{ textDecoration: "none" }}>
-        <Button
-          variant="contained"
-          sx={{
-            width: { xs: "100%" },
-            height: "3rem",
-            borderRadius: "0.5rem",
-            whiteSpace: "nowrap",
-          }}
-        >
-          <Typography
-            variant="body1"
-            textTransform="none"
-            px="0.6rem"
-            fontWeight={500}
-          >
-            View all quests
-          </Typography>
-        </Button>
+        <PrimaryButton label="View all quests" />
       </Link>
     </Stack>
   )
@@ -82,24 +31,7 @@ function TeamsSliderButtons() {
   return (
     <Stack sx={{ "& > *": { width: "100%" } }}>
       <Link href="/teams" style={{ textDecoration: "none" }}>
-        <Button
-          variant="contained"
-          sx={{
-            width: { xs: "100%" },
-            height: "3rem",
-            borderRadius: "0.5rem",
-            whiteSpace: "nowrap",
-          }}
-        >
-          <Typography
-            variant="body1"
-            textTransform="none"
-            px="0.6rem"
-            fontWeight={500}
-          >
-            View all teams
-          </Typography>
-        </Button>
+        <PrimaryButton label="View all teams" />
       </Link>
     </Stack>
   )

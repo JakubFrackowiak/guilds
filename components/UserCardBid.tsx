@@ -48,7 +48,7 @@ export function UserCardBid({ value }: UserCardBidProps) {
               fontWeight: 400,
               size: "1rem",
               lineHeight: "1.5rem",
-              color: "#498553",
+              color: "primary.main",
             }}
           >
             {"£" + value.amount}

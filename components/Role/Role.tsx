@@ -8,6 +8,7 @@ import {
 } from "reactfire"
 import { collection, limit, orderBy, query } from "firebase/firestore"
 import { Role as RoleType } from "types/team"
+import { SecondaryButton } from "components/SecondaryButton"
 
 const RoleThumbnail = styled(StorageImage)({
   objectFit: "cover",
@@ -58,22 +59,11 @@ export function Role({ role, teamId }: RoleProps) {
               basedOn="words"
             />
           </Typography>
-          <Button
+          <SecondaryButton
+            label="Make a bid"
+            width="fit-content"
             onClick={() => makeBid()}
-            variant="outlined"
-            sx={{
-              width: "7rem",
-              height: "3rem",
-              color: "text.primary",
-              borderColor: (theme) => theme.palette.grey[300],
-              borderRadius: "0.5rem",
-              textTransform: "none",
-            }}
-          >
-            <Typography variant="body2" sx={{ fontWeight: 600 }}>
-              Make a bid
-            </Typography>
-          </Button>
+          />
         </Stack>
       </Box>
     </Grid>

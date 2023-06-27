@@ -38,7 +38,7 @@ export default function Home() {
           />
         </Box>
       </Container>
-      <Box bgcolor="primary.main">
+      <Box bgcolor="primary.dark">
         <GetItDone />
       </Box>
       <Container>

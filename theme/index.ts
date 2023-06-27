@@ -30,7 +30,7 @@ export const lightThemeOptions: ThemeOptions = {
   palette: {
     mode: "light",
     primary: {
-      main: "#C01048",
+      main: "#E31B54",
       light: "#FFF1F3",
       dark: "#A11043",
     },
@@ -51,6 +51,8 @@ export const lightThemeOptions: ThemeOptions = {
       secondary: "#FFFFFF",
       primaryText: "#FFFFFF",
       secondaryText: "#344054",
+      primaryHover: "#C01048",
+      secondaryHover: "#FFF1F3",
     },
   },
   typography,
@@ -89,6 +91,8 @@ export const darkThemeOptions: ThemeOptions = {
       secondary: "#FFFFFF",
       primaryText: "",
       secondaryText: "#344054",
+      primaryHover: "#FFFFFF",
+      secondaryHover: "FFF1F3",
     },
   },
   typography,
@@ -101,6 +105,8 @@ declare module "@mui/material/styles" {
       secondary: string
       primaryText: string
       secondaryText: string
+      primaryHover: string
+      secondaryHover: string
     }
   }
   interface PaletteOptions {
@@ -109,6 +115,8 @@ declare module "@mui/material/styles" {
       secondary: string
       primaryText: string
       secondaryText: string
+      primaryHover: string
+      secondaryHover: string
     }
   }
 }

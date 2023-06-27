@@ -1,7 +1,7 @@
 import { Container, Box } from "@mui/material"
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
-import { SignIn } from "components/SignIn"
+import { UnderMaintenance } from "components/UnderMaintenance"
 
 export default function Login() {
   return (
@@ -14,7 +14,7 @@ export default function Login() {
     >
       <Header />
       <Container sx={{ mt: "3rem", mb: "15rem" }}>
-        <SignIn />
+        <UnderMaintenance />
       </Container>
       <Footer />
     </Box>

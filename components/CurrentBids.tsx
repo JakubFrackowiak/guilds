@@ -53,17 +53,6 @@ export function CurrentBids({ path, quest }: CurrentBidsProps) {
             <Typography color="text.secondary">
               The current heroes that are bidding on this quest.
             </Typography>
-            <Stack display="flex" flexDirection="row" sx={{ pb: 3 }}>
-              <Typography display="inline" color="text.secondary">
-                The best competitor price is currently{" "}
-                <Box
-                  component="span"
-                  style={{ color: "#498553", fontWeight: 600 }}
-                >
-                  £{highest}.
-                </Box>
-              </Typography>
-            </Stack>
             <Stack direction="row" spacing={2}>
               <SecondaryButton label="See all" width="fit-content" />
               <PrimaryButton

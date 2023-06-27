@@ -9,6 +9,8 @@ import {
 import { collection, limit, query } from "firebase/firestore"
 import { Hero } from "types/hero"
 
+import { SignIn } from "./SignIn"
+
 const UserAvatar = styled(StorageImage)`
   width: 40px;
   height: 40px;
@@ -27,58 +29,65 @@ export function HeroHeader() {
   return (
     <Stack
       direction={{ xs: "column", sm: "column", md: "row" }}
-      spacing={{ xs: 8, sm: 8, md: 0 }}
+      width="100%"
+      spacing={{ xs: 5, sm: 5, md: -10 }}
     >
-      <Stack alignItems={{ md: "flex-start", sm: "center", xs: "center" }}>
-        <Stack width={{ sm: "90%", xs: "90%" }}>
-          <Typography variant="h3" color="text.primary">
-            Complete quests and rise through the ranks
-          </Typography>
-          <Typography width={{ md: "80%" }} variant="h5" sx={{ my: 2 }}>
-            One-off jobs hosted by companies in need of a helping hand. Level up
-            your experience by completing taks and earn income.
-          </Typography>
-          <Stack direction="row" spacing={{ xs: 2 }}>
+      <Stack justifyContent="center" alignItems="flex-start">
+        <Typography variant="h1" color="text.primary">
+          Complete quests and rise through the ranks
+        </Typography>
+        <Typography variant="h5" sx={{ my: 2 }} width="75%">
+          One-off jobs hosted by companies in need of a helping hand. Level up
+          your experience by completing taks and earn income.
+        </Typography>
+        <Stack direction="row" spacing={{ xs: 2 }} position="relative">
+          <Stack direction="row">
+            {heroes?.map((hero: Hero, idx) => (
+              <UserAvatar
+                key={hero.id}
+                alt="hero image"
+                storagePath={`general/${heroes[idx].profilePicture}`}
+              />
+            ))}
+          </Stack>
+          <Stack direction="column">
             <Stack direction="row">
-              {heroes?.map((hero: Hero, idx) => (
-                <UserAvatar
-                  key={hero.id}
-                  alt="hero image"
-                  storagePath={`general/${heroes[idx].profilePicture}`}
-                />
-              ))}
+              <Rating value={5} readOnly />
+              <Typography variant="body1">5.0</Typography>
             </Stack>
-            <Stack direction="column">
-              <Stack direction="row">
-                <Rating value={5} readOnly />
-                <Typography variant="body1">5.0</Typography>
-              </Stack>
-              <Typography variant="body1" color="text.secondary">
-                from 200+ reviews
-              </Typography>
-            </Stack>
+            <Typography variant="body1" color="text.secondary">
+              from 200+ reviews
+            </Typography>
           </Stack>
           <Box
             sx={{
+              zIndex: 99,
               display: { xs: "none", sm: "none", md: "none", lg: "block" },
-              position: "relative",
+              position: "absolute",
               top: -100,
-              left: 350,
+              left: 410,
             }}
           >
             <Image
-              alt="header arrow"
               src="/HeaderArrow.svg"
-              width={380}
-              height={300}
+              alt="arrow"
+              width={290}
+              height={240}
             />
           </Box>
         </Stack>
       </Stack>
-      <Stack alignItems="center">
-        <Stack alignItems={{ xs: "center", sm: "end", md: "end" }}>
-          <Image alt="header arrow" src="/login.svg" width={440} height={550} />
-        </Stack>
+      <Stack
+        width="100%"
+        py="1.5rem"
+        borderRadius="1.5rem"
+        bgcolor="background.paper"
+        sx={{
+          transform: { xs: "scale(1)", sm: "scale(1)", md: "scale(0.8)" },
+          transformOrigin: { xs: "center", sm: "center", md: "right" },
+        }}
+      >
+        <SignIn />
       </Stack>
     </Stack>
   )

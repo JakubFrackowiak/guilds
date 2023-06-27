@@ -1,5 +1,6 @@
 import { Formik, Form, FormikProps } from "formik"
-import { Stack, Button, Typography, TextField } from "@mui/material"
+import { Stack, TextField } from "@mui/material"
+import { PrimaryButton } from "components/PrimaryButton"
 
 interface FormValues {
   email: string
@@ -35,20 +36,11 @@ export function Subscribe() {
                 "& .MuiOutlinedInput-input": { padding: "0.5rem 1rem" },
               }}
             />
-            <Button
-              variant="contained"
-              sx={{ borderRadius: "0.5rem" }}
+            <PrimaryButton
+              label="Subscribe"
+              width="fit-content"
               type="submit"
-            >
-              <Typography
-                textTransform="none"
-                px="0.6rem"
-                fontWeight={500}
-                variant="body1"
-              >
-                Subscribe
-              </Typography>
-            </Button>
+            />
           </Stack>
         </Form>
       )}

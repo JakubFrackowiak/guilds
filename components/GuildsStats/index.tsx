@@ -26,7 +26,7 @@ export function GuildsStats() {
           height={56}
           alt="Guilds Logo Pastel"
         />
-        <Typography variant="h4">Guilds history</Typography>
+        <Typography variant="h3">Guilds history</Typography>
         <Typography variant="h6" sx={{ color: "text.secondary" }}>
           We've made quite the statement
         </Typography>

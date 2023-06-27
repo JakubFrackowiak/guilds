@@ -15,6 +15,7 @@ import { useAuth } from "reactfire"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
 import { useState } from "react"
+import { PrimaryButton } from "components/PrimaryButton"
 
 interface FormValues {
   email: string
@@ -112,16 +113,7 @@ export function SignInForm() {
                   <Typography color="primary.main">Forgot password</Typography>
                 </Link>
               </Stack>
-              <Button
-                variant="contained"
-                type="submit"
-                sx={{
-                  textTransform: "none",
-                  height: "2.8rem",
-                }}
-              >
-                Sign in
-              </Button>
+              <PrimaryButton label="Sign in" type="submit" />
             </Stack>
           </Form>
         )}

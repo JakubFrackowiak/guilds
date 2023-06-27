@@ -5,7 +5,7 @@ import { providers } from "../SocialSignIn/providers"
 
 export function SignUp() {
   return (
-    <Stack m="auto" width="28rem" spacing={2} my="4rem">
+    <Stack m="auto" width="28rem" spacing={2}>
       <EmailPhoneSignUp />
       <Stack direction="row">
         {providers.map((provider) => (

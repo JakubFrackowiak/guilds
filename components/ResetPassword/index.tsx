@@ -17,6 +17,7 @@ import "firebase/compat/firestore"
 import { useRouter } from "next/router"
 import { validationSchema } from "components/SignUp/ValidationSchemas"
 import * as Yup from "yup"
+import { PrimaryButton } from "components/PrimaryButton"
 
 interface FormValues {
   password: string
@@ -130,16 +131,7 @@ export function ResetPassword() {
                   ) : null}
                 </Stack>
               </Stack>
-              <Button
-                variant="contained"
-                type="submit"
-                sx={{
-                  textTransform: "none",
-                  height: "2.8rem",
-                }}
-              >
-                Reset password
-              </Button>
+              <PrimaryButton label="Reset password" type="submit" />
             </Stack>
           </Form>
         )}

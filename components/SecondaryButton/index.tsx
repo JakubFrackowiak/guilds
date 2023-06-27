@@ -1,3 +1,4 @@
+import { ThemeContext } from "@emotion/react"
 import { Button, Stack, Typography } from "@mui/material"
 import { ReactNode } from "react"
 
@@ -28,11 +29,10 @@ export function SecondaryButton({
         height: "3rem",
         width: width,
         borderRadius: "0.6rem",
-        borderColor: (theme) => theme.palette.grey[400],
+        borderColor: (ThemeContext) => ThemeContext.palette.grey[300],
         bgcolor: "button.secondary",
         "&:hover": {
-          backgroundColor: (theme) => theme.palette.grey[400],
-          borderColor: (theme) => theme.palette.grey[300],
+          backgroundColor: "button.secondaryHover",
         },
       }}
     >

@@ -1,7 +1,6 @@
-import { Button, Stack, Box, Typography, Avatar } from "@mui/material"
+import { Stack, Typography, Avatar, Box } from "@mui/material"
 import { Hero } from "types/hero"
 import { Team } from "types/team"
-import Link from "next/link"
 import styled from "@emotion/styled"
 import { StorageImage } from "reactfire"
 
@@ -12,14 +11,17 @@ interface IndividualTeamBannerProps {
 
 const TeamImage = styled(StorageImage)({
   objectFit: "cover",
-  maxWidth: 510,
   maxHeight: 590,
-  p: 20,
   aspectRatio: "7/8",
 })
 
-const CaseStudyLink = styled(Link)`
-  text-decoration: none;
+const UserAvatar = styled(StorageImage)`
+  width: 60px;
+  height: 60px;
+  border: 2.5px solid #ffffff;
+  border-radius: 200px;
+  margin: 0px -7px;
+  object-fit: cover;
 `
 
 export function IndividualTeamBanner({
@@ -28,16 +30,19 @@ export function IndividualTeamBanner({
 }: IndividualTeamBannerProps) {
   return (
     <Stack
-      spacing={3}
       direction={{ lg: "row", xl: "row" }}
-      sx={{ my: 5 }}
-      alignItems="center"
+      justifyContent="space-between"
+      alignItems={{
+        xs: "flex-start",
+        sm: "flex-start",
+        md: "flex-start",
+        lg: "center",
+      }}
+      spacing={3}
     >
-      <Stack width={576} mb={{ xs: "2rem", sm: "2rem", md: "2rem" }}>
+      <Stack mb={{ xs: "2rem", sm: "2rem", md: "2rem" }}>
         <Stack spacing={2} mb="2rem">
-          <Typography variant="h3" fontSize={"3.75rem"}>
-            {team?.title}
-          </Typography>
+          <Typography variant="h1">{team?.title}</Typography>
         </Stack>
         <Typography
           sx={{
@@ -55,10 +60,9 @@ export function IndividualTeamBanner({
           alignItems="center"
           sx={{ my: 3 }}
         >
-          <Avatar
-            src={hero?.profilePicture}
-            sx={{ width: 56, height: 56, m: 1, mb: 2 }}
-          />
+          <Box pr="1rem">
+            <UserAvatar storagePath={`general/${hero?.profilePicture}`} />
+          </Box>
           <Stack>
             <Typography>
               {hero?.name.first} {hero?.name.last}
@@ -76,10 +80,12 @@ export function IndividualTeamBanner({
           </Stack>
         </Stack>
       </Stack>
-      <TeamImage
-        storagePath={`teams/${team?.image}`}
-        alt={`${team?.title} team image`}
-      />
+      <Stack width={{ xs: "100%", sm: "100%", md: "100%", lg: 510 }}>
+        <TeamImage
+          storagePath={`general/${team?.image}`}
+          alt={`${team?.title} team image`}
+        />
+      </Stack>
     </Stack>
   )
 }

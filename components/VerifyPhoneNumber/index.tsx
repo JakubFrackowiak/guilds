@@ -11,6 +11,7 @@ import {
 import { useRef, useState } from "react"
 import { CodeTextField } from "./CodeTextField"
 import { useRouter } from "next/router"
+import { PrimaryButton } from "components/PrimaryButton"
 
 export interface Code {
   [key: number]: string
@@ -124,15 +125,11 @@ export function VerifyPhoneNumber() {
           inputRefs={inputRefs}
         />
       </Stack>
-      <Button
-        variant="contained"
-        color="primary"
-        size="large"
-        sx={{ width: "40%" }}
+      <PrimaryButton
+        label="Verify phone"
+        width="40%"
         onClick={() => handleVerifyPhoneNumber(Object.values(code).join(""))}
-      >
-        Verify phone
-      </Button>
+      />
       <Stack direction="row" alignItems="center">
         <Typography variant="body1" color="text.secondary">
           Didn't receive the code?

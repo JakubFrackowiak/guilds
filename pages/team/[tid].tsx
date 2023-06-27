@@ -22,14 +22,13 @@ export default function Team() {
   const firestore = useFirestore()
 
   const teamRef = doc(firestore, `teams/${tid}`)
-  const { status: teamStatus, data: team } = useFirestoreDocData(teamRef)
+  const { data: team } = useFirestoreDocData(teamRef)
 
   const heroRef = doc(firestore, `heroes/${team?.creatorId}`)
-  const { status: heroStatus, data: hero } = useFirestoreDocData(heroRef)
+  const { data: hero } = useFirestoreDocData(heroRef)
 
   const rolesQuery = query(collection(firestore, `teams/${tid}/roles`))
-  const { status: rolesStatus, data: roles } =
-    useFirestoreCollectionData(rolesQuery)
+  const { data: roles } = useFirestoreCollectionData(rolesQuery)
 
   return (
     <Box
@@ -43,20 +42,30 @@ export default function Team() {
       <Container>
         {team && hero ? (
           <>
-            <IndividualTeamBanner hero={hero as Hero} team={team} />
-            <AboutTeam team={team as Hero} />
-            <CaseStudy type="team" hero={hero as Hero} />
-            <Slider
-              variant="role"
-              status="success"
-              items={roles}
-              variantId={team?.id}
-            />
+            <Box my="5rem">
+              <IndividualTeamBanner hero={hero as Hero} team={team} />
+            </Box>
+            <Box my="7rem">
+              <AboutTeam team={team as Hero} />
+            </Box>
+            <Box my="10rem">
+              <CaseStudy type="team" hero={hero as Hero} />
+            </Box>
+            <Box my="10rem">
+              <Slider
+                variant="role"
+                status="success"
+                items={roles}
+                variantId={team?.id}
+              />
+            </Box>
           </>
         ) : (
           <CircularProgress />
         )}
-        <BackToSearch />
+        <Box my="5rem">
+          <BackToSearch />
+        </Box>
       </Container>
       <Footer />
     </Box>

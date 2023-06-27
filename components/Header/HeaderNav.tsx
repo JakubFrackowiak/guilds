@@ -1,4 +1,4 @@
-import { MenuItem, Stack, Typography } from "@mui/material"
+import { Box, MenuItem, Stack, Typography } from "@mui/material"
 import { AboutUsDropdown } from "components/AboutUsDropdown"
 import Image from "next/image"
 import Link from "next/link"
@@ -21,66 +21,77 @@ export const HeaderNav = ({ pages }: HeaderNavProps) => {
   return (
     <Stack direction="row">
       {pages.navigationItem.map((page) => (
-        <MenuItem key={page.href}>
+        <Stack height="100%" alignItems="center" justifyContent="center">
           {page.navigations ? (
-            <Stack>
-              <button
-                aria-controls={open ? "basic-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-                onClick={handleClick}
-                style={{
-                  all: "unset",
-                }}
-              >
-                <Stack direction="row" alignItems="center" spacing={1}>
-                  <Typography
-                    textAlign="center"
-                    fontWeight={500}
-                    variant="body2"
-                    color={(theme) =>
-                      theme.palette.mode == "light"
-                        ? theme.palette.grey[600]
-                        : theme.palette.grey[300]
-                    }
-                  >
-                    {page.label}
-                  </Typography>
-                  <Image
-                    src="/arrow-up.svg"
-                    width={10}
-                    height={10}
-                    alt="arrow up"
-                  />
-                </Stack>
-              </button>
-              <AboutUsDropdown
-                handleClose={handleClose}
-                open={open}
-                anchorEl={anchorEl}
-                navigations={page.navigations}
-              />
-            </Stack>
+            <MenuItem key={page.href} sx={{ height: "100%" }}>
+              <Stack width="100%" height="100%">
+                <button
+                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
+                  style={{
+                    all: "unset",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  <Stack direction="row" alignItems="center" spacing={1}>
+                    <Typography
+                      textAlign="center"
+                      fontWeight={500}
+                      variant="body2"
+                      color={(theme) =>
+                        theme.palette.mode == "light"
+                          ? theme.palette.grey[600]
+                          : theme.palette.grey[300]
+                      }
+                    >
+                      {page.label}
+                    </Typography>
+                    <Image
+                      src="/arrow-up.svg"
+                      width={10}
+                      height={10}
+                      alt="arrow up"
+                    />
+                  </Stack>
+                </button>
+                <AboutUsDropdown
+                  handleClose={handleClose}
+                  open={open}
+                  anchorEl={anchorEl}
+                  navigations={page.navigations}
+                />
+              </Stack>
+            </MenuItem>
           ) : (
             <Link
               href={page.href}
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                height: "100%",
+                width: "100%",
+              }}
             >
-              <Typography
-                textAlign="center"
-                fontWeight={500}
-                variant="body2"
-                color={(theme) =>
-                  theme.palette.mode == "light"
-                    ? theme.palette.grey[600]
-                    : theme.palette.grey[300]
-                }
-              >
-                {page.label}
-              </Typography>
+              <MenuItem key={page.href} sx={{ height: "100%" }}>
+                <Typography
+                  textAlign="center"
+                  fontWeight={500}
+                  variant="body2"
+                  color={(theme) =>
+                    theme.palette.mode == "light"
+                      ? theme.palette.grey[600]
+                      : theme.palette.grey[300]
+                  }
+                >
+                  {page.label}
+                </Typography>
+              </MenuItem>
             </Link>
           )}
-        </MenuItem>
+        </Stack>
       ))}
     </Stack>
   )

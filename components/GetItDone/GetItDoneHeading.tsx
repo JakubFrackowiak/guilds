@@ -14,7 +14,7 @@ export function GetItDoneHeading() {
       spacing={3}
       color="white"
       sx={{
-        backgroundColor: "primary.main",
+        backgroundColor: "primary.dark",
       }}
     >
       <Typography

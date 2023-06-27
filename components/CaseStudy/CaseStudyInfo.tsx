@@ -26,7 +26,9 @@ export function CaseStudyInfo({ hero, type }: CaseStudyInfoProps) {
         </Typography>
       </Stack>
       <Divider />
-      <Typography color="text.secondary">{hero?.bio}</Typography>
+      <Typography lineHeight="1.8rem" color="text.secondary">
+        {hero?.bio}
+      </Typography>
       <Stack direction="row" spacing={2}>
         <CaseStudyLink href="#">
           <SecondaryButton label="View full profile" />

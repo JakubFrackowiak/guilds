@@ -16,9 +16,9 @@ export default function FeaturedCompanies() {
       justifyContent="center"
       alignItems="center"
       spacing={{ xs: 4, sm: 4, md: 0 }}
-      py={{ xs: 4, sm: 6, md: 16 }}
+      py={{ xs: 4, sm: 6, md: 8 }}
       sx={{
-        bgcolor: "primary.main",
+        bgcolor: "primary.dark",
         borderRadius: "0.8rem",
       }}
     >

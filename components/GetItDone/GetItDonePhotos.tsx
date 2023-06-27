@@ -7,7 +7,7 @@ export function GetItDonePhotos() {
       spacing={1}
       pl="0.5rem"
       sx={{
-        backgroundColor: "primary.main",
+        backgroundColor: "primary.dark",
       }}
     >
       <Stack
