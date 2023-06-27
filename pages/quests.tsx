@@ -24,19 +24,12 @@ export default function Quests() {
   const firestore = useFirestore()
   const { data: user } = useUser()
 
-  const [currentQuests, setCurrentQuests] = useState([])
-
-  useEffect(() => {
-    if (user?.uid) {
-      const questsCollection = collection(firestore, `quests`)
-      const questsQuery = query(
-        questsCollection,
-        where("creatorId", "==", user?.uid)
-      )
-      const { data: quests } = useFirestoreCollectionData(questsQuery)
-      setCurrentQuests(quests)
-    }
-  }, [user])
+  const questsCollection = collection(firestore, `quests`)
+  const questsQuery = query(
+    questsCollection,
+    where("creatorId", "==", user?.uid || "")
+  )
+  const { data: quests } = useFirestoreCollectionData(questsQuery)
 
   return (
     <Box
@@ -55,24 +48,26 @@ export default function Quests() {
       <Container>
         <Grid container columnSpacing={4} rowSpacing={4} sx={{ mb: 20 }}>
           <Grid item xs={4}>
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="center"
-              alignItems="center"
-              sx={{
-                width: "100%",
-                backgroundColor: "#C01048",
-                height: "296px",
-              }}
-            >
-              <Image
-                src="/search-white.svg"
-                width={180}
-                height={180}
-                alt="Search"
-              />
-            </Box>
+            <Link href="/find-quest" style={{ textDecoration: "none" }}>
+              <Box
+                display="flex"
+                flexDirection="row"
+                justifyContent="center"
+                alignItems="center"
+                sx={{
+                  width: "100%",
+                  backgroundColor: "#C01048",
+                  height: "296px",
+                }}
+              >
+                <Image
+                  src="/search-white.svg"
+                  width={180}
+                  height={180}
+                  alt="Search"
+                />
+              </Box>
+            </Link>
             <Typography
               sx={{
                 my: 0.5,
@@ -83,26 +78,30 @@ export default function Quests() {
             >
               Find a new quest
             </Typography>
-            <Typography
-              sx={{
-                color: "#C01048",
-                fontWeight: 400,
-                fontSize: "1.125rem",
-                lineHeight: "1.75rem",
-              }}
-            >
-              Explore all available quests
-            </Typography>
+            <Link href="/find-quest" style={{ textDecoration: "none" }}>
+              <Typography
+                sx={{
+                  color: "#C01048",
+                  fontWeight: 400,
+                  fontSize: "1.125rem",
+                  lineHeight: "1.75rem",
+                }}
+              >
+                Explore all available quests
+              </Typography>
+            </Link>
           </Grid>
 
-          {user?.uid && currentQuests?.length ? (
+          {user?.uid && quests?.length ? (
             <>
-              {currentQuests.map((hit, idx) => (
+              {quests.map((hit, idx) => (
                 <Grid item xs={4}>
-                  <QuestThumbnail
-                    storagePath={`general/${hit?.image}`}
-                    alt="quest picture"
-                  />
+                  <Link href={`quest/${hit?.id}`}>
+                    <QuestThumbnail
+                      storagePath={`general/${hit?.image}`}
+                      alt="quest picture"
+                    />
+                  </Link>
                   <Typography
                     sx={{
                       my: 0.5,
@@ -146,8 +145,14 @@ export default function Quests() {
                     lineHeight: "1.875rem",
                   }}
                 >
-                  Please <Link href="/signin">sign in </Link> to view current
-                  quests.
+                  Please{" "}
+                  <Link
+                    href="/login"
+                    style={{ textDecoration: "none", color: "#C01048" }}
+                  >
+                    sign in{" "}
+                  </Link>{" "}
+                  to view current quests.
                 </Typography>
               </Box>
             </Grid>

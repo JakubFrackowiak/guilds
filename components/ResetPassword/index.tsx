@@ -1,6 +1,5 @@
 import Image from "next/image"
 import {
-  Button,
   TextField,
   Typography,
   Stack,
@@ -11,7 +10,7 @@ import {
 import { useAuth } from "reactfire"
 import { confirmPasswordReset } from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import "firebase/compat/auth"
 import "firebase/compat/firestore"
 import { useRouter } from "next/router"

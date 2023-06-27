@@ -24,7 +24,7 @@ export function AboutUsDropdown({
         "aria-labelledby": "basic-button",
       }}
       anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-      transformOrigin={{ vertical: -31, horizontal: "center" }}
+      transformOrigin={{ vertical: 0, horizontal: "center" }}
       sx={{
         "& .MuiMenu-paper": {
           bgcolor: "background.default",

@@ -4,9 +4,11 @@ import { Stack } from "@mui/system"
 import { signInWithPopup, AuthProvider } from "firebase/auth"
 import { useAuth } from "reactfire"
 import { useState } from "react"
+import { useRouter } from "next/router"
 
 export function SocialSignIn({ provider, image, bgcolor }) {
   const auth = useAuth()
+  const router = useRouter()
   const [toast, setToast] = useState({
     severity: "success",
     message: "",
@@ -16,7 +18,6 @@ export function SocialSignIn({ provider, image, bgcolor }) {
   const signInWithProvider = async (provider: AuthProvider) => {
     try {
       const result = await signInWithPopup(auth, provider)
-
       if (result.operationType === "signIn") {
         setToast({
           severity: "success",
@@ -36,6 +37,7 @@ export function SocialSignIn({ provider, image, bgcolor }) {
           open: true,
         })
       }
+      router.push("/find-quest")
     } catch (error) {
       setToast({
         severity: "error",

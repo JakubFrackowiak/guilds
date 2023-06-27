@@ -44,6 +44,7 @@ export function VerifyPhoneNumber() {
           message: "Phone number verified successfully",
           severity: "success",
         })
+        router.push("/find-quest")
       } catch (error) {
         setToast({
           open: true,

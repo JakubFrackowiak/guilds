@@ -63,6 +63,7 @@ export function EmailPhoneSignUp() {
         password
       )
       await sendEmailVerification(userCredential.user)
+      window.localStorage.setItem("emailForSignIn", email)
       setToast({
         message: "Please verify your email",
         open: true,

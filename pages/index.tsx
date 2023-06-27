@@ -5,13 +5,18 @@ import { FAQs } from "components/FAQs"
 import { collection } from "firebase/firestore"
 import { Footer } from "components/Footer"
 import { Header } from "components/Header"
-import { useFirestore, useFirestoreCollectionData } from "reactfire"
+import { useAuth, useFirestore, useFirestoreCollectionData } from "reactfire"
 import { Slider } from "components/Slider"
 import { GuildsStats } from "components/GuildsStats"
 import { HeroHeader } from "components/HeroHeader"
+import { useRouter } from "next/router"
+import { useEffect } from "react"
+import { isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth"
 
-export default function QuestersLanding() {
+export default function index() {
   const firestore = useFirestore()
+  const router = useRouter()
+  const { mode, oobCode } = router.query
   const questsRef = collection(firestore, "quests")
   const { data: quests } = useFirestoreCollectionData(questsRef, {
     idField: "id",
@@ -20,6 +25,39 @@ export default function QuestersLanding() {
   const { data: heroes } = useFirestoreCollectionData(heroesRef)
   const teamsRef = collection(firestore, "teams")
   const { data: teams } = useFirestoreCollectionData(teamsRef)
+  const auth = useAuth()
+
+  const verifyPhone = async () => {
+    try {
+      if (isSignInWithEmailLink(auth, window.location.href)) {
+        let email = window.localStorage.getItem("emailForSignIn")
+        if (!email) {
+          email = window.prompt("Please provide your email for confirmation")
+        }
+        await signInWithEmailLink(auth, email, window.location.href)
+        window.localStorage.removeItem("emailForSignIn")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    if (mode == "verifyPhone") {
+      verifyPhone()
+      router.push({
+        pathname: "/find-quest",
+        query: { oobCode: oobCode },
+      })
+    }
+    if (mode == "resetPassword") {
+      router.push({
+        pathname: "/reset-password",
+        query: { oobCode: oobCode },
+      })
+    }
+  }, [mode])
+
   return (
     <Box
       sx={{

@@ -16,6 +16,7 @@ import { signInWithEmailAndPassword } from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
 import { useState } from "react"
 import { PrimaryButton } from "components/PrimaryButton"
+import { useRouter } from "next/router"
 
 interface FormValues {
   email: string
@@ -30,6 +31,7 @@ export function SignInForm() {
     open: false,
   })
   const auth = useAuth()
+  const router = useRouter()
 
   async function handleSubmit(values: FormValues) {
     const { email, password } = values
@@ -40,6 +42,7 @@ export function SignInForm() {
         message: "Logged in successfully",
         open: true,
       })
+      router.push("/find-quest")
     } catch (error) {
       setToast({
         severity: "error",
