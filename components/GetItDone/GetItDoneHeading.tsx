@@ -1,6 +1,7 @@
 import { Stack, Typography, useMediaQuery, useTheme } from "@mui/material"
 import { PrimaryButton } from "components/PrimaryButton"
 import { SecondaryButton } from "components/SecondaryButton"
+import Link from "next/link"
 
 export function GetItDoneHeading() {
   const theme = useTheme()
@@ -30,7 +31,14 @@ export function GetItDoneHeading() {
       </Typography>
       <Stack direction="row" spacing={1} pt={1}>
         <SecondaryButton label="Learn more" />
-        <PrimaryButton label="Get started" />
+        <Link
+          href="/signup"
+          style={{
+            textDecoration: "none",
+          }}
+        >
+          <PrimaryButton label="Get started" />
+        </Link>
       </Stack>
     </Stack>
   )

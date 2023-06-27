@@ -15,7 +15,12 @@ export function HirerHeadingButtons() {
           height={20}
         />
       </SecondaryButton>
-      <Link href="/signup">
+      <Link
+        href="/signup"
+        style={{
+          textDecoration: "none",
+        }}
+      >
         <PrimaryButton label="Sign up" />
       </Link>
     </Stack>

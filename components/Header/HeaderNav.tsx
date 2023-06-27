@@ -1,4 +1,4 @@
-import { Box, MenuItem, Stack, Typography } from "@mui/material"
+import { MenuItem, Stack, Typography } from "@mui/material"
 import { AboutUsDropdown } from "components/AboutUsDropdown"
 import Image from "next/image"
 import Link from "next/link"

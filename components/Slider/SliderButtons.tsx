@@ -20,7 +20,7 @@ function HeroesSliderButtons() {
 function QuestsSliderButtons() {
   return (
     <Stack sx={{ "& > *": { width: "100%" } }}>
-      <Link href="/quests" style={{ textDecoration: "none" }}>
+      <Link href="/find-quest" style={{ textDecoration: "none" }}>
         <PrimaryButton label="View all quests" />
       </Link>
     </Stack>
@@ -30,7 +30,7 @@ function QuestsSliderButtons() {
 function TeamsSliderButtons() {
   return (
     <Stack sx={{ "& > *": { width: "100%" } }}>
-      <Link href="/teams" style={{ textDecoration: "none" }}>
+      <Link href="/find-team" style={{ textDecoration: "none" }}>
         <PrimaryButton label="View all teams" />
       </Link>
     </Stack>

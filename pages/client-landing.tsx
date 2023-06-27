@@ -3,12 +3,18 @@ import { Footer } from "../components/Footer"
 import { Container, Box } from "@mui/material"
 import { FAQs } from "components/FAQs"
 import { GetItDone } from "components/GetItDone"
-import { MonthTopUsers } from "components/MonthTopUsers"
 import { BusinessHeroes } from "components/BusinessHeroes"
 import FeaturedCompanies from "components/FeaturedCompanies"
 import { HirerHeading } from "components/HirerHeading"
+import { Slider } from "components/Slider"
+import { useFirestore, useFirestoreCollectionData } from "reactfire"
+import { collection } from "firebase/firestore"
 
 export default function Home() {
+  const firestore = useFirestore()
+  const heroesRef = collection(firestore, "heroes")
+  const { data: hero } = useFirestoreCollectionData(heroesRef)
+
   return (
     <Box
       sx={{
@@ -19,22 +25,21 @@ export default function Home() {
     >
       <Header />
       <Container>
-        <Box mt="5rem" mb="7rem">
+        <Box mt="2rem">
           <HirerHeading />
         </Box>
-        <FeaturedCompanies />
-        <Box mt="8rem" mb="4rem">
+        <Box my="10rem">
+          <FeaturedCompanies />
+        </Box>
+        <Box marginY="10rem">
           <BusinessHeroes />
         </Box>
-        <Box my="4rem">
-          <MonthTopUsers
-            xpGained={4892}
-            info={"1,992 active questers"}
-            header={"This month's top questers"}
-            subheader={"The current heroes that are bidding on this quest."}
-            primaryButtonText={"Create a quest"}
-            primaryButtonLink={""}
-            secondaryButtonLink={"quests"}
+        <Box marginY="10rem">
+          <Slider
+            variant="hero"
+            status={"success"}
+            items={hero}
+            variantId={""}
           />
         </Box>
       </Container>
@@ -42,7 +47,9 @@ export default function Home() {
         <GetItDone />
       </Box>
       <Container>
-        <FAQs />
+        <Box my="10rem">
+          <FAQs />
+        </Box>
       </Container>
       <Footer />
     </Box>

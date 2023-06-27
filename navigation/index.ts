@@ -194,7 +194,7 @@ export const navigation: Navigation = {
         label: "Home",
       },
       {
-        href: "/quests",
+        href: "/find-quest",
         label: "Quests",
       },
       {
