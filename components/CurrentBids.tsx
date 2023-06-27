@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Stack, Typography, Grid, CircularProgress, Box } from "@mui/material"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
-import { collection, query } from "firebase/firestore"
+import { collection, limit, query } from "firebase/firestore"
 import { Bids } from "../components/Bids"
 import { Quest } from "../types/quest"
 import { SecondaryButton } from "./SecondaryButton"
@@ -16,8 +16,9 @@ interface CurrentBidsProps {
 export function CurrentBids({ path, quest }: CurrentBidsProps) {
   const [makeBidModalOpen, setMakeBidModalOpen] = useState(false)
   const firestore = useFirestore()
-  const questsQuery = query(collection(firestore, path))
-  const { status, data: bids } = useFirestoreCollectionData(questsQuery)
+  const bidsRef = collection(firestore, path)
+  const bidsQuery = query(bidsRef, limit(6))
+  const { status, data: bids } = useFirestoreCollectionData(bidsQuery)
 
   const [lowest, setLowest] = useState(0)
   const [highest, setHighest] = useState(0)
@@ -33,7 +34,6 @@ export function CurrentBids({ path, quest }: CurrentBidsProps) {
   if (!bids) {
     return <CircularProgress />
   }
-
   return (
     <Stack direction={{ lg: "row", xl: "row" }} alignItems="start">
       <MakeBidModal
@@ -64,7 +64,7 @@ export function CurrentBids({ path, quest }: CurrentBidsProps) {
           </Stack>
         </Grid>
         <Grid item md={8}>
-          <Bids path={path} />
+          <Bids bids={bids} />
         </Grid>
       </Grid>
     </Stack>

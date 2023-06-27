@@ -1,18 +1,11 @@
-import { useFirestore, useFirestoreCollectionData } from "reactfire"
-import { collection, query } from "firebase/firestore"
 import { Bid as BidType } from "types/quest"
 import { UserCardBid } from "../components/UserCardBid"
-import { Grid, CircularProgress, Typography } from "@mui/material"
+import { CircularProgress, Grid, Typography } from "@mui/material"
 
-export function Bids({ path }): JSX.Element {
-  const firestore = useFirestore()
-  const questsQuery = query(collection(firestore, path))
-  const { data: bids } = useFirestoreCollectionData(questsQuery)
-
+export function Bids({ bids }) {
   if (!bids) {
     return <CircularProgress />
   }
-
   return (
     <Grid
       container

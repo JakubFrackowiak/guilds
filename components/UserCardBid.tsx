@@ -32,7 +32,7 @@ export function UserCardBid({ value }: UserCardBidProps) {
   const { data: hero } = useFirestoreDocData(heroQuery)
 
   if (!hero) {
-    return <CircularProgress />
+    return null
   }
 
   return (

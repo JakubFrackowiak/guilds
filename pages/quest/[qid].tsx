@@ -48,10 +48,7 @@ export default function Quest() {
               <CaseStudy type="quest" hero={hero as Hero} />
             </Box>
             <Box my="10rem">
-              <CurrentBids
-                quest={quest}
-                path="quests/0FdxGoe3fcy6v8Rd37VZ/bids"
-              />
+              <CurrentBids quest={quest} path={`quests/${quest.id}/bids`} />
             </Box>
           </>
         ) : (
