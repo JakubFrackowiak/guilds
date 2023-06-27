@@ -48,12 +48,7 @@ export function LatestQuest({ quest }: LatestQuestProps) {
           )}
           <Stack direction="row" justifyContent="space-between">
             <Typography variant="h6">{quest?.title}</Typography>
-            <Link
-              href={{
-                pathname: "/quest",
-                query: { questId: quest.id },
-              }}
-            >
+            <Link href={`/quest/${quest?.id}`}>
               <Image
                 src="/arrow-right-up.svg"
                 alt="arrow-right-up"

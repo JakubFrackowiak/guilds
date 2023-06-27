@@ -24,12 +24,7 @@ export function LatestTeam({ team }: LatestTeamProps) {
         <TeamThumbnail storagePath={`general/${team.image}`} />
         <Stack direction="row" justifyContent="space-between">
           <Typography variant="h6">{team?.title}</Typography>
-          <Link
-            href={{
-              pathname: "/team",
-              query: { teamId: team.id },
-            }}
-          >
+          <Link href={`/team/${team?.id}`}>
             <Image
               src="/arrow-right-up.svg"
               alt="arrow-right-up"
