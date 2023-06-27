@@ -21,7 +21,7 @@ export function LatestTeam({ team }: LatestTeamProps) {
   return (
     <Grid item xs={6} width={420}>
       <Stack spacing={3}>
-        <TeamThumbnail storagePath={`teams/${team.image}`} />
+        <TeamThumbnail storagePath={`teams/${team.image}`} alt="team image" />
         <Stack direction="row" justifyContent="space-between">
           <Typography variant="h6">{team?.title}</Typography>
           <Link

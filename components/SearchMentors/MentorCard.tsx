@@ -17,7 +17,10 @@ export function MentorCard({ mentor }: MentorProps) {
   return (
     <Box sx={{ maxWidth: 280, p: 1 }}>
       <Stack spacing={3}>
-        <MentorPicture storagePath={`${mentor.profilePicture}`} />
+        <MentorPicture
+          storagePath={`${mentor.profilePicture}`}
+          alt="profile picture"
+        />
         <Stack spacing={0.5}>
           <Typography variant="h6" fontWeight={500} color="text.primary">
             {mentor.mentor.skill}

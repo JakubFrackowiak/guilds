@@ -32,6 +32,8 @@
     "react-lines-ellipsis": "^0.15.3",
     "react-select": "^5.4.0",
     "reactfire": "^4.2.2",
+    "rheostat": "^4.1.1",
+    "search-insights": "^2.4.0",
     "stream-chat": "7.1.0",
     "stream-chat-react": "10.1.1",
     "styled-css-grid": "^1.2.1",

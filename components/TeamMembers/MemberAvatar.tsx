@@ -21,6 +21,11 @@ export function MemberAvatar({ memberId }: MemberAvatarProps) {
   if (status == "loading") {
     return null
   } else {
-    return <MemberIcon storagePath={`general/${member.profilePicture}`} />
+    return (
+      <MemberIcon
+        storagePath={`general/${member.profilePicture}`}
+        alt="member picture"
+      />
+    )
   }
 }

@@ -99,7 +99,10 @@ export default function Quests() {
             <>
               {currentQuests.map((hit, idx) => (
                 <Grid item xs={4}>
-                  <QuestThumbnail storagePath={`general/${hit?.image}`} />
+                  <QuestThumbnail
+                    storagePath={`general/${hit?.image}`}
+                    alt="quest picture"
+                  />
                   <Typography
                     sx={{
                       my: 0.5,

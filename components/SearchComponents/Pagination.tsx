@@ -55,7 +55,7 @@ function NextPageButton({
         size="small"
         sx={{ borderRadius: "0.5rem", textTransform: "none" }}
         onClick={() => refine(currentRefinement + 1)}
-        disabled={currentRefinement == 10}
+        disabled={currentRefinement == nbPages}
       >
         <Stack direction={"row"} spacing={2}>
           <Typography>Next</Typography>
@@ -79,7 +79,7 @@ function CustomPagination({
         refine={refine}
       />
       <MaterialPagination
-        count={10}
+        count={nbPages}
         page={currentRefinement}
         onChange={(e, page) => refine(page)}
         shape="rounded"

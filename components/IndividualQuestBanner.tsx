@@ -9,6 +9,8 @@ import {
   useFirestore,
 } from "reactfire"
 import { collection, limit, orderBy, query } from "firebase/firestore"
+import { MakeBidModal } from "./MakeBidModal"
+import { useState } from "react"
 import { SecondaryButton } from "./SecondaryButton"
 import { PrimaryButton } from "./PrimaryButton"
 
@@ -23,9 +25,6 @@ const QuestImage = styled(StorageImage)({
   aspectRatio: "7/8",
 })
 
-const CaseStudyLink = styled(Link)`
-  text-decoration: none;
-`
 const UserAvatar = styled(StorageImage)`
   width: 60px;
   height: 60px;
@@ -39,6 +38,7 @@ export function IndividualQuestBanner({
   hero,
   quest,
 }: IndividualQuestBannerProps) {
+  const [makeBidModalOpen, setMakeBidModalOpen] = useState(false)
   const firestore = useFirestore()
   const bidsRef = collection(firestore, `quests/${quest?.id}/bids`)
   const topBidsQuery = query(bidsRef, orderBy("amount", "asc"), limit(1))
@@ -59,6 +59,11 @@ export function IndividualQuestBanner({
       }}
       spacing={3}
     >
+      <MakeBidModal
+        modalOpen={makeBidModalOpen}
+        setModalOpen={setMakeBidModalOpen}
+        questId={quest.id}
+      />
       <Stack mb={{ xs: "2rem", sm: "2rem", md: "2rem" }}>
         <Stack spacing={2} mb="2rem">
           <Box
@@ -134,12 +139,12 @@ export function IndividualQuestBanner({
           </Stack>
         </Stack>
         <Stack direction="row" spacing={2}>
-          <CaseStudyLink href="#about-section">
-            <SecondaryButton label="More information" />
-          </CaseStudyLink>
-          <CaseStudyLink href="#current-bids-section">
-            <PrimaryButton label="Place a bid" />
-          </CaseStudyLink>
+          <SecondaryButton label="More information" width="fit-content" />
+          <PrimaryButton
+            label="Place a bid"
+            onClick={() => setMakeBidModalOpen(true)}
+            width="fit-content"
+          />
         </Stack>
       </Stack>
       <Stack width={{ xs: "100%", sm: "100%", md: "100%", lg: 510 }}>

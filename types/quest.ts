@@ -28,11 +28,17 @@ export interface Quest {
 export interface Bid {
   id: UUID
   bidderId: UUID
-  amount: number
-  currency: "USD" | "%" | "GBP"
-  workingTimes: "Weekdays" | "Weekday Evenings" | "Weekends" | "Any"
-  timeEstimate: string
   createdAt: Date
   updatedAt?: Date
-  status?: string
+  rate: "hourly" | "fixed"
+  amount: number
+  currency: "£" | "&" | "$"
+  timeRequired: string
+  workingTime: "default" | "weekdays" | "weekday evenings" | "any"
+  questId: UUID
+  apprentice?: string
+  apprenticeRate?: number
+  apprenticeCut?: number
+  totalEarnigns: number
+  status: string
 }

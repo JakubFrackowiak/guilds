@@ -27,14 +27,20 @@ export function FeaturedApprentices({
   return (
     <>
       {apprenticesStatus == "success" ? (
-        apprentices?.map((apprentice: Hero, index) => (
-          <FeaturedApprentice
-            key={index}
-            apprentice={apprentice}
-            selectedApprentice={selectedApprentice}
-            setSelectedApprentice={setSelectedApprentice}
-          />
-        ))
+        <>
+          {apprentices.length ? (
+            apprentices?.map((apprentice: Hero, index) => (
+              <FeaturedApprentice
+                key={index}
+                apprentice={apprentice}
+                selectedApprentice={selectedApprentice}
+                setSelectedApprentice={setSelectedApprentice}
+              />
+            ))
+          ) : (
+            <Typography p={4}>No featured apprentices</Typography>
+          )}
+        </>
       ) : (
         <Typography
           height="5rem"

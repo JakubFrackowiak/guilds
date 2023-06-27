@@ -20,7 +20,7 @@ export function CourseCard({ course }: CourseCardProps) {
 
   return (
     <Stack position="relative" width={270}>
-      <CourseImage storagePath={`general/${course.image}`} />
+      <CourseImage storagePath={`general/${course.image}`} alt="course image" />
       <Stack
         position="absolute"
         bottom="0"

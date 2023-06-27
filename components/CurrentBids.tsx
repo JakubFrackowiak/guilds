@@ -1,6 +1,4 @@
-import Link from "next/link"
 import React, { useState, useEffect } from "react"
-import styled from "@emotion/styled"
 import { Stack, Typography, Grid, CircularProgress, Box } from "@mui/material"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { collection, query } from "firebase/firestore"
@@ -8,16 +6,15 @@ import { Bids } from "../components/Bids"
 import { Quest } from "../types/quest"
 import { SecondaryButton } from "./SecondaryButton"
 import { PrimaryButton } from "./PrimaryButton"
+import { MakeBidModal } from "./MakeBidModal"
 
 interface CurrentBidsProps {
   path: string
   quest: Quest
 }
-const BidsLink = styled(Link)`
-  text-decoration: none;
-`
 
 export function CurrentBids({ path, quest }: CurrentBidsProps) {
+  const [makeBidModalOpen, setMakeBidModalOpen] = useState(false)
   const firestore = useFirestore()
   const questsQuery = query(collection(firestore, path))
   const { status, data: bids } = useFirestoreCollectionData(questsQuery)
@@ -38,11 +35,12 @@ export function CurrentBids({ path, quest }: CurrentBidsProps) {
   }
 
   return (
-    <Stack
-      direction={{ lg: "row", xl: "row" }}
-      alignItems="start"
-      id="current-bids-section"
-    >
+    <Stack direction={{ lg: "row", xl: "row" }} alignItems="start">
+      <MakeBidModal
+        modalOpen={makeBidModalOpen}
+        setModalOpen={setMakeBidModalOpen}
+        questId={quest.id}
+      />
       <Grid container spacing={5}>
         <Grid item md={4}>
           <Stack spacing={2} mb={4}>
@@ -67,12 +65,12 @@ export function CurrentBids({ path, quest }: CurrentBidsProps) {
               </Typography>
             </Stack>
             <Stack direction="row" spacing={2}>
-              <BidsLink href="#">
-                <SecondaryButton label="See all" />
-              </BidsLink>
-              <BidsLink href="#">
-                <PrimaryButton label="Make a new bid" />
-              </BidsLink>
+              <SecondaryButton label="See all" width="fit-content" />
+              <PrimaryButton
+                label="Make a new bid"
+                width="fit-content"
+                onClick={() => setMakeBidModalOpen(true)}
+              />
             </Stack>
           </Stack>
         </Grid>

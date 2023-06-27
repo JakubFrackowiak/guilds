@@ -23,6 +23,7 @@ export function User({ hero, xpGained }: UserProps) {
             borderRadius: "50%",
             objectFit: "cover",
           }}
+          alt="hero picture"
         />
         <Stack>
           <Typography variant="h6" fontWeight={500}>

@@ -35,7 +35,7 @@ export function Role({ role, teamId }: RoleProps) {
     <Grid item xs={6} width="280px">
       <Box>
         <Stack spacing={4}>
-          <RoleThumbnail storagePath={`general/${image}`} />
+          <RoleThumbnail storagePath={`general/${image}`} alt="role picture" />
           <Stack spacing={1}>
             <Typography variant="h6">{title}</Typography>
             <Stack direction="row" justifyContent="space-between">

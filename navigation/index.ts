@@ -328,10 +328,6 @@ export const navigation: Navigation = {
         href: "#",
         label: "YouTube",
       },
-      {
-        href: "#",
-        label: "Instagram",
-      },
     ],
   },
   legal: {

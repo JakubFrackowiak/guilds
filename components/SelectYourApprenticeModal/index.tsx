@@ -31,7 +31,10 @@ export function SelectYourApprentice({
     >
       <IconButton
         sx={{ position: "absolute", right: "2rem", top: "2rem" }}
-        onClick={() => setModalOpen(false)}
+        onClick={() => {
+          setStage(1)
+          setModalOpen(false)
+        }}
       >
         <Image src="/x.svg" width={12} height={12} alt="x" />
       </IconButton>
@@ -49,9 +52,11 @@ export function SelectYourApprentice({
         selectedApprentice={selectedApprentice}
         setSelectedApprentice={setSelectedApprentice}
       />
-      <Typography variant="body2" sx={{ cursor: "pointer" }}>
-        View all apprentices
-      </Typography>
+      <button onClick={() => setStage(3)} style={{ all: "unset" }}>
+        <Typography variant="body2" sx={{ cursor: "pointer", py: 2 }}>
+          View all apprentices
+        </Typography>
+      </button>
       <Stack direction="row" spacing={2} width="100%">
         <Box flexBasis="50%">
           <SecondaryButton label="Go back" onClick={() => setStage(1)} />
@@ -59,7 +64,7 @@ export function SelectYourApprentice({
         <Box flexBasis="50%">
           <PrimaryButton
             label="Confirm selection"
-            onClick={() => setStage(3)}
+            onClick={() => setStage(4)}
             disabled={selectedApprentice == null ? true : false}
           />
         </Box>

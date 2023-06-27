@@ -45,7 +45,11 @@ export function FilterSearchBar({
       <InstantSearch searchClient={searchClient} indexName={filterName}>
         <Stack direction="column" spacing={4}>
           <SearchBox />
-          <RefinementList attribute="tags" label={`${filterName} categories`} />
+          <RefinementList
+            attribute="tags"
+            label={`${filterName} categories`}
+            defaultLabel="All tags"
+          />
         </Stack>
       </InstantSearch>
     </Container>

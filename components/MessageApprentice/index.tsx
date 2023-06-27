@@ -8,11 +8,13 @@ import { useFirestore, useFirestoreDocData } from "reactfire"
 interface MessageApprenticeProps {
   selectedApprentice: string
   setModalOpen: (value: boolean) => void
+  setStage: (value: number) => void
 }
 
 export function MessageApprentice({
   selectedApprentice,
   setModalOpen,
+  setStage,
 }: MessageApprenticeProps) {
   const firestore = useFirestore()
   const apprenticeRef = doc(firestore, `heroes/${selectedApprentice}`)
@@ -29,7 +31,10 @@ export function MessageApprentice({
         <Image src="/message.svg" width={48} height={48} alt="messageIcon" />
         <IconButton
           sx={{ position: "absolute", right: 0 }}
-          onClick={() => setModalOpen(false)}
+          onClick={() => {
+            setModalOpen(false)
+            setStage(1)
+          }}
         >
           <Image src="/x.svg" width={12} height={12} alt="x" />
         </IconButton>
@@ -53,10 +58,10 @@ export function MessageApprentice({
       />
       <Stack direction="row" spacing={2}>
         <Box flexBasis="50%">
-          <SecondaryButton label="Cancel" onClick={() => setModalOpen(false)} />
+          <SecondaryButton label="Go back" onClick={() => setStage(2)} />
         </Box>
         <Box flexBasis="50%">
-          <PrimaryButton label="Send" />
+          <PrimaryButton label="Send" onClick={() => setStage(5)} />
         </Box>
       </Stack>
     </Stack>

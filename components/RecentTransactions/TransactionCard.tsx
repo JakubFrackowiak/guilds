@@ -34,6 +34,7 @@ export function TransactionCard({ transaction }: TransactionCardProps) {
                     width: 40,
                     borderRadius: "50%",
                   }}
+                  alt="hero picture"
                 />
               </Stack>
             ) : (
