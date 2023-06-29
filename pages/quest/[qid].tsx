@@ -7,7 +7,6 @@ import { IndividualQuestBanner } from "../../components/IndividualQuestBanner"
 import { useFirestoreDocData, useFirestore } from "reactfire"
 import { doc } from "firebase/firestore"
 import { AboutGig } from "../../components/AboutGig"
-import { LevelBar } from "../../components/LevelBar"
 import { CaseStudy } from "../../components/CaseStudy"
 import { useRouter } from "next/router"
 import { Hero } from "types/hero"
@@ -40,9 +39,6 @@ export default function Quest() {
             </Box>
             <Box my="7rem">
               <AboutGig quest={quest} />
-            </Box>
-            <Box my="10rem">
-              <LevelBar hero={hero as Hero} />
             </Box>
             <Box my="10rem">
               <CaseStudy type="quest" hero={hero as Hero} />
