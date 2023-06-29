@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import {
-  Button,
   Checkbox,
   FormControlLabel,
   TextField,
@@ -10,6 +9,8 @@ import {
   Snackbar,
   Alert,
   AlertProps,
+  InputAdornment,
+  IconButton,
 } from "@mui/material"
 import { useAuth } from "reactfire"
 import { signInWithEmailAndPassword } from "firebase/auth"
@@ -17,6 +18,7 @@ import { Form, Formik, FormikProps } from "formik"
 import { useState } from "react"
 import { PrimaryButton } from "components/PrimaryButton"
 import { useRouter } from "next/router"
+import { Visibility, VisibilityOff } from "@mui/icons-material"
 
 interface FormValues {
   email: string
@@ -25,6 +27,7 @@ interface FormValues {
 }
 
 export function SignInForm() {
+  const [showPassword, setShowPassword] = useState(false)
   const [toast, setToast] = useState({
     severity: "success",
     message: "",
@@ -97,9 +100,20 @@ export function SignInForm() {
                 <TextField
                   onChange={handleChange}
                   value={values.password}
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="••••••••"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? <Visibility /> : <VisibilityOff />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </Stack>
               <Stack
