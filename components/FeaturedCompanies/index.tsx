@@ -3,12 +3,12 @@ import { FeaturedCompany } from "./FeaturedCompany"
 
 export default function FeaturedCompanies() {
   const companies = [
-    { logo: "GuildsLogo2.svg", name: "Guilds" },
-    { logo: "GuildsLogo2.svg", name: "Guilds" },
-    { logo: "GuildsLogo2.svg", name: "Guilds" },
-    { logo: "GuildsLogo2.svg", name: "Guilds" },
-    { logo: "GuildsLogo2.svg", name: "Guilds" },
-    { logo: "GuildsLogo2.svg", name: "Guilds" },
+    { logo: "lancr-logo.svg", name: "Lancr" },
+    { logo: "lancr-logo.svg", name: "Lancr" },
+    { logo: "lancr-logo.svg", name: "Lancr" },
+    { logo: "lancr-logo.svg", name: "Lancr" },
+    { logo: "lancr-logo.svg", name: "Lancr" },
+    { logo: "lancr-logo.svg", name: "Lancr" },
   ]
 
   return (

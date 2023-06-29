@@ -32,7 +32,7 @@ export function FAQs() {
           Frequently Asked Questions
         </Typography>
         <Typography variant="h5" textAlign="center">
-          Everything you need to know about Guilds to get started
+          Everything you need to know about Lancr to get started
         </Typography>
       </Stack>
       <Box sx={{ maxWidth: "md", m: "auto", mt: 3, mb: 3 }}>

@@ -1,20 +1,27 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Stack, Typography } from "@mui/material"
+import { Box, Stack, Typography } from "@mui/material"
 
 export const Logo = () => {
   return (
     <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
-      <Stack direction="row" alignItems="center" spacing={1}>
-        <Image
-          src="/guilds-logo.svg"
-          width={36}
-          height={36}
-          alt="Guilds Logo"
-        />
-        <Typography variant="h6" color="text.primary" fontWeight={700}>
-          Guilds
-        </Typography>
+      <Stack direction="row" alignItems="flex-end">
+        <Box>
+          <Image
+            src="/lancr-logo-transparent.svg"
+            width={50}
+            height={50}
+            alt="Lancr Logo"
+          />
+        </Box>
+        <Box pb="10px">
+          <Image
+            src="/lancr-text-transparent.svg"
+            width={100}
+            height={25}
+            alt="Lancr Logo"
+          />
+        </Box>
       </Stack>
     </Link>
   )

@@ -52,7 +52,7 @@ export function Footer() {
                 }
                 fontWeight={400}
               >
-                © 2022 Guilds. All rights reserved.
+                © 2022 Lancr. All rights reserved.
               </Typography>
               <Socials />
             </Stack>

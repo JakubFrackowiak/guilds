@@ -11,7 +11,7 @@ export function Quests(): JSX.Element {
       <PageHeader
         greenSubtitle="Your journey awaits you"
         header="Find a new quest"
-        greySubtitle="All of the quests currently available for completion in Guilds"
+        greySubtitle="All of the quests currently available for completion in Lancr"
       />
       <Container>
         <InstantSearch searchClient={questsSearchClient} indexName="quests">

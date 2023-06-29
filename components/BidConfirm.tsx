@@ -251,7 +251,7 @@ export function BidConfirm() {
                     href="#"
                     style={{ color: "#498553", textDecoration: "none" }}
                   >
-                    Guilds terms of service
+                    Lancr terms of service
                   </Link>
                   , including{" "}
                   <Link

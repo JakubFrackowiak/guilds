@@ -16,8 +16,8 @@ export function FeaturedCompany({ image, name }: FeaturedCompanyProps) {
       justifyContent="center"
       margin="auto"
     >
-      <Box width={40} height={40}>
-        <Image src={image} width={40} height={40} alt="Featured Company" />
+      <Box width={50} height={50}>
+        <Image src={image} width={50} height={50} alt="Featured Company" />
       </Box>
       <Typography variant="h5" color="primary.light">
         {name}

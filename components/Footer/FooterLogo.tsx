@@ -9,16 +9,16 @@ export function FooterLogo() {
         <Stack spacing={4} width="20rem">
           <Stack direction="row" alignItems="center" spacing={1}>
             <Image
-              src="/GuildsLogo2.svg"
-              alt="Guilds Logo"
-              width={32}
-              height={32}
+              src="/lancr-logo.svg"
+              alt="Lancr Logo"
+              width={50}
+              height={50}
             />
             <Typography
               variant="h5"
               sx={{ color: "background.default", fontWeight: 700 }}
             >
-              Guilds
+              Lancr
             </Typography>
           </Stack>
           <Typography sx={{ color: "background.default", pr: 3 }}>

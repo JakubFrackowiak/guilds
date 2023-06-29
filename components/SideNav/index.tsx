@@ -61,10 +61,10 @@ export function SideNav(): JSX.Element {
           alignItems="center"
         >
           <Image
-            src="/guilds-logo.svg"
+            src="/lancr-logo.svg"
             width={36}
             height={36}
-            alt="Guilds Logo"
+            alt="Lancr Logo"
             color={"blue"}
           />
           <Stack direction="column" flexGrow={1}>

@@ -154,7 +154,7 @@ export function EmailPhoneSignUp() {
           {toast.message}
         </Alert>
       </Snackbar>
-      <Image width={50} height={50} src="/GuildsLogo2.svg" alt="Guilds logo" />
+      <Image width={70} height={70} src="lancr-logo.svg" alt="Lancer logo" />
       <Typography fontWeight="600" variant="h4">
         Create an account
       </Typography>

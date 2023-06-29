@@ -24,7 +24,7 @@ export function GetItDoneHeading() {
         maxWidth="sm"
         textAlign={isMobile ? "center" : "left"}
       >
-        Whatever it is, get it done quickly with Guilds.
+        Whatever it is, get it done quickly with Lancr.
       </Typography>
       <Typography variant="h6" color="primary.light">
         Create a quest today.

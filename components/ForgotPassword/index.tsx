@@ -51,7 +51,12 @@ export function ForgotPassword() {
       spacing={4}
       width="100%"
     >
-      <Image width="50" height="50" src="/GuildsLogo2.svg" alt="Guilds logo" />
+      <Image
+        width="150"
+        height="70"
+        src="/lancr-text.svg"
+        alt="Lancr logo text"
+      />
       <Typography fontWeight="600" variant="h4">
         Reset Password
       </Typography>

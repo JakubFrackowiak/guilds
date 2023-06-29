@@ -21,8 +21,8 @@ const title = {
 }
 const subtitle = {
   hero: "Hear from some of our amazing customers who are getting the job done faster.",
-  quest: "The latest quests that have been posted to Guilds",
-  team: "Teams that have recently joined the Guilds community",
+  quest: "The latest quests that have been posted to Lancr",
+  team: "Teams that have recently joined the Lancr community",
   role: "Current roles available within this team.",
 }
 

@@ -7,11 +7,11 @@ import { Footer } from "components/Footer"
 import { Header } from "components/Header"
 import { useAuth, useFirestore, useFirestoreCollectionData } from "reactfire"
 import { Slider } from "components/Slider"
-import { GuildsStats } from "components/GuildsStats"
 import { HeroHeader } from "components/HeroHeader"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 import { isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth"
+import { LancrStats } from "components/LancrStats"
 
 export default function index() {
   const firestore = useFirestore()
@@ -76,7 +76,7 @@ export default function index() {
             <FeaturedCompanies />
           </Box>
           <Box marginY="10rem">
-            <GuildsStats />
+            <LancrStats />
           </Box>
           <Box my="15rem">
             <Slider
