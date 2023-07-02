@@ -71,8 +71,9 @@ export const darkThemeOptions: ThemeOptions = {
   palette: {
     mode: "dark",
     primary: {
-      main: "#41764A",
-      light: "#D8E9DA",
+      main: "#E31B54",
+      light: "#FFF1F3",
+      dark: "#A11043",
     },
     secondary: {
       main: "#FFFFFF",
@@ -87,12 +88,12 @@ export const darkThemeOptions: ThemeOptions = {
       secondary: "#EAECF0",
     },
     button: {
-      primary: "#50915B",
+      primary: "#E31B54",
       secondary: "#FFFFFF",
-      primaryText: "",
+      primaryText: "#FFFFFF",
       secondaryText: "#344054",
-      primaryHover: "#FFFFFF",
-      secondaryHover: "FFF1F3",
+      primaryHover: "#C01048",
+      secondaryHover: "#FFF1F3",
     },
   },
   typography,

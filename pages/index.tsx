@@ -2,16 +2,24 @@ import { NoSsr } from "@mui/material"
 import FeaturedCompanies from "components/FeaturedCompanies"
 import { Box, Container } from "@mui/material"
 import { FAQs } from "components/FAQs"
-import { collection } from "firebase/firestore"
+import { collection, doc } from "firebase/firestore"
 import { Footer } from "components/Footer"
 import { Header } from "components/Header"
-import { useAuth, useFirestore, useFirestoreCollectionData } from "reactfire"
+import {
+  useAuth,
+  useFirestore,
+  useFirestoreCollectionData,
+  useFirestoreDocData,
+  useUser,
+} from "reactfire"
 import { Slider } from "components/Slider"
 import { HeroHeader } from "components/HeroHeader"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 import { isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth"
+import { SideNav } from "components/SideNav"
 import { LancrStats } from "components/LancrStats"
+import { Hero } from "types/hero"
 
 export default function index() {
   const firestore = useFirestore()
@@ -26,6 +34,9 @@ export default function index() {
   const teamsRef = collection(firestore, "teams")
   const { data: teams } = useFirestoreCollectionData(teamsRef)
   const auth = useAuth()
+  const { data: user } = useUser()
+  const heroRef = doc(firestore, `heroes/${user?.uid}` || "")
+  const { data: hero } = useFirestoreDocData(heroRef)
 
   const verifyPhone = async () => {
     try {
@@ -66,7 +77,7 @@ export default function index() {
         minHeight: "100vh",
       }}
     >
-      <Header />
+      {user ? <SideNav hero={hero as Hero} /> : <Header />}
       <NoSsr>
         <Container>
           <Box marginTop={{ xs: "2rem", sm: "2rem", md: "0rem" }}>

@@ -85,14 +85,16 @@ export function HeroAvatar({ hero, size }: HeroAvatarProps) {
             }}
           />
         </Stack>
-        <Stack>
-          <Typography variant="h6" color="#FFFFFF" fontWeight={600}>
-            {hero?.experience[0]?.company}
-          </Typography>
-          <Typography variant="body1" color="#FFFFFF" fontWeight={400}>
-            {hero?.experience[0].position}
-          </Typography>
-        </Stack>
+        {hero.experience ? (
+          <Stack>
+            <Typography variant="h6" color="#FFFFFF" fontWeight={600}>
+              {hero?.experience[0]?.company}
+            </Typography>
+            <Typography variant="body1" color="#FFFFFF" fontWeight={400}>
+              {hero?.experience[0].position}
+            </Typography>
+          </Stack>
+        ) : null}
       </Stack>
     </Stack>
   )

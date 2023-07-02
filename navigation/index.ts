@@ -97,7 +97,7 @@ export const sidebar: Array<NavigationSideBar> = [
       {
         title: "Financial Overview",
         image: "/sidenav/financialoverview.svg",
-        href: "/financialoverview",
+        href: "/financial-overview",
       },
       {
         title: "All Transactions",
@@ -112,7 +112,7 @@ export const sidebar: Array<NavigationSideBar> = [
       {
         title: "Tax Info",
         image: "/sidenav/taxinfo.svg",
-        href: "/taxinfo",
+        href: "/tax-info",
       },
     ],
   },

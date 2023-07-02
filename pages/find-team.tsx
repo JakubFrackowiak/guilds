@@ -10,8 +10,17 @@ import {
 } from "../components/SearchComponents"
 import { Stack, Divider, Container, Box } from "@mui/material"
 import { PageHeader } from "components/PageHeader"
+import { useFirestore, useFirestoreDocData, useUser } from "reactfire"
+import { SideNav } from "components/SideNav"
+import { Hero } from "types/hero"
+import { doc } from "firebase/firestore"
 
 export default function FindTeam() {
+  const { data: user } = useUser()
+  const firestore = useFirestore()
+  const heroRef = doc(firestore, `heroes/${user?.uid}` || "")
+  const { data: hero } = useFirestoreDocData(heroRef)
+
   return (
     <Box
       sx={{
@@ -20,7 +29,7 @@ export default function FindTeam() {
         minHeight: "100vh",
       }}
     >
-      <Header />
+      {user ? <SideNav hero={hero as Hero} /> : <Header />}
       <PageHeader
         greenSubtitle="Your journey awaits you"
         header="Find a new team"

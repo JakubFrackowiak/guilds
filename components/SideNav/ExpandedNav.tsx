@@ -22,7 +22,7 @@ export const ExpandedNav = ({
     <AppBar
       position="fixed"
       sx={{
-        backgroundColor: "#41764A",
+        backgroundColor: "primary.dark",
         left: 0,
         borderRadius: "0px 25px 25px 0px",
         width: "400px",
@@ -48,7 +48,10 @@ export const ExpandedNav = ({
                   borderRadius: 4,
                 }}
               >
-                <Link href={"#"} style={{ textDecoration: "none", height: 20 }}>
+                <Link
+                  href={page.href}
+                  style={{ textDecoration: "none", height: 20 }}
+                >
                   <Stack flexDirection="row">
                     <Image
                       height={20}
@@ -87,7 +90,7 @@ export const ExpandedNav = ({
             </Link>
           </Stack>
 
-          <Typography sx={{ color: "#A3CCAA" }}>{user.email}</Typography>
+          <Typography sx={{ color: "primary.light" }}>{user.email}</Typography>
         </Stack>
       </Stack>
     </AppBar>

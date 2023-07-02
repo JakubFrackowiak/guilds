@@ -4,25 +4,15 @@ import Image from "next/image"
 import Link from "next/link"
 import React, { useState } from "react"
 import { useUser } from "reactfire"
-import styled from "@emotion/styled"
 import { ExpandedNav } from "./ExpandedNav"
 import { MainNav } from "./MainNav"
+import { Hero } from "types/hero"
 
-const LevelBar = styled(Slider)(() => ({
-  "& .MuiSlider-thumb": {
-    display: "none",
-  },
-  "& .MuiSlider-rail": {
-    color: "#96C59E",
-    width: "20px",
-  },
-  "& .MuiSlider-track": {
-    color: "#96C59E",
-    width: "20px",
-  },
-}))
+interface SideNavProps {
+  hero: Hero
+}
 
-export function SideNav(): JSX.Element {
+export function SideNav({ hero }: SideNavProps): JSX.Element {
   const [isExpandedMenu, setIsExpandedMenu] = useState(false)
   const [mainMenuSelect, setMainMenuSelect] = useState()
 
@@ -47,7 +37,7 @@ export function SideNav(): JSX.Element {
         position="fixed"
         sx={{
           left: 0,
-          backgroundColor: "#498553",
+          backgroundColor: "button.primaryHover",
           borderRadius: !isExpandedMenu ? "0px 25px 25px 0px" : null,
           width: "82px",
           height: "100vh",
@@ -60,23 +50,40 @@ export function SideNav(): JSX.Element {
           justifyContent="space-around"
           alignItems="center"
         >
-          <Image
-            src="/lancr-logo.svg"
-            width={36}
-            height={36}
-            alt="Lancr Logo"
-            color={"blue"}
-          />
+          <Link href={"/"} style={{ textDecoration: "none" }}>
+            <Image
+              src="/lancr-logo.svg"
+              width={50}
+              height={50}
+              alt="Lancr Logo"
+              color={"blue"}
+            />
+          </Link>
           <Stack direction="column" flexGrow={1}>
             <MainNav handleMouseOver={handleMouseOver} />
-            <LevelBar
+            <Slider
               orientation="vertical"
               defaultValue={userLevel}
               disabled
-              sx={{ marginX: "auto", marginTop: 1, marginBottom: 1 }}
+              sx={{
+                marginX: "auto",
+                marginTop: 1,
+                marginBottom: 1,
+                "& .MuiSlider-thumb": {
+                  display: "none",
+                },
+                "& .MuiSlider-rail": {
+                  color: "primary.light",
+                  width: "20px",
+                },
+                "& .MuiSlider-track": {
+                  color: "primary.light",
+                  width: "20px",
+                },
+              }}
             />
             <Typography sx={{ fontWeight: 700, textAlign: "center" }}>
-              {userLevel}
+              {hero?.level}
             </Typography>
             <Stack>
               <MenuItem

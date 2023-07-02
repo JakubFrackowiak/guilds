@@ -4,7 +4,7 @@ import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
 import { VerifyPhoneNumber } from "components/VerifyPhoneNumber"
 
-export default function SignUpPage() {
+export default function VerifyPhonePage() {
   return (
     <Box
       sx={{

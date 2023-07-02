@@ -7,13 +7,23 @@ import { BusinessHeroes } from "components/BusinessHeroes"
 import FeaturedCompanies from "components/FeaturedCompanies"
 import { HirerHeading } from "components/HirerHeading"
 import { Slider } from "components/Slider"
-import { useFirestore, useFirestoreCollectionData } from "reactfire"
-import { collection } from "firebase/firestore"
+import {
+  useUser,
+  useFirestore,
+  useFirestoreDocData,
+  useFirestoreCollectionData,
+} from "reactfire"
+import { collection, doc } from "firebase/firestore"
+import { SideNav } from "components/SideNav"
+import { Hero } from "types/hero"
 
 export default function Home() {
   const firestore = useFirestore()
+  const { data: user } = useUser()
   const heroesRef = collection(firestore, "heroes")
-  const { data: hero } = useFirestoreCollectionData(heroesRef)
+  const { data: heroes } = useFirestoreCollectionData(heroesRef)
+  const heroRef = doc(firestore, `heroes/${user?.uid}` || "")
+  const { data: hero } = useFirestoreDocData(heroRef)
 
   return (
     <Box
@@ -23,7 +33,7 @@ export default function Home() {
         minHeight: "100vh",
       }}
     >
-      <Header />
+      {user ? <SideNav hero={hero as Hero} /> : <Header />}
       <Container>
         <Box mt="2rem">
           <HirerHeading />
@@ -38,7 +48,7 @@ export default function Home() {
           <Slider
             variant="hero"
             status={"success"}
-            items={hero}
+            items={heroes}
             variantId={""}
           />
         </Box>

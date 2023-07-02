@@ -1,5 +1,4 @@
 import { Header } from "../components/Header"
-import React, { useEffect, useState } from "react"
 import styled from "@emotion/styled"
 import { Container, Box, Grid, Typography } from "@mui/material"
 import { Footer } from "../components/Footer"
@@ -11,8 +10,11 @@ import {
   useFirestore,
   useFirestoreCollectionData,
   StorageImage,
+  useFirestoreDocData,
 } from "reactfire"
-import { collection, query, where } from "firebase/firestore"
+import { collection, doc, query, where } from "firebase/firestore"
+import { SideNav } from "components/SideNav"
+import { Hero } from "types/hero"
 
 const QuestThumbnail = styled(StorageImage)({
   objectFit: "cover",
@@ -23,6 +25,8 @@ const QuestThumbnail = styled(StorageImage)({
 export default function Quests() {
   const firestore = useFirestore()
   const { data: user } = useUser()
+  const heroRef = doc(firestore, `heroes/${user?.uid}` || "")
+  const { data: hero } = useFirestoreDocData(heroRef)
 
   const questsCollection = collection(firestore, `quests`)
   const questsQuery = query(
@@ -39,7 +43,7 @@ export default function Quests() {
         minHeight: "100vh",
       }}
     >
-      <Header />
+      {user ? <SideNav hero={hero as Hero} /> : <Header />}
       <PageHeader
         greenSubtitle="Let's get to work"
         header="Quests"
