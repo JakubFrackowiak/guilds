@@ -13,7 +13,6 @@ import { Box } from "@mui/material"
 import { ChartTitle } from "./Title"
 import { data } from "./data"
 import { monthTicks } from "./ticks"
-import { relative } from "path"
 
 Chart.register(
   CategoryScale,
