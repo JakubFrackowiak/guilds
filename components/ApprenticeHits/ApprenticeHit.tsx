@@ -110,7 +110,7 @@ export function ApprenticeHit({
               {hit["name.first"] + " " + hit["name.last"]}
             </Typography>
             <Link
-              href={"/"}
+              href={`/hero/${hit?.id}`}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <Typography color="text.secondary" variant="body2">

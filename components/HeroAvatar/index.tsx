@@ -3,6 +3,7 @@ import { StorageImage } from "reactfire"
 import { Typography, Stack, Rating } from "@mui/material"
 import { useEffect, useState } from "react"
 import { Hero } from "types/hero"
+import Link from "next/link"
 
 const HeroImage = styled(StorageImage)({
   objectFit: "cover",
@@ -44,62 +45,64 @@ export function HeroAvatar({ hero, size }: HeroAvatarProps) {
 
   return (
     <Stack position="relative">
-      <HeroImage
-        storagePath={`general/${hero?.profilePicture}`}
-        alt="hero picture"
-        {...avatarSize}
-      />
-      <Stack
-        sx={{
-          position: "absolute",
-          bottom: 0,
-          width: "100%",
-          backdropFilter: "blur(0.8rem)",
-          borderTop: "1px solid rgba(255, 255, 255, 0.3)",
-          p: "1.5rem",
-        }}
-      >
+      <Link href={`/hero/${hero?.id}`}>
+        <HeroImage
+          storagePath={`general/${hero?.profilePicture}`}
+          alt="hero picture"
+          {...avatarSize}
+        />
         <Stack
-          direction={size == "small" ? "column-reverse" : "row"}
-          justifyContent="space-between"
+          sx={{
+            position: "absolute",
+            bottom: 0,
+            width: "100%",
+            backdropFilter: "blur(0.8rem)",
+            borderTop: "1px solid rgba(255, 255, 255, 0.3)",
+            p: "1.5rem",
+          }}
         >
-          <Typography
-            variant={size == "small" ? "h4" : "h3"}
-            fontWeight={600}
-            color="#FFFFFF"
+          <Stack
+            direction={size == "small" ? "column-reverse" : "row"}
+            justifyContent="space-between"
           >
-            {`${hero?.name.first} ${hero?.name.last}`}
-          </Typography>
-          <Rating
-            name="read-only"
-            value={hero?.rating}
-            precision={0.5}
-            readOnly
-            sx={{
-              "& .MuiRating-iconFilled": {
-                color: "#FFFFFF",
-              },
-              "& .MuiRating-iconEmpty": {
-                color: "#FFFFFF",
-              },
-            }}
-          />
-        </Stack>
-        {hero.experience ? (
-          <Stack>
-            <Typography variant="h6" color="#FFFFFF" fontWeight={600}>
-              {hero?.experience[0]?.company}
+            <Typography
+              variant={size == "small" ? "h4" : "h3"}
+              fontWeight={600}
+              color="#FFFFFF"
+            >
+              {`${hero?.name.first} ${hero?.name.last}`}
             </Typography>
-            <Typography variant="body1" color="#FFFFFF" fontWeight={400}>
-              {hero?.experience[0].position}
-            </Typography>
+            <Rating
+              name="read-only"
+              value={hero?.rating}
+              precision={0.5}
+              readOnly
+              sx={{
+                "& .MuiRating-iconFilled": {
+                  color: "#FFFFFF",
+                },
+                "& .MuiRating-iconEmpty": {
+                  color: "#FFFFFF",
+                },
+              }}
+            />
           </Stack>
-        ) : (
-          <Typography variant="h6" color="#FFFFFF" fontWeight={600}>
-            Gathering experience
-          </Typography>
-        )}
-      </Stack>
+          {hero.experience ? (
+            <Stack>
+              <Typography variant="h6" color="#FFFFFF" fontWeight={600}>
+                {hero?.experience[0]?.company}
+              </Typography>
+              <Typography variant="body1" color="#FFFFFF" fontWeight={400}>
+                {hero?.experience[0].position}
+              </Typography>
+            </Stack>
+          ) : (
+            <Typography variant="h6" color="#FFFFFF" fontWeight={600}>
+              Gathering experience
+            </Typography>
+          )}
+        </Stack>
+      </Link>
     </Stack>
   )
 }

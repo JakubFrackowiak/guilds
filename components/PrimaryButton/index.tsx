@@ -46,15 +46,17 @@ export function PrimaryButton({
         color="button.primaryText"
       >
         {children}
-        <Typography
-          textAlign="center"
-          textTransform="none"
-          fontWeight={500}
-          variant="body1"
-          whiteSpace="nowrap"
-        >
-          {label}
-        </Typography>
+        {label != "" ? (
+          <Typography
+            textAlign="center"
+            textTransform="none"
+            fontWeight={500}
+            variant="body1"
+            whiteSpace="nowrap"
+          >
+            {label}
+          </Typography>
+        ) : null}
       </Stack>
     </Button>
   )

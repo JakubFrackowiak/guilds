@@ -54,7 +54,7 @@ export function FeaturedApprentice({
               {apprentice?.name.first + " " + apprentice?.name.last}
             </Typography>
             <Link
-              href={"/"}
+              href={`/hero/${apprentice?.id}`}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <Typography color="text.secondary" variant="body2">

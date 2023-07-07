@@ -45,15 +45,17 @@ export function SecondaryButton({
         spacing={1}
       >
         {children}
-        <Typography
-          textAlign="center"
-          textTransform="none"
-          fontWeight={500}
-          variant="body1"
-          whiteSpace="nowrap"
-        >
-          {label}
-        </Typography>
+        {label != "" ? (
+          <Typography
+            textAlign="center"
+            textTransform="none"
+            fontWeight={500}
+            variant="body1"
+            whiteSpace="nowrap"
+          >
+            {label}
+          </Typography>
+        ) : null}
       </Stack>
     </Button>
   )
