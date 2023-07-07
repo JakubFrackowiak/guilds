@@ -15,7 +15,7 @@ export function ApprenticeTable({
 }: ApprenticeTableProps) {
   return (
     <TableContainer component={Paper}>
-      <Table>
+      <Table sx={{ tableLayout: "fixed", width: "100%", overflow: "scroll" }}>
         <ApprenticeTableHead />
         <ApprenticeHits
           selectedApprentice={selectedApprentice}

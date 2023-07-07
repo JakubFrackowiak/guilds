@@ -22,7 +22,7 @@ export function RecentTransactions() {
         borderColor: (theme) => theme.palette.grey[200],
         borderRadius: "0.5rem",
         boxShadow: "0px 1px 3px 0px #1018281A",
-        flexGrow: 1,
+        height: "100%",
       }}
     >
       <Typography pb={3} variant="h6">

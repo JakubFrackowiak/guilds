@@ -12,12 +12,13 @@ import {
   InputAdornment,
   IconButton,
 } from "@mui/material"
-import { useAuth } from "reactfire"
-import { signInWithEmailAndPassword } from "firebase/auth"
+import { useAuth, useFirestore } from "reactfire"
+import { signInWithEmailAndPassword, signOut } from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
 import { useState } from "react"
 import { PrimaryButton } from "components/PrimaryButton"
 import { useRouter } from "next/router"
+import { doc, getDoc, updateDoc } from "firebase/firestore"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 
 interface FormValues {
@@ -34,18 +35,35 @@ export function SignInForm() {
     open: false,
   })
   const auth = useAuth()
+  const firebase = useFirestore()
   const router = useRouter()
 
   async function handleSubmit(values: FormValues) {
     const { email, password } = values
     try {
-      await signInWithEmailAndPassword(auth, email, password)
-      setToast({
-        severity: "success",
-        message: "Logged in successfully",
-        open: true,
-      })
-      router.push("/find-quest")
+      const result = await signInWithEmailAndPassword(auth, email, password)
+      if (result.user.emailVerified) {
+        const heroRef = doc(firebase, "heroes", result.user.uid)
+        const heroSnap = await getDoc(heroRef)
+        if (heroSnap.exists() && !heroSnap.data().isVerified) {
+          updateDoc(heroRef, {
+            isVerified: true,
+          })
+        }
+        setToast({
+          severity: "success",
+          message: "Logged in successfully",
+          open: true,
+        })
+        router.push("/find-quest")
+      } else {
+        signOut(auth)
+        setToast({
+          severity: "warning",
+          message: "Verify email to log in",
+          open: true,
+        })
+      }
     } catch (error) {
       setToast({
         severity: "error",

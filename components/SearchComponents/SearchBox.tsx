@@ -26,6 +26,11 @@ function CustomSearchBox({ currentRefinement, refine }) {
             </InputAdornment>
           ),
         }}
+        inputProps={{
+          style: {
+            height: "2rem",
+          },
+        }}
         sx={{ width: "18rem", borderRadius: "1rem" }}
       />
     </Box>

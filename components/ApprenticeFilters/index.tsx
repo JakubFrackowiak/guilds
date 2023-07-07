@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material"
 import { RefinementSelect } from "./RefinementSelect"
-import { HoursSlider } from "./HoursSlider"
+import { HoursSelect } from "./HoursSelect"
 import { useState } from "react"
 import { RangeInput } from "./RangeInput"
 
@@ -18,7 +18,7 @@ export function ApprenticeFilters({ showFilters }) {
     setAccordion(accordion == selectedAccordion ? "" : selectedAccordion)
   }
   return (
-    <Collapse in={showFilters}>
+    <Collapse in={showFilters} sx={{ width: "14rem" }}>
       <Stack spacing={2}>
         <Stack>
           <Accordion
@@ -124,7 +124,24 @@ export function ApprenticeFilters({ showFilters }) {
             </AccordionSummary>
             <AccordionDetails>
               <Divider orientation="horizontal" sx={{ mb: "1.5rem" }} />
-              <HoursSlider step={1} />
+              <HoursSelect step={1} />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion
+            expanded={accordion == "workingDays"}
+            onChange={() => handleChange("workingDays")}
+          >
+            <AccordionSummary>
+              <Typography
+                variant="body2"
+                sx={{ fontWeight: 600, color: "text.secondary" }}
+              >
+                Working days
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Divider orientation="horizontal" sx={{ mb: "1.5rem" }} />
+              <RefinementSelect attribute="apprentice.workingDays" />
             </AccordionDetails>
           </Accordion>
         </Stack>

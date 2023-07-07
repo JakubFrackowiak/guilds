@@ -7,7 +7,8 @@ import { GuildsData } from "./GuildsData"
 export function GuildsStats() {
   const firestore = useFirestore()
   const heroesRef = collection(firestore, "heroes")
-  const { data: heroes } = useFirestoreCollectionData(heroesRef)
+  const heroesQuery = query(heroesRef, where("isVerified", "==", true))
+  const { data: heroes } = useFirestoreCollectionData(heroesQuery)
   const questsRef = collection(firestore, "quests")
   const questsQuery = query(questsRef, where("status", "==", "completed"))
   const { data: completedQuests } = useFirestoreCollectionData(questsQuery)

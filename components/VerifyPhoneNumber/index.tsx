@@ -12,6 +12,8 @@ import { useRef, useState } from "react"
 import { CodeTextField } from "./CodeTextField"
 import { useRouter } from "next/router"
 import { PrimaryButton } from "components/PrimaryButton"
+import { signOut } from "firebase/auth"
+import { useAuth } from "reactfire"
 
 export interface Code {
   [key: number]: string
@@ -32,19 +34,21 @@ export function VerifyPhoneNumber() {
     5: "",
   })
   const router = useRouter()
+  const auth = useAuth()
   const { phone: phoneNumber } = router.query
   const inputRefs = useRef(Array(6).fill(null))
 
   const handleVerifyPhoneNumber = async (code: string) => {
     if (window.confirmationResult) {
       try {
-        await window.confirmationResult.confirm(code)
+        window.confirmationResult.confirm(code)
         setToast({
           open: true,
           message: "Phone number verified successfully",
           severity: "success",
         })
-        router.push("/find-quest")
+        signOut(auth)
+        router.push("/")
       } catch (error) {
         setToast({
           open: true,

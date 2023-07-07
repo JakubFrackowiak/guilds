@@ -1,22 +1,25 @@
-import Link from "next/link"
 import styled from "@emotion/styled"
 import { Stack, Box, Typography } from "@mui/material"
 import { Hero } from "types/hero"
-import { Quest } from "types/quest"
+import { Bid, Quest } from "types/quest"
 import {
   StorageImage,
   useFirestoreCollectionData,
   useFirestore,
+  useUser,
 } from "reactfire"
-import { collection, limit, orderBy, query } from "firebase/firestore"
+import { collection } from "firebase/firestore"
 import { MakeBidModal } from "./MakeBidModal"
 import { useState } from "react"
 import { SecondaryButton } from "./SecondaryButton"
 import { PrimaryButton } from "./PrimaryButton"
+import { SignInModal } from "./SignInModal"
+import { formatBid } from "formatters"
 
 interface IndividualQuestBannerProps {
   hero: Hero
   quest: Quest
+  bestBid: Bid
 }
 
 const QuestImage = styled(StorageImage)({
@@ -37,16 +40,24 @@ const UserAvatar = styled(StorageImage)`
 export function IndividualQuestBanner({
   hero,
   quest,
+  bestBid,
 }: IndividualQuestBannerProps) {
   const [makeBidModalOpen, setMakeBidModalOpen] = useState(false)
+  const [loginModalOpen, setLoginModalOpen] = useState(false)
+  const { data: user } = useUser()
   const firestore = useFirestore()
-  const bidsRef = collection(firestore, `quests/${quest?.id}/bids`)
-  const topBidsQuery = query(bidsRef, orderBy("amount", "asc"), limit(1))
-  const { data: topBids } = useFirestoreCollectionData(topBidsQuery)
-  const topBid = topBids?.[0]
+
   const heroRef = collection(firestore, "heroes")
   const { data: heroes } = useFirestoreCollectionData(heroRef)
-  const topBidder = heroes?.find((hero) => hero.id === topBid?.bidderId)
+  const bestBidder = heroes?.find((hero) => hero.id === bestBid?.bidderId)
+
+  const handleModalOpen = () => {
+    if (user) {
+      setMakeBidModalOpen(true)
+    } else {
+      setLoginModalOpen(true)
+    }
+  }
 
   return (
     <Stack
@@ -65,45 +76,50 @@ export function IndividualQuestBanner({
         setModalOpen={setMakeBidModalOpen}
         questId={quest.id}
       />
+      <SignInModal
+        modalOpen={loginModalOpen}
+        setModalOpen={setLoginModalOpen}
+      />
       <Stack mb={{ xs: "2rem", sm: "2rem", md: "2rem" }}>
         <Stack spacing={2} mb="2rem">
-          <Box
-            display="flex"
-            sx={{
-              px: 1,
-              py: 0.5,
-              width: "max-content",
-              backgroundColor: "primary.light",
-              borderRadius: "1rem",
-            }}
-          >
-            <Typography
-              display="inline"
-              variant="body2"
+          {bestBid ? (
+            <Box
+              display="flex"
               sx={{
-                py: 0.5,
                 px: 1,
-                backgroundColor: "#FFFFFF",
-                color: "primary.main",
+                py: 0.5,
+                width: "max-content",
+                backgroundColor: "primary.light",
                 borderRadius: "1rem",
               }}
             >
-              <Box display="inline" fontWeight={500}>
-                {topBidder?.name.first} {topBidder?.name.last}
-              </Box>
-              {"  "}
-              holds the top bid
-            </Typography>
-            <Typography
-              variant="body2"
-              display="inline"
-              color="primary.main"
-              sx={{ p: 0.5, ml: 1 }}
-            >
-              {topBid?.currency}
-              {topBid?.amount}
-            </Typography>
-          </Box>
+              <Typography
+                display="inline"
+                variant="body2"
+                sx={{
+                  py: 0.5,
+                  px: 1,
+                  backgroundColor: "#FFFFFF",
+                  color: "primary.main",
+                  borderRadius: "1rem",
+                }}
+              >
+                <Box display="inline" fontWeight={500}>
+                  {bestBidder?.name.first} {bestBidder?.name.last}
+                </Box>{" "}
+                holds the best bid
+              </Typography>
+              <Typography
+                variant="body2"
+                display="inline"
+                color="primary.main"
+                sx={{ p: 0.5, ml: 1 }}
+              >
+                {formatBid(bestBid)}
+              </Typography>
+            </Box>
+          ) : null}
+
           <Typography variant="h1">{quest?.title}</Typography>
         </Stack>
         <Typography
@@ -143,7 +159,7 @@ export function IndividualQuestBanner({
           <SecondaryButton label="More information" width="fit-content" />
           <PrimaryButton
             label="Place a bid"
-            onClick={() => setMakeBidModalOpen(true)}
+            onClick={() => handleModalOpen()}
             width="fit-content"
           />
         </Stack>

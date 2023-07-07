@@ -14,6 +14,7 @@ import { SecondaryButton } from "../SecondaryButton"
 import { Star } from "@mui/icons-material"
 import { Hero } from "types/hero"
 import { withStyles } from "@material-ui/core"
+import { formatHour } from "formatters"
 
 const ProfilePicture = styled(StorageImage)({
   objectFit: "cover",
@@ -85,9 +86,14 @@ export function FeaturedApprentice({
       </ApprenticeTableCell>
       <ApprenticeTableCell>
         <Typography variant="body2" whiteSpace="nowrap">
-          {apprentice?.apprentice.workingHours.start +
+          {apprentice?.apprentice.workingDays}
+        </Typography>
+      </ApprenticeTableCell>
+      <ApprenticeTableCell>
+        <Typography variant="body2" whiteSpace="nowrap">
+          {formatHour(apprentice?.apprentice.workingHours.start) +
             " - " +
-            apprentice?.apprentice.workingHours.end}
+            formatHour(apprentice?.apprentice.workingHours.end)}
         </Typography>
       </ApprenticeTableCell>
       <ApprenticeTableCell>

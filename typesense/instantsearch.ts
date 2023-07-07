@@ -1,4 +1,3 @@
-import { InstantSearch } from "react-instantsearch-dom"
 import TypesenseInstantSearchAdapter from "typesense-instantsearch-adapter"
 
 const typesenseQuestsInstantsearchAdapter = new TypesenseInstantSearchAdapter({
@@ -6,7 +5,7 @@ const typesenseQuestsInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY,
     nodes: [
       {
-        host: "3q6vif2tznsc95r4p-1.a1.typesense.net",
+        host: "jfqln58gwoctpbmkp-1.a1.typesense.net",
         port: 443,
         protocol: "https",
       },
@@ -22,7 +21,7 @@ const typesenseTeamsInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY,
     nodes: [
       {
-        host: "3q6vif2tznsc95r4p-1.a1.typesense.net",
+        host: "jfqln58gwoctpbmkp-1.a1.typesense.net",
         port: 443,
         protocol: "https",
       },
@@ -38,7 +37,7 @@ const typesenseCoursesInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY,
     nodes: [
       {
-        host: "3q6vif2tznsc95r4p-1.a1.typesense.net",
+        host: "jfqln58gwoctpbmkp-1.a1.typesense.net",
         port: 443,
         protocol: "https",
       },
@@ -54,7 +53,7 @@ const typesenseHeroesInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY,
     nodes: [
       {
-        host: "3q6vif2tznsc95r4p-1.a1.typesense.net",
+        host: "jfqln58gwoctpbmkp-1.a1.typesense.net",
         port: 443,
         protocol: "https",
       },

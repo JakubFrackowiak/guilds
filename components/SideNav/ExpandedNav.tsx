@@ -3,36 +3,34 @@ import { sidebar } from "../../navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { useAuth } from "reactfire"
+import { Hero } from "types/hero"
 
 interface ExpandedNavProps {
-  user: any
+  hero: Hero
   mainMenuSelect: any
-  handleMouseOver: (params: number) => void
-  handleMouseOut: () => void
 }
 
-export const ExpandedNav = ({
-  mainMenuSelect,
-  user,
-  handleMouseOut,
-}: ExpandedNavProps) => {
+export const ExpandedNav = ({ mainMenuSelect, hero }: ExpandedNavProps) => {
   const auth = useAuth()
 
   return (
     <AppBar
-      position="fixed"
       sx={{
+        position: "fixed",
         backgroundColor: "primary.dark",
         left: 0,
         borderRadius: "0px 25px 25px 0px",
         width: "400px",
         height: "100vh",
-        zIndex: 4,
       }}
     >
       <Stack
-        onMouseLeave={handleMouseOut}
-        sx={{ marginLeft: "100px", marginTop: "30px", flex: 1, width: "100%" }}
+        sx={{
+          marginLeft: "100px",
+          marginTop: "30px",
+          flex: 1,
+          pr: 5,
+        }}
       >
         <Typography sx={{ fontWeight: 500 }}>
           {mainMenuSelect ? sidebar[mainMenuSelect].title : null}
@@ -43,7 +41,7 @@ export const ExpandedNav = ({
                 key={page.title}
                 style={{
                   marginTop: 5,
-                  width: "70%",
+                  width: "100%",
                   height: 45,
                   borderRadius: 4,
                 }}
@@ -70,11 +68,14 @@ export const ExpandedNav = ({
               </MenuItem>
             ))
           : null}
-
         <Stack sx={{ marginTop: "auto", marginBottom: "28px" }}>
-          <Stack direction="row" alignItems="center">
-            <Typography sx={{ marginRight: "190px", fontWeight: 500 }}>
-              {user.displayName}
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Typography sx={{ fontWeight: 500 }}>
+              {hero?.name.first + " " + hero?.name.last}
             </Typography>
             <Link
               href={"#"}
@@ -89,8 +90,7 @@ export const ExpandedNav = ({
               />
             </Link>
           </Stack>
-
-          <Typography sx={{ color: "primary.light" }}>{user.email}</Typography>
+          <Typography sx={{ color: "primary.light" }}>{hero?.email}</Typography>
         </Stack>
       </Stack>
     </AppBar>

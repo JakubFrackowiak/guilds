@@ -51,14 +51,18 @@ function CustomRefinementList({
       <Stack spacing={2}>
         <Box sx={refinementItemStyle(!currentRefinement.length)}>
           <CustomListItemButton onClick={() => refine([])}>
-            <Typography variant="body1">{defaultLabel}</Typography>
+            <Typography variant="body1" noWrap>
+              {defaultLabel}
+            </Typography>
           </CustomListItemButton>
         </Box>
         {sortedItems.length > 0 &&
           sortedItems.map((item: Item, idx) => (
             <Box sx={refinementItemStyle(item.isRefined)} key={idx}>
               <CustomListItemButton onClick={() => refine(item.value)}>
-                <Typography variant="body1">{item.label}</Typography>
+                <Typography variant="body1" noWrap>
+                  {item.label}
+                </Typography>
               </CustomListItemButton>
             </Box>
           ))}

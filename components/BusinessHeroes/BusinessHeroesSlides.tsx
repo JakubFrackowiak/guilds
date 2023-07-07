@@ -3,7 +3,7 @@ import {
   useFirestore,
   useFirestoreCollectionData,
 } from "reactfire"
-import { collection, query } from "firebase/firestore"
+import { collection, query, where } from "firebase/firestore"
 import { Hero } from "types/hero"
 import { Stack } from "@mui/material"
 import { useEffect, useRef, useState } from "react"
@@ -13,7 +13,7 @@ const delay = 5000
 export function BusinessHeroesSlides() {
   const firestore = useFirestore()
   const heroesRef = collection(firestore, "heroes")
-  const heroesQuery = query(heroesRef)
+  const heroesQuery = query(heroesRef, where("isVerified", "==", true))
   const { data } = useFirestoreCollectionData(heroesQuery)
   const heroes = data as Hero[]
 

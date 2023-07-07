@@ -10,7 +10,7 @@ export const data = {
     {
       label: "balance",
       data: [12, 19, 3, 5],
-      backgroundColor: ["#50915B", "#61A86D", "#7BB785", "#96C59E"],
+      backgroundColor: ["#A11043", "#C01048", "#E31B54", "#FFF1F3"],
       borderWidth: 0,
     },
   ],

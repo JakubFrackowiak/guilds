@@ -32,6 +32,17 @@ export function FeaturedApprenticesTableHead() {
             textAlign="left"
             noWrap
           >
+            Working days
+          </Typography>
+        </TableCell>
+        <TableCell>
+          <Typography
+            color="text.secondary"
+            variant="body2"
+            fontWeight={500}
+            textAlign="left"
+            noWrap
+          >
             Working hours
           </Typography>
         </TableCell>

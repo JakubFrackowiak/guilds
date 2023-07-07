@@ -15,7 +15,7 @@ import { collection, limit, orderBy, query } from "firebase/firestore"
 
 const QuestThumbnail = styled(StorageImage)({
   objectFit: "cover",
-  aspectRatio: 16 / 10,
+  aspectRatio: "16/10",
   height: 240,
 })
 
@@ -43,7 +43,7 @@ export function LatestQuest({ quest }: LatestQuestProps) {
               variant="body2"
               sx={{ fontWeight: 600, color: "primary.main" }}
             >
-              {"Lowest price - " + topBid?.amount}
+              {"Best bid - " + topBid?.amount}
             </Typography>
           )}
           <Stack direction="row" justifyContent="space-between">

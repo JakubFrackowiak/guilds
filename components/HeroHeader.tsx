@@ -6,7 +6,7 @@ import {
   useFirestore,
   useFirestoreCollectionData,
 } from "reactfire"
-import { collection, limit, query } from "firebase/firestore"
+import { collection, limit, query, where } from "firebase/firestore"
 import { Hero } from "types/hero"
 
 import { SignIn } from "./SignIn"
@@ -23,7 +23,11 @@ const UserAvatar = styled(StorageImage)`
 export function HeroHeader() {
   const firestore = useFirestore()
   const heroesRef = collection(firestore, "heroes")
-  const heroesQuery = query(heroesRef, limit(6))
+  const heroesQuery = query(
+    heroesRef,
+    limit(6),
+    where("isVerified", "==", true)
+  )
   const { data: heroes } = useFirestoreCollectionData(heroesQuery)
 
   return (
@@ -40,13 +44,13 @@ export function HeroHeader() {
           One-off jobs hosted by companies in need of a helping hand. Level up
           your experience by completing taks and earn income.
         </Typography>
-        <Stack direction="row" spacing={{ xs: 2 }} position="relative">
+        <Stack direction="row" spacing={{ xs: 2 }}>
           <Stack direction="row">
             {heroes?.map((hero: Hero, idx) => (
               <UserAvatar
                 key={hero.id}
                 alt="hero image"
-                storagePath={`general/${heroes[idx].profilePicture}`}
+                storagePath={`general/${hero.profilePicture}`}
               />
             ))}
           </Stack>
@@ -59,21 +63,23 @@ export function HeroHeader() {
               from 200+ reviews
             </Typography>
           </Stack>
-          <Box
-            sx={{
-              zIndex: 99,
-              display: { xs: "none", sm: "none", md: "none", lg: "block" },
-              position: "absolute",
-              top: -100,
-              left: 410,
-            }}
-          >
-            <Image
-              src="/HeaderArrow.svg"
-              alt="arrow"
-              width={290}
-              height={240}
-            />
+          <Box sx={{ position: "relative" }}>
+            <Box
+              sx={{
+                zIndex: 99,
+                display: { xs: "none", sm: "none", md: "none", lg: "block" },
+                position: "absolute",
+                top: -100,
+                left: 90,
+              }}
+            >
+              <Image
+                src="/HeaderArrow.svg"
+                alt="arrow"
+                width={290}
+                height={240}
+              />
+            </Box>
           </Box>
         </Stack>
       </Stack>

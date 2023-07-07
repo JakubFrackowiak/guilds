@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import Image from "next/image"
 import { Grid, Box, Stack, Typography } from "@mui/material"
 import { QuestTag } from "../QuestTag"
-import { Tag, Quest } from "types/quest"
+import { Tag, Quest, Bid } from "types/quest"
 import LinesElipsis from "react-lines-ellipsis"
 import {
   StorageImage,
@@ -11,6 +11,7 @@ import {
   useFirestoreCollectionData,
 } from "reactfire"
 import { collection, limit, orderBy, query } from "firebase/firestore"
+import { formatBid } from "formatters"
 
 interface QuestHitProps {
   hit: Quest
@@ -24,9 +25,9 @@ const QuestThumbnail = styled(StorageImage)({
 export function QuestHit({ hit }: QuestHitProps) {
   const firestore = useFirestore()
   const bidsRef = collection(firestore, `quests/${hit.id}/bids`)
-  const topBidsQuery = query(bidsRef, orderBy("amount", "asc"), limit(1))
-  const { data: topBids } = useFirestoreCollectionData(topBidsQuery)
-  const topBid = topBids?.[0]
+  const bidsQuery = query(bidsRef, orderBy("amount", "asc"), limit(1))
+  const { data: bids } = useFirestoreCollectionData(bidsQuery)
+  const bestBid = bids && bids.length > 0 ? bids[0] : null
 
   return (
     <Grid item xs={12} md={12} lg={6}>
@@ -36,12 +37,12 @@ export function QuestHit({ hit }: QuestHitProps) {
             storagePath={`general/${hit.image}`}
             alt="quest image"
           />
-          {topBid && (
+          {bestBid && (
             <Typography
               variant="body2"
               sx={{ fontWeight: 600, color: "primary.main" }}
             >
-              {"Lowest price - " + topBid?.amount}
+              {"Best bid - " + formatBid(bestBid as Bid)}
             </Typography>
           )}
           <Stack direction="row" justifyContent="space-between">

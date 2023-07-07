@@ -1,13 +1,14 @@
 import styled from "@emotion/styled"
 import Link from "next/link"
 import Image from "next/image"
-import { Stack, Typography, CircularProgress, Box, Grid } from "@mui/material"
+import { Stack, Typography, Box, Grid } from "@mui/material"
 import { Bid } from "types/quest"
 import { StorageImage, useFirestore, useFirestoreDocData } from "reactfire"
 import { doc } from "firebase/firestore"
+import { formatBid } from "formatters"
 
 interface UserCardBidProps {
-  value: Bid
+  bid: Bid
 }
 
 const Heading = styled(Typography)({
@@ -26,9 +27,9 @@ const UserAvatar = styled(StorageImage)`
   object-fit: cover;
 `
 
-export function UserCardBid({ value }: UserCardBidProps) {
+export function UserCardBid({ bid }: UserCardBidProps) {
   const firestore = useFirestore()
-  const heroQuery = doc(firestore, "heroes", value.bidderId)
+  const heroQuery = doc(firestore, "heroes", bid.bidderId)
   const { data: hero } = useFirestoreDocData(heroQuery)
 
   if (!hero) {
@@ -51,7 +52,7 @@ export function UserCardBid({ value }: UserCardBidProps) {
               color: "primary.main",
             }}
           >
-            {"£" + value.amount}
+            {formatBid(bid)}
           </Typography>
           <Typography
             sx={{
@@ -62,8 +63,11 @@ export function UserCardBid({ value }: UserCardBidProps) {
               paddingY: 1,
             }}
           >
-            {/*TODO - add tagline as a required field in hero data*/}
-            Former co-founder of Opendoor. Early staff at Spotify and Clearbit.
+            {hero.experience
+              ? hero?.experience[0].position +
+                " at " +
+                hero?.experience[0]?.company
+              : "Gathering experience"}
           </Typography>
           <Stack flexDirection="row" sx={{ mb: 2, mt: 1 }}>
             <Box sx={{ mr: 2 }}>

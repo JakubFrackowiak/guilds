@@ -1,8 +1,12 @@
-import { Bid as BidType } from "types/quest"
+import { Bid, Bid as BidType } from "types/quest"
 import { UserCardBid } from "../components/UserCardBid"
 import { CircularProgress, Grid, Typography } from "@mui/material"
 
-export function Bids({ bids }) {
+interface BidsProps {
+  bids: Bid[]
+}
+
+export function Bids({ bids }: BidsProps) {
   if (!bids) {
     return <CircularProgress />
   }
@@ -14,7 +18,7 @@ export function Bids({ bids }) {
       rowSpacing={4}
     >
       {bids?.length ? (
-        bids.map((bid: BidType, idx) => <UserCardBid key={idx} value={bid} />)
+        bids.map((bid: BidType, idx) => <UserCardBid key={idx} bid={bid} />)
       ) : (
         <Typography>no bids</Typography>
       )}

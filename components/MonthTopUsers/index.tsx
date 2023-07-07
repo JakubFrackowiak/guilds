@@ -1,5 +1,5 @@
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
-import { collection, limit, query } from "firebase/firestore"
+import { collection, limit, query, where } from "firebase/firestore"
 import { Grid, Stack, useMediaQuery, useTheme } from "@mui/material"
 import { TopUsersHeader, TopUsersHeaderProps } from "./TopUsersHeader"
 import { User } from "./User"
@@ -20,7 +20,11 @@ export function MonthTopUsers({
 }: TopMonthUserProps) {
   const firestore = useFirestore()
   const heroesRef = collection(firestore, "heroes")
-  const heroesQuery = query(heroesRef, limit(6))
+  const heroesQuery = query(
+    heroesRef,
+    limit(6),
+    where("isVerified", "==", true)
+  )
   const { data } = useFirestoreCollectionData(heroesQuery)
   const heroes = data as Hero[]
   const theme = useTheme()

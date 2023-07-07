@@ -15,6 +15,7 @@ export default function FeaturedCompanies() {
     <Stack
       justifyContent="center"
       alignItems="center"
+      zIndex={1}
       spacing={{ xs: 4, sm: 4, md: 0 }}
       py={{ xs: 4, sm: 6, md: 8 }}
       sx={{

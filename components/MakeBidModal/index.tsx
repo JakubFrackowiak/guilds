@@ -1,8 +1,9 @@
-import { Modal, Stack } from "@mui/material"
+import { IconButton, Modal, Stack } from "@mui/material"
 import { ApprenticeTablePanel } from "components/ApprenticeTablePanel"
 import { MessageApprentice } from "components/MessageApprentice"
 import { SelectYourApprentice } from "components/SelectYourApprenticeModal"
 import { WouldYouLikeAnApprentice } from "components/WouldYouLikeAnApprentice"
+import Image from "next/image"
 import { useEffect, useState } from "react"
 import { BidForm } from "../BidForm"
 
@@ -38,12 +39,22 @@ export function MakeBidModal({ modalOpen, setModalOpen, questId }) {
         return (
           <Stack
             borderRadius="1rem"
-            p={6}
+            p={8}
             spacing={2}
             bgcolor="background.default"
-            height="90vh"
-            minWidth="95vw"
+            height="100%"
+            width="100%"
+            overflow="scroll"
           >
+            <IconButton
+              sx={{ position: "absolute", right: 20, top: 20 }}
+              onClick={() => {
+                setModalOpen(false)
+                setStage(1)
+              }}
+            >
+              <Image src="/x.svg" width={12} height={12} alt="x" />
+            </IconButton>
             <ApprenticeTablePanel
               tab={null}
               index={null}

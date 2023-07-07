@@ -32,13 +32,14 @@ export interface Bid {
   updatedAt?: Date
   rate: "hourly" | "fixed"
   amount: number
-  currency: "£" | "&" | "$"
+  currency: "£" | "%" | "$"
   timeRequired: string
-  workingTime: "default" | "weekdays" | "weekday evenings" | "any"
+  workingTime: "Default" | "Weekdays" | "Weekday evenings" | "Any"
   questId: UUID
   apprentice?: string
   apprenticeRate?: number
   apprenticeCut?: number
-  totalEarnigns: number
+  totalEarnings: number
   status: string
+  totalBidValue: number
 }

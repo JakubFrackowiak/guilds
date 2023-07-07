@@ -1,20 +1,36 @@
-import { AppBar, Stack, MenuItem, Typography, Slider } from "@mui/material"
-import { UserMenu } from "../../components/Header/UserMenu"
+import { AppBar, Stack, MenuItem, Typography, Slider, Box } from "@mui/material"
 import Image from "next/image"
 import Link from "next/link"
-import React, { useState } from "react"
-import { useUser } from "reactfire"
+import { useState } from "react"
+import {
+  StorageImage,
+  useFirestore,
+  useFirestoreDocData,
+  useUser,
+} from "reactfire"
 import { ExpandedNav } from "./ExpandedNav"
 import { MainNav } from "./MainNav"
 import { Hero } from "types/hero"
+import styled from "@emotion/styled"
+import { doc } from "firebase/firestore"
+import { motion } from "framer-motion"
 
-interface SideNavProps {
-  hero: Hero
-}
+const UserAvatar = styled(StorageImage)`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+`
 
-export function SideNav({ hero }: SideNavProps): JSX.Element {
+export function SideNav(): JSX.Element {
   const [isExpandedMenu, setIsExpandedMenu] = useState(false)
   const [mainMenuSelect, setMainMenuSelect] = useState()
+
+  const { data: user } = useUser()
+  const firestore = useFirestore()
+
+  const heroRef = doc(firestore, `heroes/${user?.uid}`)
+  const { data: hero } = useFirestoreDocData(heroRef)
 
   const handleMouseOver = (selection) => {
     setIsExpandedMenu(true)
@@ -25,22 +41,22 @@ export function SideNav({ hero }: SideNavProps): JSX.Element {
     setIsExpandedMenu(null)
   }
 
-  const { data: user } = useUser()
   {
     /*Todo - replace hardcode userLevel with user's experience level */
   }
   const userLevel = 30
 
   return (
-    <>
+    <Box onMouseLeave={handleMouseOut} position="relative">
       <AppBar
         position="fixed"
         sx={{
           left: 0,
           backgroundColor: "button.primaryHover",
-          borderRadius: !isExpandedMenu ? "0px 25px 25px 0px" : null,
-          width: "82px",
+          borderRadius: "0px 25px 25px 0px",
+          width: "5.2rem",
           height: "100vh",
+          zIndex: 99,
         }}
       >
         <Stack
@@ -130,20 +146,34 @@ export function SideNav({ hero }: SideNavProps): JSX.Element {
                   />
                 </Link>
               </MenuItem>
+              <MenuItem
+                style={{
+                  width: 45,
+                  height: 45,
+                  borderRadius: 4,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                {hero ? (
+                  <UserAvatar
+                    alt="hero image"
+                    storagePath={`general/${hero?.profilePicture}`}
+                  />
+                ) : null}
+              </MenuItem>
             </Stack>
           </Stack>
-          <UserMenu />
         </Stack>
       </AppBar>
-
-      {isExpandedMenu ? (
-        <ExpandedNav
-          mainMenuSelect={mainMenuSelect}
-          user={user}
-          handleMouseOver={handleMouseOver}
-          handleMouseOut={handleMouseOut}
-        />
-      ) : null}
-    </>
+      <Box position="fixed" zIndex={5}>
+        <motion.div
+          animate={{ x: isExpandedMenu ? 0 : -400 }}
+          transition={{ ease: "linear", duration: 0.25 }}
+        >
+          <ExpandedNav mainMenuSelect={mainMenuSelect} hero={hero as Hero} />
+        </motion.div>
+      </Box>
+    </Box>
   )
 }

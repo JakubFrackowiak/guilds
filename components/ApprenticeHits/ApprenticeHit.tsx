@@ -142,6 +142,11 @@ export function ApprenticeHit({
       </ApprenticeTableCell>
       <ApprenticeTableCell>
         <Typography variant="body2" whiteSpace="nowrap">
+          {hit["apprentice.workingDays"]}
+        </Typography>
+      </ApprenticeTableCell>
+      <ApprenticeTableCell>
+        <Typography variant="body2" whiteSpace="nowrap">
           {formatHour(hit["apprentice.workingHours.start"]) +
             " - " +
             formatHour(hit["apprentice.workingHours.end"])}

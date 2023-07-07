@@ -1,27 +1,30 @@
-import { NoSsr } from "@mui/material"
+import { Alert, AlertProps, NoSsr, Snackbar } from "@mui/material"
 import FeaturedCompanies from "components/FeaturedCompanies"
 import { Box, Container } from "@mui/material"
 import { FAQs } from "components/FAQs"
-import { collection, doc } from "firebase/firestore"
+import { collection, query, where } from "firebase/firestore"
 import { Footer } from "components/Footer"
 import { Header } from "components/Header"
 import {
   useAuth,
   useFirestore,
   useFirestoreCollectionData,
-  useFirestoreDocData,
   useUser,
 } from "reactfire"
 import { Slider } from "components/Slider"
 import { HeroHeader } from "components/HeroHeader"
 import { useRouter } from "next/router"
-import { useEffect } from "react"
-import { isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth"
+import { useEffect, useState } from "react"
+import { applyActionCode } from "firebase/auth"
 import { SideNav } from "components/SideNav"
 import { LancrStats } from "components/LancrStats"
-import { Hero } from "types/hero"
 
 export default function index() {
+  const [toast, setToast] = useState({
+    severity: "success",
+    message: "",
+    open: false,
+  })
   const firestore = useFirestore()
   const router = useRouter()
   const { mode, oobCode } = router.query
@@ -30,36 +33,33 @@ export default function index() {
     idField: "id",
   })
   const heroesRef = collection(firestore, "heroes")
-  const { data: heroes } = useFirestoreCollectionData(heroesRef)
+  const heroesQuery = query(heroesRef, where("isVerified", "==", true))
+  const { data: heroes } = useFirestoreCollectionData(heroesQuery)
   const teamsRef = collection(firestore, "teams")
   const { data: teams } = useFirestoreCollectionData(teamsRef)
   const auth = useAuth()
   const { data: user } = useUser()
-  const heroRef = doc(firestore, `heroes/${user?.uid}` || "")
-  const { data: hero } = useFirestoreDocData(heroRef)
 
-  const verifyPhone = async () => {
+  const verifyEmail = async () => {
     try {
-      if (isSignInWithEmailLink(auth, window.location.href)) {
-        let email = window.localStorage.getItem("emailForSignIn")
-        if (!email) {
-          email = window.prompt("Please provide your email for confirmation")
-        }
-        await signInWithEmailLink(auth, email, window.location.href)
-        window.localStorage.removeItem("emailForSignIn")
-      }
+      await applyActionCode(auth, oobCode as string)
+      setToast({
+        severity: "success",
+        message: "Email verified! Log in to explore!",
+        open: true,
+      })
     } catch (error) {
-      console.log(error)
+      setToast({
+        severity: "error",
+        message: "Error verifying email!",
+        open: true,
+      })
     }
   }
 
   useEffect(() => {
-    if (mode == "verifyPhone") {
-      verifyPhone()
-      router.push({
-        pathname: "/find-quest",
-        query: { oobCode: oobCode },
-      })
+    if (mode == "verifyEmail") {
+      verifyEmail()
     }
     if (mode == "resetPassword") {
       router.push({
@@ -77,7 +77,16 @@ export default function index() {
         minHeight: "100vh",
       }}
     >
-      {user ? <SideNav hero={hero as Hero} /> : <Header />}
+      <Snackbar
+        open={toast.open}
+        autoHideDuration={6000}
+        onClose={() => setToast((prev) => ({ ...prev, open: false }))}
+      >
+        <Alert severity={toast.severity as AlertProps["severity"]}>
+          {toast.message}
+        </Alert>
+      </Snackbar>
+      {user ? <SideNav /> : <Header />}
       <NoSsr>
         <Container>
           <Box marginTop={{ xs: "2rem", sm: "2rem", md: "0rem" }}>

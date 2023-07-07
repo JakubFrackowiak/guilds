@@ -8,6 +8,7 @@ interface ButtonProps {
   width?: string | number
   disabled?: boolean
   type?: "button" | "submit" | "reset" | undefined
+  sx?: any
 }
 
 export function PrimaryButton({
@@ -17,6 +18,7 @@ export function PrimaryButton({
   width = "100%",
   disabled = false,
   type = "button",
+  sx = {},
 }: ButtonProps) {
   return (
     <Button
@@ -25,6 +27,7 @@ export function PrimaryButton({
       disabled={disabled}
       type={type}
       sx={{
+        ...sx,
         height: "3rem",
         width: width,
         borderRadius: "0.6rem",

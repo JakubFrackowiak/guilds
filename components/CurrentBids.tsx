@@ -1,35 +1,20 @@
-import React, { useState, useEffect } from "react"
-import { Stack, Typography, Grid, CircularProgress, Box } from "@mui/material"
-import { useFirestore, useFirestoreCollectionData } from "reactfire"
-import { collection, limit, query } from "firebase/firestore"
+import React, { useState } from "react"
+import { Stack, Typography, Grid, CircularProgress } from "@mui/material"
 import { Bids } from "../components/Bids"
-import { Quest } from "../types/quest"
+import { Bid, Quest } from "../types/quest"
 import { SecondaryButton } from "./SecondaryButton"
 import { PrimaryButton } from "./PrimaryButton"
 import { MakeBidModal } from "./MakeBidModal"
+import { formatBid } from "formatters"
 
 interface CurrentBidsProps {
-  path: string
+  bids: Bid[]
   quest: Quest
 }
 
-export function CurrentBids({ path, quest }: CurrentBidsProps) {
+export function CurrentBids({ bids, quest }: CurrentBidsProps) {
   const [makeBidModalOpen, setMakeBidModalOpen] = useState(false)
-  const firestore = useFirestore()
-  const bidsRef = collection(firestore, path)
-  const bidsQuery = query(bidsRef, limit(6))
-  const { status, data: bids } = useFirestoreCollectionData(bidsQuery)
-
-  const [lowest, setLowest] = useState(0)
-  const [highest, setHighest] = useState(0)
-
-  useEffect(() => {
-    if (bids?.length > 0) {
-      const bidAmounts = bids?.map((bid) => Number(bid.amount))
-      setLowest(Math.min(...bidAmounts))
-      setHighest(Math.max(...bidAmounts))
-    }
-  }, [status])
+  const bestBid = bids && bids.length > 0 ? bids[0] : null
 
   if (!bids) {
     return <CircularProgress />
@@ -41,32 +26,58 @@ export function CurrentBids({ path, quest }: CurrentBidsProps) {
         setModalOpen={setMakeBidModalOpen}
         questId={quest.id}
       />
-      <Grid container spacing={5}>
-        <Grid item md={4}>
-          <Stack spacing={2} mb={4}>
-            <Stack spacing={2}>
-              <Typography variant="body1" fontWeight={600} color="primary.main">
-                Current lowest bid - £{lowest}
+      {bids && bids.length > 0 ? (
+        <Grid container spacing={5}>
+          <Grid item md={4}>
+            <Stack spacing={2} mb={4}>
+              <Stack spacing={2}>
+                <Typography
+                  variant="body1"
+                  fontWeight={600}
+                  color="primary.main"
+                >
+                  Current best bid - {formatBid(bestBid)}
+                </Typography>
+                <Typography variant="h3">Current bids on this quest</Typography>
+              </Stack>
+              <Typography color="text.secondary">
+                The current heroes that are bidding on this quest.
               </Typography>
-              <Typography variant="h3">Current bids on this quest</Typography>
+              <Stack direction="row" spacing={2}>
+                <SecondaryButton label="See all" width="fit-content" />
+                <PrimaryButton
+                  label="Make a new bid"
+                  width="fit-content"
+                  onClick={() => setMakeBidModalOpen(true)}
+                />
+              </Stack>
             </Stack>
-            <Typography color="text.secondary">
-              The current heroes that are bidding on this quest.
-            </Typography>
-            <Stack direction="row" spacing={2}>
-              <SecondaryButton label="See all" width="fit-content" />
-              <PrimaryButton
-                label="Make a new bid"
-                width="fit-content"
-                onClick={() => setMakeBidModalOpen(true)}
-              />
+          </Grid>
+          <Grid item md={8}>
+            <Bids bids={bids as Bid[]} />
+          </Grid>
+        </Grid>
+      ) : (
+        <Grid container spacing={6}>
+          <Grid item md={4}>
+            <Stack spacing={2} mb={4}>
+              <Stack spacing={2}>
+                <Typography variant="h3">Be the first one to bid</Typography>
+              </Stack>
+              <Stack spacing={4}>
+                <Typography color="text.secondary">
+                  Currently there are no heroes bidding on this quest.
+                </Typography>
+                <PrimaryButton
+                  label="Make a new bid"
+                  width="fit-content"
+                  onClick={() => setMakeBidModalOpen(true)}
+                />
+              </Stack>
             </Stack>
-          </Stack>
+          </Grid>
         </Grid>
-        <Grid item md={8}>
-          <Bids bids={bids} />
-        </Grid>
-      </Grid>
+      )}
     </Stack>
   )
 }

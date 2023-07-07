@@ -45,12 +45,12 @@ export const sidebar: Array<NavigationSideBar> = [
       {
         title: "Verified Courses",
         image: "/sidenav/verifiedcourses.svg",
-        href: "/verifiedcourses",
+        href: "/verified-courses",
       },
       {
         title: "Free Courses",
         image: "/sidenav/freecourses.svg",
-        href: "/verifiedcourses",
+        href: "/verified-courses",
       },
       {
         title: "Mentors",
@@ -71,22 +71,22 @@ export const sidebar: Array<NavigationSideBar> = [
       {
         title: "Your Quests",
         image: "/sidenav/yourquests.svg",
-        href: "/yourquests",
+        href: "/quests",
       },
       {
         title: "Browse Quests",
         image: "/sidenav/browsequests.svg",
-        href: "/browsequests",
+        href: "/find-quest",
       },
       {
         title: "Your Teams",
         image: "/sidenav/yourteams.svg",
-        href: "/yourteams",
+        href: "/teams",
       },
       {
         title: "Find Teams",
         image: "/sidenav/findteams.svg",
-        href: "/findteams",
+        href: "/find-team",
       },
     ],
   },
@@ -102,12 +102,12 @@ export const sidebar: Array<NavigationSideBar> = [
       {
         title: "All Transactions",
         image: "/sidenav/alltransactions.svg",
-        href: "/alltransactions",
+        href: "/all-transactions",
       },
       {
         title: "Pending Payments",
         image: "/sidenav/pendingpayments.svg",
-        href: "/pendingpayments",
+        href: "/pending-payments",
       },
       {
         title: "Tax Info",
@@ -123,22 +123,22 @@ export const sidebar: Array<NavigationSideBar> = [
       {
         title: "Quest Stats",
         image: "/sidenav/queststats.svg",
-        href: "/queststats",
+        href: "/quest-stats",
       },
       {
         title: "Bounties Stats",
         image: "/sidenav/taxinfo.svg",
-        href: "/taxinfo",
+        href: "/tax-info",
       },
       {
         title: "Profile Stats",
         image: "/sidenav/profilestats.svg",
-        href: "/profilestats",
+        href: "/profile-stats",
       },
       {
         title: "Team Stats",
         image: "/sidenav/teamstats.svg",
-        href: "/teamstats",
+        href: "/team-stats",
       },
     ],
   },
@@ -159,22 +159,22 @@ export const sidebar: Array<NavigationSideBar> = [
       {
         title: "Analytics",
         image: "/sidenav/analytics.svg",
-        href: "/savedreports",
+        href: "/saved-reports",
       },
       {
         title: "Scheduled Reports",
         image: "/sidenav/scheduledreports.svg",
-        href: "/scheduledreports",
+        href: "/scheduled-reports",
       },
       {
         title: "User Reports",
         image: "/sidenav/userreports.svg",
-        href: "/userreports",
+        href: "/user-reports",
       },
       {
         title: "Manage Notifications",
         image: "/sidenav/managenotifications.svg",
-        href: "/managenotifications",
+        href: "/manage-notifications",
       },
     ],
   },
@@ -300,8 +300,8 @@ export const navigation: Navigation = {
         label: "Highest Bid",
       },
       {
-        href: "/lowest-bid",
-        label: "Lowest Bid",
+        href: "/best-bid",
+        label: "Best Bid",
       },
     ],
   },

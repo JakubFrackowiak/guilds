@@ -1,12 +1,12 @@
 import { Stack, Typography, Link } from "@mui/material"
 import { SocialSignIn } from "components/SocialSignIn"
-import { EmailPhoneSignUp } from "./EmailPhoneSignUp"
+import { SignUpForm } from "./SignUpForm"
 import { providers } from "../SocialSignIn/providers"
 
 export function SignUp() {
   return (
     <Stack m="auto" width="28rem" spacing={2}>
-      <EmailPhoneSignUp />
+      <SignUpForm />
       <Stack direction="row">
         {providers.map((provider) => (
           <SocialSignIn key={provider.image + "-signin"} {...provider} />

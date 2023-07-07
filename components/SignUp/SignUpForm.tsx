@@ -1,8 +1,6 @@
 import Image from "next/image"
 import * as Yup from "yup"
-import MuiPhoneNumber from "material-ui-phone-number-2"
 import {
-  Button,
   IconButton,
   InputAdornment,
   TextField,
@@ -18,18 +16,18 @@ import {
   getAuth,
   RecaptchaVerifier,
   sendEmailVerification,
-  signInWithPhoneNumber,
+  signOut,
 } from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
 import { useState } from "react"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import { validationSchema } from "./ValidationSchemas"
-import { useRouter } from "next/router"
 import { PrimaryButton } from "components/PrimaryButton"
+import { doc, getDoc, setDoc } from "firebase/firestore"
+import { useFirestore } from "reactfire"
 
 interface FormValues {
   email: string
-  phone: string
   password: string
   confirmPassword: string
   remember: boolean
@@ -43,27 +41,57 @@ declare global {
   }
 }
 
-export function EmailPhoneSignUp() {
+export function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false)
-  const [phoneFocused, setPhoneFocused] = useState(false)
   const [toast, setToast] = useState({
     message: "",
     open: false,
     severity: "success",
   })
   const auth = getAuth()
-  const router = useRouter()
+  const firestore = useFirestore()
   const SignupSchema = Yup.object().shape(validationSchema)
 
-  const signInWithEmail = async (email: string, password: string) => {
+  const addHero = async (
+    firstName: string,
+    lastName: string,
+    email: string,
+    uid: string
+  ) => {
+    const heroRef = doc(firestore, "heroes", uid)
+    const heroSnap = await getDoc(heroRef)
+    if (!heroSnap.exists()) {
+      await setDoc(heroRef, {
+        id: uid,
+        name: {
+          first: firstName,
+          last: lastName,
+        },
+        email: email,
+        level: 0,
+        rating: 0,
+        profilePicture: "placeholder-avatar.svg",
+        isVerified: false,
+      })
+    }
+  }
+
+  const signUpWithEmail = async (
+    name: string,
+    email: string,
+    password: string
+  ) => {
     try {
+      const [firstName, lastName] = name.split(" ")
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       )
       await sendEmailVerification(userCredential.user)
+      await addHero(firstName, lastName, email, userCredential.user.uid)
       window.localStorage.setItem("emailForSignIn", email)
+      signOut(auth)
       setToast({
         message: "Please verify your email",
         open: true,
@@ -78,42 +106,10 @@ export function EmailPhoneSignUp() {
     }
   }
 
-  const signInWithPhone = async (phoneNumber: string) => {
-    try {
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        "recaptcha-container",
-        {},
-        auth
-      )
-      const appVerifier = window.recaptchaVerifier
-      const result = await signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-      window.confirmationResult = result
-      setToast({
-        message: "Please verify your phone",
-        open: true,
-        severity: "success",
-      })
-      router.push({
-        pathname: "/verify-phone",
-        query: { phone: phoneNumber },
-      })
-    } catch (error) {
-      setToast({
-        message: error.message,
-        open: true,
-        severity: "error",
-      })
-    }
-  }
-
   const handleSubmit = async (values: FormValues) => {
     try {
-      const { email, password, phone } = values
-      if (phone.length < 4) {
-        await signInWithEmail(email, password)
-      } else {
-        await signInWithPhone(phone)
-      }
+      const { name, email, password } = values
+      await signUpWithEmail(name, email, password)
     } catch (error) {
       setToast({
         message: error.message,
@@ -164,7 +160,6 @@ export function EmailPhoneSignUp() {
       <Formik
         initialValues={{
           email: "",
-          phone: "",
           password: "",
           confirmPassword: "",
           remember: false,
@@ -179,7 +174,6 @@ export function EmailPhoneSignUp() {
           values,
           errors,
           touched,
-          setFieldValue,
         }: FormikProps<FormValues>) => (
           <Form onSubmit={handleSubmit} style={{ width: "100%" }}>
             <Stack spacing={4}>
@@ -218,50 +212,6 @@ export function EmailPhoneSignUp() {
                     bottom="-1.5rem"
                   >
                     {errors.email}
-                  </Typography>
-                ) : null}
-              </Stack>
-              <Stack position="relative">
-                <Typography variant="body1">Phone*</Typography>
-                <MuiPhoneNumber
-                  required
-                  variant="outlined"
-                  onChange={(e) => setFieldValue("phone", e)}
-                  value={values.phone}
-                  type="phone"
-                  autoFormat={true}
-                  enableLongNumbers={false}
-                  name="phone"
-                  defaultCountry="pl"
-                  onFocus={() => setPhoneFocused(true)}
-                  onBlur={() => setPhoneFocused(false)}
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      width: "100%",
-                      backgroundColor: "background.default",
-                    },
-                    "& .MuiOutlinedInput-input": {
-                      padding: "0.5rem 1rem",
-                      height: "2.5rem",
-                    },
-                  }}
-                />
-                {values.phone.length <= 4 && phoneFocused ? (
-                  <Typography
-                    color="#0088d1"
-                    position="absolute"
-                    bottom="-1.5rem"
-                  >
-                    For phone verification, please enter your phone number
-                  </Typography>
-                ) : null}
-                {values.phone.length > 4 ? (
-                  <Typography
-                    color="#2f7c31"
-                    position="absolute"
-                    bottom="-1.5rem"
-                  >
-                    Verification with phone enabled
                   </Typography>
                 ) : null}
               </Stack>
@@ -319,7 +269,6 @@ export function EmailPhoneSignUp() {
           </Form>
         )}
       </Formik>
-      <div id="recaptcha-container" />
     </Stack>
   )
 }

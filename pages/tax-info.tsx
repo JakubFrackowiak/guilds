@@ -77,7 +77,7 @@ export default function TaxInfoPage() {
     <>
       {signInCheckResult?.signedIn ? (
         <Box>
-          <SideNav hero={hero as Hero} />
+          <SideNav />
           <Container
             disableGutters
             sx={{

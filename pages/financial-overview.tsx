@@ -44,7 +44,7 @@ export default function FinancialOverview() {
             minHeight: "100vh",
           }}
         >
-          <SideNav hero={hero as Hero} />
+          <SideNav />
           <Container sx={{ my: "2rem" }}>
             <Grid container spacing={3}>
               <Grid item xs={12}>

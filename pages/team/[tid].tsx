@@ -6,6 +6,7 @@ import {
   useFirestoreDocData,
   useFirestoreCollectionData,
   useFirestore,
+  useUser,
 } from "reactfire"
 import { doc, collection, query } from "firebase/firestore"
 import { CaseStudy } from "../../components/CaseStudy"
@@ -14,12 +15,14 @@ import { IndividualTeamBanner } from "../../components/IndividualTeamBanner"
 import { AboutTeam } from "../../components/AboutTeam"
 import { Slider } from "../../components/Slider"
 import { Hero } from "types/hero"
+import { SideNav } from "components/SideNav"
 
 export default function Team() {
   const router = useRouter()
   const { tid } = router.query
 
   const firestore = useFirestore()
+  const { data: user } = useUser()
 
   const teamRef = doc(firestore, `teams/${tid}`)
   const { data: team } = useFirestoreDocData(teamRef)
@@ -38,7 +41,7 @@ export default function Team() {
         minHeight: "100vh",
       }}
     >
-      <Header />
+      {user ? <SideNav /> : <Header />}
       <Container>
         {team && hero ? (
           <>

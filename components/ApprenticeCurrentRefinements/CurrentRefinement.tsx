@@ -13,17 +13,21 @@ interface CurrentRefinementProps {
 
 export function CurrentRefinement({ item, refine }: CurrentRefinementProps) {
   const getSelectLabel = (refinement: string | string[]) => {
-    const firstCountry = lookup.byCountry(refinement[0])?.fips
-    const secondCountry = lookup.byCountry(refinement[1])?.fips
+    const firstItem =
+      item.attribute == "location.country"
+        ? lookup.byCountry(refinement[0])?.fips
+        : refinement[0]
+    const secondItem =
+      item.attribute == "location.country"
+        ? lookup.byCountry(refinement[1])?.fips
+        : refinement[1]
     switch (refinement.length) {
       case 1:
-        return firstCountry
+        return firstItem
       case 2:
-        return firstCountry + ", " + secondCountry
+        return firstItem + ", " + secondItem
       default:
-        return (
-          firstCountry + ", " + secondCountry + ", +" + (refinement.length - 2)
-        )
+        return firstItem + ", " + secondItem + ", +" + (refinement.length - 2)
     }
   }
 

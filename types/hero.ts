@@ -5,6 +5,7 @@ export interface Hero {
   id?: string
   profilePicture?: URL
   email?: Email // only readable by signed in users
+  phoneNumber: string
   name?: Name
   location?: Location
   userName?: string
@@ -23,6 +24,7 @@ export interface Hero {
   apprentice: Apprentice
   xp?: string
   level?: string
+  isVerified?: boolean
 }
 
 export type Mentor = {
@@ -40,6 +42,7 @@ export interface Apprentice {
   }
   mentor: string
   favoriteTo: string[]
+  workingDays: string
 }
 
 export type Location = {

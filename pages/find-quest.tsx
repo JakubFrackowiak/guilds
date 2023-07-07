@@ -10,16 +10,12 @@ import {
 } from "../components/SearchComponents"
 import { Stack, Divider, Container, Box } from "@mui/material"
 import { PageHeader } from "../components/PageHeader"
-import { useFirestore, useFirestoreDocData, useUser } from "reactfire"
+import { useUser } from "reactfire"
 import { SideNav } from "components/SideNav"
-import { doc } from "firebase/firestore"
-import { Hero } from "types/hero"
 
 export default function FindQuest() {
   const { data: user } = useUser()
-  const firestore = useFirestore()
-  const heroRef = doc(firestore, `heroes/${user?.uid}` || "")
-  const { data: hero } = useFirestoreDocData(heroRef)
+
   return (
     <Box
       sx={{
@@ -28,7 +24,7 @@ export default function FindQuest() {
         minHeight: "100vh",
       }}
     >
-      {user ? <SideNav hero={hero as Hero} /> : <Header />}
+      {user ? <SideNav /> : <Header />}
       <PageHeader
         greenSubtitle="Your journey awaits you"
         header="Find a new quest"

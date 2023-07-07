@@ -1,21 +1,20 @@
 import styled from "@emotion/styled"
-import { useFirestore, useSigninCheck, useUser } from "reactfire"
+import {
+  useFirestore,
+  useFirestoreDocData,
+  useSigninCheck,
+  useUser,
+} from "reactfire"
 import Image from "next/image"
 import {
   Stack,
-  Box,
   Typography,
-  Divider,
-  TextField,
-  ToggleButton,
-  ToggleButtonGroup,
   IconButton,
   Snackbar,
   Alert,
   AlertColor,
+  Box,
 } from "@mui/material"
-import { SecondaryButton } from "components/SecondaryButton"
-import { PrimaryButton } from "components/PrimaryButton"
 import { Form, Formik } from "formik"
 import { useState } from "react"
 import {
@@ -27,6 +26,9 @@ import {
   Timestamp,
   updateDoc,
 } from "firebase/firestore"
+import { BidFormContents } from "./BidFormContents"
+import { SecondaryButton } from "components/SecondaryButton"
+import { PrimaryButton } from "components/PrimaryButton"
 
 const Heading = styled(Typography)({
   color: "#101828",
@@ -47,11 +49,12 @@ const SubHeading = styled(Typography)({
 interface FormValues {
   rate: "hourly" | "fixed"
   amount: number
-  currency: "£" | "&" | "$"
-  timeRequired: string
+  currency: "£" | "%" | "$"
+  timeRequired: number
   workingTime: "default" | "weekdays" | "weekday evenings" | "any"
   apprenticeRate?: number
   apprenticeCut?: number
+  totalEarnings?: number
 }
 
 interface BidFormProps {
@@ -72,22 +75,34 @@ export function BidForm({
     message: "",
     severity: "success",
   })
-  const [workingTime, setWorkingTime] = useState("default")
   const firestore = useFirestore()
   const { data: user } = useUser()
   const { data: signInCheckResult } = useSigninCheck()
+  const apprenticeRef = doc(firestore, `heroes/${selectedApprentice}`)
+  const { data: apprentice } = useFirestoreDocData(apprenticeRef)
 
   const handleSubmit = async (values: FormValues) => {
+    const {
+      rate,
+      currency,
+      amount,
+      timeRequired,
+      workingTime,
+      apprenticeCut,
+      totalEarnings,
+    } = values
     try {
       const bid = {
         bidderId: user.uid,
         createdAt: Timestamp.now(),
-        rate: values.rate,
-        amount: values.amount,
-        currency: values.currency,
-        timeRequired: values.timeRequired,
-        workingTime: values.workingTime,
+        rate: rate,
+        amount: amount,
+        currency: currency,
+        timeRequired: timeRequired,
+        workingTime: workingTime,
+        totalEarnings: totalEarnings,
         questId: questId,
+        totalBidValue: totalEarnings + (apprenticeCut || 0),
       }
       const bidColRef = collection(firestore, `quests/${questId}/bids`)
       const bidRef = doc(bidColRef)
@@ -96,15 +111,13 @@ export function BidForm({
         if (!selectedApprentice) {
           await setDoc(bidRef, {
             ...bid,
-            totalEarnings: values.amount,
             status: "pending",
           })
         } else {
           await setDoc(bidRef, {
             ...bid,
             apprentice: selectedApprentice,
-            apprenticeCut: values.amount * values.apprenticeRate,
-            totalEarnings: values.amount - values.amount * values.apprenticeCut,
+            apprenticeCut: apprenticeCut,
             status: "apprentice pending",
           })
         }
@@ -137,11 +150,11 @@ export function BidForm({
           rate: "hourly",
           currency: "£",
           amount: 0,
-          timeRequired: "",
+          timeRequired: 0,
           workingTime: "default",
-          apprenticeRate: selectedApprentice ? 0.1 : 0,
+          apprenticeRate: selectedApprentice ? apprentice.apprentice.rate : 0,
           apprenticeCut: 0,
-          totalEarnings: "",
+          totalEarnings: 0,
         }}
         onSubmit={(values: FormValues) => handleSubmit(values)}
       >
@@ -197,220 +210,11 @@ export function BidForm({
                 <Heading>Payment</Heading>
                 <SubHeading>Amend your payment projections</SubHeading>
               </Stack>
-              <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
-              >
-                <Typography variant="body2">Payment type</Typography>
-                <ToggleButtonGroup
-                  value={values.rate}
-                  exclusive
-                  size="medium"
-                  aria-label="rate-choose"
-                  color="primary"
-                >
-                  <ToggleButton
-                    value="hourly"
-                    aria-label="pound"
-                    onClick={() => setFieldValue("rate", "hourly")}
-                  >
-                    Hourly
-                  </ToggleButton>
-                  <ToggleButton
-                    value="fixed"
-                    aria-label="percentage"
-                    onClick={() => setFieldValue("rate", "fixed")}
-                  >
-                    Fixed rate
-                  </ToggleButton>
-                </ToggleButtonGroup>
-              </Stack>
-              <Divider />
-              <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
-              >
-                <ToggleButtonGroup
-                  value={values.currency}
-                  exclusive
-                  size="medium"
-                  aria-label="unit-choose"
-                  color="primary"
-                >
-                  <ToggleButton
-                    value="£"
-                    aria-label="pound"
-                    onClick={() => setFieldValue("currency", "£")}
-                  >
-                    £
-                  </ToggleButton>
-                  <ToggleButton
-                    value="%"
-                    aria-label="percentage"
-                    onClick={() => setFieldValue("currency", "%")}
-                  >
-                    %
-                  </ToggleButton>
-                  <ToggleButton
-                    value="$"
-                    aria-label="dollar"
-                    onClick={() => setFieldValue("currency", "$")}
-                  >
-                    $
-                  </ToggleButton>
-                </ToggleButtonGroup>
-                <TextField
-                  size="small"
-                  type="number"
-                  sx={{ width: "50%" }}
-                  placeholder={`${values.rate} rate`}
-                  value={values.amount}
-                  onChange={(e) => setFieldValue("amount", e.target.value)}
-                />
-              </Stack>
-              <Divider />
-              <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
-              >
-                <Typography variant="body2" noWrap>
-                  Estimated time required
-                </Typography>
-                <TextField
-                  placeholder="time required"
-                  sx={{ width: "50%" }}
-                  value={values.timeRequired}
-                  onChange={(e) =>
-                    setFieldValue("timeRequired", e.target.value)
-                  }
-                  size="small"
-                />
-              </Stack>
-              <Divider />
-              <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
-              >
-                <Typography variant="body2">Available working times</Typography>
-
-                <ToggleButtonGroup
-                  value={workingTime}
-                  exclusive
-                  size="medium"
-                  aria-label="working-time-choose"
-                  color="primary"
-                >
-                  <ToggleButton
-                    value="default"
-                    aria-label="default"
-                    onClick={() => {
-                      setWorkingTime("default")
-                      setFieldValue("workingTime", "default")
-                    }}
-                  >
-                    Default
-                  </ToggleButton>
-                  <ToggleButton
-                    value="custom"
-                    aria-label="custom"
-                    onClick={() => setWorkingTime("custom")}
-                  >
-                    Custom
-                  </ToggleButton>
-                </ToggleButtonGroup>
-              </Stack>
-              {workingTime == "custom" ? (
-                <ToggleButtonGroup
-                  value={values.workingTime}
-                  exclusive
-                  size="medium"
-                  aria-label="working-time-choose"
-                  color="primary"
-                  sx={{ alignSelf: "flex-end" }}
-                >
-                  <ToggleButton
-                    value="weekdays"
-                    aria-label="weekdays"
-                    onClick={() => setFieldValue("workingTime", "weekdays")}
-                  >
-                    Weekdays
-                  </ToggleButton>
-                  <ToggleButton
-                    value="weekday evenings"
-                    aria-label="weekday-evening-only"
-                    onClick={() =>
-                      setFieldValue("workingTime", "weekday evenings")
-                    }
-                  >
-                    Weekday evenings
-                  </ToggleButton>
-                  <ToggleButton
-                    value="weekends"
-                    aria-label="weekends"
-                    onClick={() => setFieldValue("workingTime", "weekends")}
-                  >
-                    Weekends
-                  </ToggleButton>
-                  <ToggleButton
-                    sx={{ textDecoration: "none" }}
-                    value="any"
-                    aria-label="any"
-                    onClick={() => setFieldValue("workingTime", "any")}
-                  >
-                    <Typography sx={{ textDecoration: "none" }}>Any</Typography>
-                  </ToggleButton>
-                </ToggleButtonGroup>
-              ) : null}
-              <Divider />
-              {selectedApprentice ? (
-                <Stack spacing={3}>
-                  <Stack
-                    direction="row"
-                    alignItems="center"
-                    justifyContent="space-between"
-                  >
-                    <Typography variant="body2">Apprentice rate</Typography>
-                    <Typography variant="body2">
-                      {values.apprenticeRate * 100 + "%"}
-                    </Typography>
-                  </Stack>
-                  <Divider />
-                  <Stack
-                    direction="row"
-                    alignItems="center"
-                    justifyContent="space-between"
-                  >
-                    <Typography variant="body2">Apprentice cut</Typography>
-                    <Typography variant="body2">
-                      {values.amount == 0
-                        ? "Enter information above"
-                        : values.amount * values.apprenticeRate +
-                          values.currency}
-                    </Typography>
-                  </Stack>
-                  <Divider />
-                </Stack>
-              ) : null}
-
-              <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
-              >
-                <Typography variant="body2">Estimate total earnings</Typography>
-                <Typography variant="body2">
-                  {values.amount == 0
-                    ? "Enter information above"
-                    : values.amount -
-                      values.amount * values.apprenticeRate +
-                      values.currency}
-                </Typography>
-              </Stack>
-              <Divider />
+              <BidFormContents
+                values={values}
+                setFieldValue={setFieldValue}
+                selectedApprentice={selectedApprentice}
+              />
               <Stack
                 direction="row"
                 spacing={2}

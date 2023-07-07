@@ -25,8 +25,8 @@ export function Role({ role, teamId }: RoleProps) {
   const { title, description, image, id: roleId } = role
   const firestore = useFirestore()
   const bidsRef = collection(firestore, `teams/${teamId}/roles/${roleId}/bids`)
-  const lowestBidQuery = query(bidsRef, orderBy("amount", "asc"), limit(1))
-  const { data: lowestBid } = useFirestoreCollectionData(lowestBidQuery)
+  const bestBidQuery = query(bidsRef, orderBy("amount", "asc"), limit(1))
+  const { data: bestBid } = useFirestoreCollectionData(bestBidQuery)
 
   const makeBid = () => {
     alert("make bid")
@@ -40,12 +40,12 @@ export function Role({ role, teamId }: RoleProps) {
           <Stack spacing={1}>
             <Typography variant="h6">{title}</Typography>
             <Stack direction="row" justifyContent="space-between">
-              {lowestBid && (
+              {bestBid && (
                 <Typography
                   variant="body1"
                   sx={{ fontWeight: 400, color: "primary.main" }}
                 >
-                  {"Lowest bid - " + lowestBid[0].amount}
+                  {"Best bid - " + bestBid[0].amount}
                 </Typography>
               )}
             </Stack>
