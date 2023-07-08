@@ -24,6 +24,11 @@ const typography: ThemeOptions["typography"] = {
     marginBottom: "1rem",
     color: "#667085",
   },
+  formBody: {
+    fontSize: "0.875rem",
+    lineHeight: "1.25rem",
+    fontWeight: 500,
+  },
 }
 
 export const lightThemeOptions: ThemeOptions = {
@@ -119,5 +124,21 @@ declare module "@mui/material/styles" {
       primaryHover: string
       secondaryHover: string
     }
+  }
+}
+
+declare module "@mui/material/styles" {
+  interface TypographyVariants {
+    formBody: React.CSSProperties
+  }
+
+  interface TypographyVariantsOptions {
+    formBody?: React.CSSProperties
+  }
+}
+
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    formBody: true
   }
 }
