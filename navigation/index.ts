@@ -128,7 +128,7 @@ export const sidebar: Array<NavigationSideBar> = [
       {
         title: "Bounties Stats",
         image: "/sidenav/taxinfo.svg",
-        href: "/tax-info",
+        href: "/bounties-stats",
       },
       {
         title: "Profile Stats",

@@ -9,7 +9,7 @@ interface HitsProps {
 
 function Hits({ hits }: HitsProps) {
   return (
-    <Box>
+    <Box width="100%">
       <Grid container columnSpacing={4} rowSpacing={4}>
         <>
           {hits.map((hit: Quest, idx) => (

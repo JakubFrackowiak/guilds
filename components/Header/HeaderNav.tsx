@@ -20,8 +20,13 @@ export const HeaderNav = ({ pages }: HeaderNavProps) => {
   }
   return (
     <Stack direction="row">
-      {pages.navigationItem.map((page) => (
-        <Stack height="100%" alignItems="center" justifyContent="center">
+      {pages.navigationItem.map((page, idx) => (
+        <Stack
+          height="100%"
+          alignItems="center"
+          justifyContent="center"
+          key={idx}
+        >
           {page.navigations ? (
             <MenuItem key={page.href} sx={{ height: "100%" }}>
               <Stack width="100%" height="100%">

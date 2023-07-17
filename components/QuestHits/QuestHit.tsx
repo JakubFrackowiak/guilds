@@ -20,6 +20,7 @@ interface QuestHitProps {
 const QuestThumbnail = styled(StorageImage)({
   objectFit: "cover",
   height: 240,
+  width: "100%",
 })
 
 export function QuestHit({ hit }: QuestHitProps) {

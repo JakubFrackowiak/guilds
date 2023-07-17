@@ -44,7 +44,12 @@ export function HeroHeader() {
           One-off jobs hosted by companies in need of a helping hand. Level up
           your experience by completing taks and earn income.
         </Typography>
-        <Stack direction="row" spacing={{ xs: 2 }}>
+        <Stack
+          direction="row"
+          spacing={{ xs: 2 }}
+          justifyContent="space-between"
+          position="relative"
+        >
           <Stack direction="row">
             {heroes?.map((hero: Hero, idx) => (
               <UserAvatar
@@ -63,23 +68,22 @@ export function HeroHeader() {
               from 200+ reviews
             </Typography>
           </Stack>
-          <Box sx={{ position: "relative" }}>
-            <Box
-              sx={{
-                zIndex: 99,
-                display: { xs: "none", sm: "none", md: "none", lg: "block" },
-                position: "absolute",
-                top: -100,
-                left: 90,
-              }}
-            >
-              <Image
-                src="/HeaderArrow.svg"
-                alt="arrow"
-                width={290}
-                height={240}
-              />
-            </Box>
+
+          <Box
+            sx={{
+              zIndex: 1,
+              display: { xs: "none", sm: "none", md: "none", lg: "block" },
+              position: "absolute",
+              top: -100,
+              left: 420,
+            }}
+          >
+            <Image
+              src="/HeaderArrow.svg"
+              alt="arrow"
+              width={290}
+              height={240}
+            />
           </Box>
         </Stack>
       </Stack>

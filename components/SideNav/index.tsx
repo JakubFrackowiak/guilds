@@ -166,7 +166,7 @@ export function SideNav(): JSX.Element {
           </Stack>
         </Stack>
       </AppBar>
-      <Box position="fixed" zIndex={5}>
+      <Box position="fixed" zIndex={5} left={isExpandedMenu ? 0 : -400}>
         <motion.div
           animate={{ x: isExpandedMenu ? 0 : -400 }}
           transition={{ ease: "linear", duration: 0.25 }}

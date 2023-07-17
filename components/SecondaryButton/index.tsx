@@ -9,6 +9,8 @@ interface ButtonProps {
   width?: string | number
   disabled?: boolean
   type?: "button" | "submit" | "reset" | undefined
+  sx?: any
+  direction?: "column" | "column-reverse" | "row" | "row-reverse"
 }
 
 export function SecondaryButton({
@@ -18,6 +20,8 @@ export function SecondaryButton({
   width = "100%",
   disabled = false,
   type = "button",
+  sx = {},
+  direction = "row",
 }: ButtonProps) {
   return (
     <Button
@@ -34,10 +38,11 @@ export function SecondaryButton({
         "&:hover": {
           backgroundColor: "button.secondaryHover",
         },
+        ...sx,
       }}
     >
       <Stack
-        direction="row"
+        direction={direction}
         alignItems="center"
         width="100%"
         justifyContent="center"

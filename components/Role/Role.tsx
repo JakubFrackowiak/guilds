@@ -39,16 +39,6 @@ export function Role({ role, teamId }: RoleProps) {
           <RoleThumbnail storagePath={`general/${image}`} alt="role picture" />
           <Stack spacing={1}>
             <Typography variant="h6">{title}</Typography>
-            <Stack direction="row" justifyContent="space-between">
-              {bestBid && (
-                <Typography
-                  variant="body1"
-                  sx={{ fontWeight: 400, color: "primary.main" }}
-                >
-                  {"Best bid - " + bestBid[0].amount}
-                </Typography>
-              )}
-            </Stack>
           </Stack>
           <Typography variant="body1">
             <LinesElipsis

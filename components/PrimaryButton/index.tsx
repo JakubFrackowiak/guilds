@@ -9,6 +9,7 @@ interface ButtonProps {
   disabled?: boolean
   type?: "button" | "submit" | "reset" | undefined
   sx?: any
+  direction?: "column" | "column-reverse" | "row" | "row-reverse"
 }
 
 export function PrimaryButton({
@@ -19,6 +20,7 @@ export function PrimaryButton({
   disabled = false,
   type = "button",
   sx = {},
+  direction = "row",
 }: ButtonProps) {
   return (
     <Button
@@ -27,7 +29,6 @@ export function PrimaryButton({
       disabled={disabled}
       type={type}
       sx={{
-        ...sx,
         height: "3rem",
         width: width,
         borderRadius: "0.6rem",
@@ -36,14 +37,20 @@ export function PrimaryButton({
           backgroundColor: "button.primaryHover",
           borderColor: "button.primaryHover",
         },
+        ...(disabled && {
+          backgroundColor: (theme) => theme.palette.grey[300],
+          borderColor: (theme) => theme.palette.grey[300],
+        }),
+        ...sx,
       }}
     >
       <Stack
-        direction="row"
+        direction={direction}
         alignItems="center"
         width="100%"
         justifyContent="center"
-        color="button.primaryText"
+        color={disabled ? "button.secondaryText" : "button.primaryText"}
+        spacing={1}
       >
         {children}
         {label != "" ? (

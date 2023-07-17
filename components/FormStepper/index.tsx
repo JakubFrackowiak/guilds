@@ -26,6 +26,7 @@ const CustomConnector = styled(StepConnector)(() => ({
     },
   },
   [`& .${stepConnectorClasses.line}`]: {
+    borderColor: "#e9ecf0",
     borderTopWidth: 2,
     borderRadius: 1,
     width: "calc(100% + 17px)",
@@ -58,7 +59,7 @@ export function FormStepper({ steps, activeStep }: FormStepperProps) {
       activeStep={activeStep}
       alternativeLabel
       connector={<CustomConnector />}
-      sx={{ width: "40rem" }}
+      sx={{ width: "40rem", translate: -44 }}
     >
       {steps.map((label: number, index) => (
         <Step key={label} sx={{ padding: 0 }}>
